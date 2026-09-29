@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "description": "Public MIT course definitions, pinned by Git commit. Stage order follows course-definition.yml. Rendered Markdown selects Go; originals are preserved. Tester sources are pinned separately and not vendored.",
+  "sources": [
+    {
+      "slug": "http-server",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-http-server",
+      "sourceCommit": "45f62db93c659648b1d0b33ab5a70786d414877f",
+      "testerRepository": "https://github.com/codecrafters-io/http-server-tester.git",
+      "testerCommit": "c071f344acb9b877b0edf7d3cf49d181f47de805",
+      "license": "MIT",
+      "stageCount": 14
+    },
+    {
+      "slug": "redis",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-redis",
+      "sourceCommit": "8dd4ba28f9b345a0a865206f5814bab42898d1da",
+      "testerRepository": "https://github.com/codecrafters-io/redis-tester.git",
+      "testerCommit": "e7c10128f10c053a3d1c59bb6f6d137f0fc3a808",
+      "license": "MIT",
+      "stageCount": 124
+    },
+    {
+      "slug": "shell",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-shell",
+      "sourceCommit": "78cc884af5238ae486d7dae0f029e13628e4fd8d",
+      "testerRepository": "https://github.com/codecrafters-io/shell-tester.git",
+      "testerCommit": "2735affdeeebd41417a38050da37da10156f3a83",
+      "license": "MIT",
+      "stageCount": 76
+    },
+    {
+      "slug": "git",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-git",
+      "sourceCommit": "4ec4dbd5f205b506b4ce0c1ad94b5ff78f130315",
+      "testerRepository": "https://github.com/codecrafters-io/git-tester.git",
+      "testerCommit": "6d28e97fa23523a0a1f9ab3aa098eddb7f8957cf",
+      "license": "MIT",
+      "stageCount": 7
+    },
+    {
+      "slug": "sqlite",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-sqlite",
+      "sourceCommit": "61b22076db3361104752ff51cad034372b467cd4",
+      "testerRepository": "https://github.com/codecrafters-io/sqlite-tester.git",
+      "testerCommit": "93f00c428e8b67266afc296f2299d2d4be5d11a6",
+      "license": "MIT",
+      "stageCount": 9
+    },
+    {
+      "slug": "dns-server",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-dns-server",
+      "sourceCommit": "0c420a3aeffe7e7be1f88569bd78ba62d13dc06b",
+      "testerRepository": "https://github.com/codecrafters-io/dns-server-tester.git",
+      "testerCommit": "8c4ddc239151ad1e2c26a76206067a5214ecdc23",
+      "license": "MIT",
+      "stageCount": 8
+    },
+    {
+      "slug": "bittorrent",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-bittorrent",
+      "sourceCommit": "b5217cd30ebe0f9580b25a4048521429db7ff80d",
+      "testerRepository": "https://github.com/codecrafters-io/bittorrent-tester.git",
+      "testerCommit": "63c2612dc285c2124d6bd616f64c180ba6760210",
+      "license": "MIT",
+      "stageCount": 19
+    },
+    {
+      "slug": "kafka",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-kafka",
+      "sourceCommit": "dbc934e2a9614f11f78eb59ac299474a5102b94e",
+      "testerRepository": "https://github.com/codecrafters-io/kafka-tester.git",
+      "testerCommit": "548089cf5b930d29a57e9fc4f6aa38bae336b158",
+      "license": "MIT",
+      "stageCount": 25
+    },
+    {
+      "slug": "grep",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-grep",
+      "sourceCommit": "cba13e7b4bd17b2a098715942a14d18dcdb7cfe6",
+      "testerRepository": "https://github.com/codecrafters-io/grep-tester.git",
+      "testerCommit": "4ee94bdc587814c090bdd365e9096404493bc292",
+      "license": "MIT",
+      "stageCount": 33
+    },
+    {
+      "slug": "interpreter",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-interpreter",
+      "sourceCommit": "027771301f854f8800e0d8e1a9f4813cad3574f0",
+      "testerRepository": "https://github.com/codecrafters-io/interpreter-tester.git",
+      "testerCommit": "1c254806993b4998358b54b02c802fd8f6dca333",
+      "license": "MIT",
+      "stageCount": 84
+    },
+    {
+      "slug": "claude-code",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-claude-code",
+      "sourceCommit": "65a248400a6219bd3f66686ef9b950d9da03b7fe",
+      "testerRepository": "https://github.com/codecrafters-io/claude-code-tester.git",
+      "testerCommit": "d41a15f2dd90906d6debaa7d697ac6dcff93ed36",
+      "license": "MIT",
+      "stageCount": 13
+    }
+  ]
+}

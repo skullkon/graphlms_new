@@ -1,0 +1,1 @@
+DNS servers communicate over UDP, a protocol used for fast, connectionless data exchange. In this stage, you’ll implement a UDP server that can receive and respond to UDP packets on port 2053, just like a real DNS server.

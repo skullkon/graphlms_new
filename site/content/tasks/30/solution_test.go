@@ -121,7 +121,7 @@ func TestStopReturnsPromptly(t *testing.T) {
 	unfinished := p.Stop(100 * time.Millisecond)
 	elapsed := time.Since(begin)
 
-	if elapsed > 5*time.Second {
+	if elapsed > 500*time.Millisecond {
 		t.Fatalf("Stop вернулся за %v, ожидалось около таймаута (не дожидаясь 1s задачи)", elapsed)
 	}
 	if len(unfinished) != 1 || unfinished[0] != 7 {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import { SegmentedControl, Button, Callout } from "@/ds";
+import { Button, Callout } from "@/ds";
+import styles from "./TaskWorkspace.module.css";
 import { recordLearningEvent } from "@/lib/progress";
 import { DiscussionPanel } from "./DiscussionPanel";
 import { SolutionNotesPanel } from "./SolutionNotesPanel";
@@ -67,23 +68,11 @@ export function DescPanel({
         background: "var(--bg-surface)",
       }}
     >
-      <div
-        style={{
-          flexShrink: 0,
-          padding: "10px 14px",
-          borderBottom: "1px solid var(--border-subtle)",
-        }}
-      >
-        <SegmentedControl
-          options={options}
-          value={effectiveKey}
-          onChange={(v) => setActiveKey(v as TabKey)}
-          size="md"
-          fullWidth
-        />
+      <div className={styles.descriptionTabs} role="tablist" aria-label="Материалы задачи">
+        {options.map((option) => <button key={option.value} type="button" role="tab" aria-selected={effectiveKey === option.value} onClick={() => setActiveKey(option.value)}>{option.label}{option.locked && <span aria-label="Заблокировано"> ·</span>}</button>)}
       </div>
-
-      <div style={{ flex: 1, overflowY: "auto", padding: "20px 18px" }}>
+      <a className={styles.mobileCodeLink} href="#task-code">Перейти к редактору ↓</a>
+      <div className={styles.descriptionContent} role="tabpanel">
         {effectiveKey === "problem" && (
           <>
             {learningContext && <LearningContext context={learningContext} solved={solved} />}
@@ -130,7 +119,7 @@ function LearningContext({ context, solved }: { context: TaskLearningContext; so
         marginBottom: 22,
         padding: "12px 13px",
         border: "1px solid var(--border-default)",
-        borderRadius: 6,
+        borderRadius: 2,
         background: "var(--bg-canvas)",
       }}
     >

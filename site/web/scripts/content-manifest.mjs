@@ -54,6 +54,7 @@ export async function buildManifest() {
       let key = "course";
       if (area === "tasks" && item) key = `task:${item}`;
       else if (area === "book" && item) key = `chapter:${item.replace(/\.mdx$/, "")}`;
+      else if (area === "hard-parts" && item) key = `hard-part:${item.replace(/\.mdx$/, "")}`;
       else if (area === "sims" && item) key = `lab:${item.replace(/\.json$/, "")}`;
       else if (area === "quizzes" && item) key = `quiz:${item.replace(/\.json$/, "")}`;
       const list = grouped.get(key) ?? [];

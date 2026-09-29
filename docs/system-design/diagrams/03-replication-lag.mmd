@@ -1,0 +1,16 @@
+sequenceDiagram
+    autonumber
+    participant C as Клиент
+    participant P as Primary
+    participant R as Реплика
+    C->>P: Записать v2
+    Note over P: v2 зафиксирована локально
+    P-->>C: Запись подтверждена
+    Note over R: Пока содержит v1
+    C->>R: Прочитать значение
+    R-->>C: v1 — устаревшее чтение
+    P->>R: Доставить запись v2 с задержкой
+    Note over R: Применить v2
+    C->>R: Повторное чтение
+    R-->>C: v2
+    Note over P,R: Асинхронная политика; ACK клиенту не означает ACK реплики

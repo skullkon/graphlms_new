@@ -2,14 +2,23 @@ import { describe, expect, it } from "vitest";
 import { canUseFeature, effectivePlans } from "./entitlements";
 
 describe("product entitlements", () => {
-  it("always preserves the free foundation and ignores unknown grants", () => {
+  it("always preserves free access and ignores unknown grants", () => {
     expect(effectivePlans(["PRO", "UNKNOWN"])).toEqual(["FREE", "PRO"]);
   });
 
-  it("keeps the first verified result open while gating professional features", () => {
-    const free = effectivePlans();
-    expect(canUseFeature("first_pass", free)).toBe(true);
-    expect(canUseFeature("projects", free)).toBe(false);
-    expect(canUseFeature("projects", effectivePlans(["PRO"]))).toBe(true);
+  it.each(["diagnostic", "first_pass", "projects", "interview"] as const)(
+    "keeps %s free with or without an account plan",
+    (feature) => {
+      expect(canUseFeature(feature, [])).toBe(true);
+      expect(canUseFeature(feature, effectivePlans())).toBe(true);
+      expect(canUseFeature(feature, effectivePlans(["TEAM"]))).toBe(true);
+    },
+  );
+
+  it("reserves paid grants for human review without gating self-study", () => {
+    expect(canUseFeature("review", effectivePlans())).toBe(false);
+    expect(canUseFeature("review", effectivePlans(["TEAM"]))).toBe(false);
+    expect(canUseFeature("review", effectivePlans(["PRO"]))).toBe(true);
+    expect(canUseFeature("review", effectivePlans(["REVIEW_ADDON"]))).toBe(true);
   });
 });

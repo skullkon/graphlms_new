@@ -1,0 +1,14 @@
+.figure{margin:24px 0;border:1px solid var(--border-default);border-radius:6px;overflow:hidden;background:var(--bg-surface)}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px;font-size:14px}
+.toolbar button{font:inherit;padding:7px 10px;border:1px solid var(--border-default);border-radius:4px;background:var(--bg-canvas);color:var(--text-primary);cursor:pointer;min-height:40px}
+.toolbar button:disabled{opacity:.5;cursor:default}
+.toolbar button:focus-visible,.viewport:focus-visible,.dialog:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.viewport{overflow:auto;max-height:70vh;padding:16px;background:#fff;color:#17202a}
+.image{display:block;height:auto;max-width:none!important;margin:0!important}
+.caption{padding:10px 14px;font-size:14px;line-height:1.5;color:var(--text-secondary)}
+.status{padding:16px}
+.source{padding:0 14px 14px;font-size:14px}
+.source pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.dialog{width:calc(100vw - 32px);max-width:1500px;max-height:calc(100vh - 32px);padding:0;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-surface);color:var(--text-primary)}
+.dialog::backdrop{background:rgba(0,0,0,.65)}
+.dialog .viewport{max-height:calc(100vh - 150px)}

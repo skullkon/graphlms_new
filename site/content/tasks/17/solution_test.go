@@ -78,3 +78,17 @@ func TestStopNoPanic(t *testing.T) {
 	// Дать время фоновой горутине завершиться.
 	time.Sleep(20 * time.Millisecond)
 }
+
+// Idle time must not accumulate two immediately available permits.
+func TestLeakyBucketSpacingAfterIdle(t *testing.T) {
+	const interval = 80 * time.Millisecond
+	lb := NewLeakyBucket(interval)
+	defer lb.Stop()
+	time.Sleep(3 * interval)
+	lb.Acquire()
+	begin := time.Now()
+	lb.Acquire()
+	if elapsed := time.Since(begin); elapsed < interval*3/4 {
+		t.Fatalf("permits after idle were only %v apart, need interval %v", elapsed, interval)
+	}
+}

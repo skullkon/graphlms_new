@@ -32,11 +32,16 @@ func TestGeneratorProducesValues(t *testing.T) {
 			t.Fatalf("не дождались значения %d от генератора", i)
 		}
 	}
-	// Дренируем до закрытия, чтобы не оставить висящую горутину для этого теста.
-	go func() {
-		for range ch {
+	// Перестаём читать: непрерывное дренирование не даёт наступить простою.
+	time.Sleep(700 * time.Millisecond)
+	select {
+	case _, ok := <-ch:
+		if ok {
+			t.Fatal("генератор должен закрыться после простоя")
 		}
-	}()
+	case <-time.After(time.Second):
+		t.Fatal("генератор не закрылся после простоя")
+	}
 }
 
 func TestGeneratorClosesOnIdle(t *testing.T) {

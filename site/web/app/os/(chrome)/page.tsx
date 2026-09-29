@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCourse } from "@/lib/courses";
 import { getBookChapters } from "@/lib/content";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_URL, absUrl } from "@/lib/seo";
@@ -30,8 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-const ACCENT = "#46c79a";
-const WRAP: React.CSSProperties = { maxWidth: 920, margin: "0 auto", padding: "0 28px" };
+const WRAP: React.CSSProperties = { maxWidth: 1040, margin: "0 auto", padding: "0 28px" };
 
 function plural(n: number, one: string, few: string, many: string): string {
   const m10 = n % 10;
@@ -97,8 +95,7 @@ const PARTS: Part[] = [
 ];
 
 export default function OsProgramPage() {
-  const course = getCourse("os");
-  const accent = course?.accent ?? ACCENT;
+  const accent = "var(--accent)";
   const chapters = getBookChapters("os").slice().sort((a, b) => a.order - b.order);
 
   const totalMin = chapters.reduce((s, c) => s + (c.minutes ?? 0), 0);
@@ -127,7 +124,7 @@ export default function OsProgramPage() {
   };
 
   return (
-    <div style={{ color: "var(--text-primary)" }}>
+    <div className="os-program" style={{ color: "var(--text-primary)", background: "var(--bg-canvas)" }}>
       <JsonLd data={courseLd} />
       <style>{`
         @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
@@ -139,6 +136,9 @@ export default function OsProgramPage() {
         .os-cta-solid:hover { filter: brightness(1.08); }
         .os-cta-ghost:hover { border-color: var(--text-tertiary); background: var(--bg-hover); }
         .part-grid { display: grid; grid-template-columns: 72px 1fr; gap: 0; }
+        .os-program .ch-row:focus-visible, .os-program .os-cta:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+        @media (prefers-reduced-motion: reduce) { .os-program .rise { opacity: 1; animation: none; } }
+        @media (max-width: 520px) { .os-program section > div { padding-left: 20px !important; padding-right: 20px !important; } .os-program .os-stats > div { flex-basis: 33% !important; } .os-program .ch-row { gap: 9px !important; padding: 13px 12px !important; } .os-program .ch-arrow { display: none !important; } }
         @media (max-width: 720px) { .part-grid { grid-template-columns: 1fr; } .part-rail { display: none; } }
       `}</style>
 
@@ -148,7 +148,7 @@ export default function OsProgramPage() {
           <p className="rise" style={{ fontFamily: "var(--font-mono)", fontSize: 12.5, color: accent, margin: "0 0 14px" }}>
             {"// курс · операционные системы"}
           </p>
-          <h1 className="rise" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "clamp(32px, 4.6vw, 44px)", lineHeight: 1.06, letterSpacing: "-.025em", margin: 0, maxWidth: "16ch", animationDelay: "50ms" }}>
+          <h1 className="rise" style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "clamp(34px, 4.6vw, 52px)", lineHeight: 1.06, letterSpacing: "-.025em", margin: 0, maxWidth: "16ch", animationDelay: "50ms" }}>
             Операционные системы
           </h1>
           <p className="rise" style={{ fontSize: 16.5, lineHeight: "27px", color: "var(--text-secondary)", maxWidth: 620, margin: "16px 0 0", animationDelay: "100ms" }}>
@@ -157,7 +157,7 @@ export default function OsProgramPage() {
           </p>
 
           {/* stat strip */}
-          <div className="rise" style={{ display: "flex", flexWrap: "wrap", marginTop: 28, border: "var(--border-width) solid var(--border-subtle)", borderRadius: "var(--radius-md)", overflow: "hidden", animationDelay: "150ms" }}>
+          <div className="rise os-stats" style={{ display: "flex", flexWrap: "wrap", background: "var(--bg-surface)", marginTop: 28, border: "var(--border-width) solid var(--border-subtle)", borderRadius: "var(--radius-md)", overflow: "hidden", animationDelay: "150ms" }}>
             {stats.map((s, i) => (
               <div key={s.label} style={{ flex: "1 0 100px", padding: "13px 18px", borderLeft: i ? "var(--border-width) solid var(--border-subtle)" : "none" }}>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, lineHeight: 1, color: s.accent ? accent : "var(--text-primary)" }}>{s.value}</div>
@@ -168,7 +168,7 @@ export default function OsProgramPage() {
 
           {/* CTAs */}
           <div className="rise" style={{ display: "flex", gap: 11, flexWrap: "wrap", marginTop: 24, animationDelay: "200ms" }}>
-            <Link href={`/os/book/${firstSlug}`} className="os-cta os-cta-solid" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 20px", borderRadius: "var(--radius-md)", fontSize: 15, fontWeight: 500, background: accent, color: "#06140f" }}>
+            <Link href={`/os/book/${firstSlug}`} className="os-cta os-cta-solid" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 20px", borderRadius: "var(--radius-md)", fontSize: 15, fontWeight: 500, background: accent, color: "var(--accent-fg)" }}>
               <PlayIcon /> Начать с первой главы
             </Link>
             <Link href="/os/sim/scheduler" className="os-cta os-cta-ghost" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 18px", borderRadius: "var(--radius-md)", fontSize: 15, fontWeight: 500, border: "var(--border-width) solid var(--border-strong)", color: "var(--text-primary)" }}>
@@ -216,7 +216,7 @@ export default function OsProgramPage() {
                   </div>
 
                   {/* chapter list */}
-                  <div style={{ border: "var(--border-width) solid var(--border-default)", borderRadius: "var(--radius-lg)", overflow: "hidden" }}>
+                  <div style={{ border: "var(--border-width) solid var(--border-default)", borderRadius: "var(--radius-lg)", background: "var(--bg-surface)", overflow: "hidden" }}>
                     {list.map((ch, i) => {
                       const sub = part.subs?.find((s) => s.at === ch.order);
                       return (
@@ -263,7 +263,7 @@ export default function OsProgramPage() {
             <p style={{ fontSize: 14.5, color: "var(--text-secondary)", margin: 0, maxWidth: 460 }}>
               Готов начать? Главы читаются линейно, но можно прыгнуть в любую — они связаны перекрёстными ссылками.
             </p>
-            <Link href={`/os/book/${firstSlug}`} className="os-cta os-cta-solid" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 20px", borderRadius: "var(--radius-md)", fontSize: 15, fontWeight: 500, background: accent, color: "#06140f", flexShrink: 0 }}>
+            <Link href={`/os/book/${firstSlug}`} className="os-cta os-cta-solid" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 20px", borderRadius: "var(--radius-md)", fontSize: 15, fontWeight: 500, background: accent, color: "var(--accent-fg)", flexShrink: 0 }}>
               Открыть главу 01 <ArrowIcon size={14} />
             </Link>
           </div>

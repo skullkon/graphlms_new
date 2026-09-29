@@ -1,0 +1,273 @@
+# Used in your course's URL: https://app.codecrafters.io/courses/<slug>
+# Example: "redis"
+slug: "bittorrent"
+
+# The name of your course. This will be displayed in the course catalog, and on other course pages.
+# Example: "Build your own Redis"
+name: "Build your own BitTorrent"
+
+# A short name for your course, this'll be used in copy like emails.
+# Example: "Redis"
+short_name: "BitTorrent"
+
+# The release status for your course.
+#
+# - alpha: Only visible to yourself and CodeCrafters staff.
+# - beta: Visible to all CodeCrafters users, but with a "beta" label.
+# - live: Visible to all CodeCrafters users, no label.
+#
+# Allowed values: "alpha", "beta", "live"
+release_status: "live"
+
+# This is shown on the course overview page. Markdown supported, recommended length ~40 words.
+#
+# Recommended format:
+#
+# > ABC is <whatever>. In this challenge, you'll build your own ABC that's capable of D, E, F and G.
+# >
+# > Along the way, we'll learn about X, Y, Z and more.
+#
+# Example:
+#
+# > Redis is an in-memory data structure store often used as a database, cache, message broken and streaming engine. In this challenge
+# > you'll build your own Redis server that is capable of serving basic commands, reading RDB files and more.
+# >
+# > Along the way, you'll learn about TCP servers, the Redis Protocol and more.
+description_md: |-
+  BitTorrent is a peer-to-peer file sharing protocol used for distributing large amounts of data. In this challenge, you'll
+  build a BitTorrent client that's capable of downloading a publicly available file using the BitTorrent protocol.
+
+  Along the way, you'll learn about the BitTorrent protocol, .torrent files more.
+
+# This is shown on the catalog. Plaintext only, recommended length ~10 words.
+#
+# Recommended format:
+#
+# > Learn about X, Y, Z and more
+#
+# Example:
+#
+# > Learn about TCP servers, the Redis protocol and more
+#
+# **TODO**: Remove _md suffix since markdown isn't supported
+short_description_md: |-
+  Learn about .torrent files, the BitTorrent Peer Protocol and more
+
+# The percentage of users who complete your course. We'll calculate this automatically in the future, safe to ignore for now.
+completion_percentage: 15
+concept_slugs: ["bencode"]
+
+# The languages that your course supports.
+languages:
+  - slug: "c"
+    release_status: "beta"
+  - slug: "cpp"
+    release_status: "beta"
+  - slug: "csharp"
+    release_status: "beta"
+  - slug: "elixir"
+    release_status: "beta"
+  - slug: "go"
+  - slug: "haskell"
+    release_status: "beta"
+  - slug: "java"
+    release_status: "beta"
+  - slug: "javascript"
+  - slug: "kotlin"
+    release_status: "beta"
+  - slug: "python"
+  - slug: "ruby"
+  - slug: "rust"
+  - slug: "scala"
+    release_status: "beta"
+  - slug: "zig"
+    release_status: "beta"
+  - slug: "typescript"
+    release_status: "beta"
+
+marketing:
+  # Shown in the catalog.
+  #
+  # Recommended guidelines:
+  #
+  # - "easy": < 2h of work for an experienced developer
+  # - "medium": > 6h of work for an experienced developer
+  # - "hard": > 6h of work for an experienced developer
+  #
+  # Allowed values: "easy", "medium", "hard"
+  difficulty: medium
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "Persistence" (from the Redis challenge)
+  sample_extension_idea_title: "Multiple Peers"
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "A Redis server that can read and write .rdb files" (from the Redis challenge)
+  sample_extension_idea_description: "A bittorrent client that can download a file by combining pieces from multiple peers"
+
+  # These are some default testimonials that you can use. Feel free to switch these out with your own.
+  testimonials:
+    - author_name: "Ananthalakshmi Sankar"
+      author_description: "Automation Engineer at Apple"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/oxta.jpeg"
+      link: "https://github.com/anu294"
+      text: "There are few sites I like as much that have a step by step guide. The real-time feedback is so good, it's creepy!"
+
+    - author_name: "Patrick Burris"
+      author_description: "Senior Software Developer, CenturyLink"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/patrick-burris.jpeg"
+      link: "https://github.com/Jumballaya"
+      text: |-
+        I think the instant feedback right there in the git push is really cool.
+        Didn't even know that was possible!
+
+extensions:
+  - slug: "magnet-links"
+    name: "Magnet Links"
+    description_markdown: |
+      This extension covers magnet links. Magnet links allow downloading files without the need of downloading a .torrent file first.
+
+      Along the way, you'll learn about the [magnet URI format](https://en.wikipedia.org/wiki/Magnet_URI_scheme), the [extension protocol](https://www.bittorrent.org/beps/bep_0010.html) and the [metadata extension](https://www.bittorrent.org/beps/bep_0009.html).
+
+stages:
+  - slug: "ns2" # A identifier for this stage, needs to be unique within a course.
+
+    concept_slugs: ["bencode"]
+
+    # The name of the stage. This is shown in the course catalog, and on other course pages.
+    name: "Decode bencoded strings"
+
+    # The difficulty of this stage.
+    #
+    # Recommended guidelines, based on how long the stage will take an experienced developer to complete:
+    #
+    # - Very Easy (< 5 minutes)
+    # - Easy (5-10 minutes)
+    # - Medium (30m-1h)
+    # - Hard (> 1h)
+    #
+    # Allowed values: "very_easy", "easy", "medium", "hard"
+    difficulty: very_easy
+
+    # The instructions for your stage. Markdown supported. Shown on the course page.
+    marketing_md: |-
+      [Bencode](https://en.wikipedia.org/wiki/Bencode) is a binary serialization format used in BitTorrent protocol. In this stage, you’ll decode a bencoded string.
+
+  - slug: "eb4"
+    concept_slugs: ["bencode"]
+    name: "Decode bencoded integers"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you’ll decode a bencoded integer.
+
+  - slug: "ah1"
+    concept_slugs: ["bencode"]
+    name: "Decode bencoded lists"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you’ll decode a bencoded list.
+
+  - slug: "mn6"
+    concept_slugs: ["bencode"]
+    name: "Decode bencoded dictionaries"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you’ll decode a bencoded dictionary.
+
+  - slug: "ow9"
+    name: "Parse torrent file"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you’ll parse a .torrent file and extract information about the torrent.
+
+  - slug: "rb2"
+    name: "Calculate info hash"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll calculate a unique identifier for a torrent, known as info hash, used in communication with trackers and peers.
+
+  - slug: "bf7"
+    name: "Piece hashes"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll extract hash values for each piece of the file. On public networks, there may be malicious peers sending fake data. Piece hashes will help us ensure the integrity of downloaded pieces.
+
+  - slug: "fi9"
+    name: "Discover peers"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you’ll interact with a tracker, a central server that keeps track of peers participating in the sharing of a torrent. You'll make a GET request to a HTTP tracker to discover peers from whom you can download the file.
+
+  - slug: "ca4"
+    name: "Peer handshake"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you’ll establish a TCP connection with a peer and complete a handshake according to [BitTorrent Peer Protocol](https://www.bittorrent.org/beps/bep_0003.html#peer-protocol)
+
+  - slug: "nd2"
+    name: "Download a piece"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll connect to a peer and download a piece of the file. You'll download the piece in blocks, which you'll later combine and verify using SHA-1, a cryptographic hash value.
+
+  - slug: "jv8"
+    name: "Download the whole file"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll download the entire file. You'll download all the pieces, verify them using SHA-1 and save them to disk.
+
+  - slug: "hw0"
+    primary_extension_slug: "magnet-links"
+    name: "Parse magnet link"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll extract information from a magnet link.
+
+  - slug: "pk2"
+    primary_extension_slug: "magnet-links"
+    name: "Announce extension support"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll announce to other clients that you support extensions.
+
+  - slug: "xi4"
+    primary_extension_slug: "magnet-links"
+    name: "Send extension handshake"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll send the list of extensions your client supports.
+
+  - slug: "jk6"
+    primary_extension_slug: "magnet-links"
+    name: "Receive extension handshake"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll receive the list of extensions your peer supports.
+
+  - slug: "ns5"
+    primary_extension_slug: "magnet-links"
+    name: "Request metadata"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll request torrent metadata from a peer.
+
+  - slug: "zh1"
+    primary_extension_slug: "magnet-links"
+    name: "Receive metadata"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll receive torrent metadata from a peer.
+
+  - slug: "qv6"
+    primary_extension_slug: "magnet-links"
+    name: "Download a piece"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll download one piece and save it to disk using a magnet link.
+
+  - slug: "dv7"
+    primary_extension_slug: "magnet-links"
+    name: "Download the whole file"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll download the entire file and save it to disk using a magnet link.

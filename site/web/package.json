@@ -14,12 +14,22 @@
     "content:manifest": "node scripts/content-manifest.mjs --write",
     "smoke": "node scripts/smoke.mjs",
     "test:watch": "vitest",
-    "build:playwasm": "powershell -NoProfile -ExecutionPolicy Bypass -File ../playwasm/build.ps1"
+    "build:playwasm": "powershell -NoProfile -ExecutionPolicy Bypass -File ../playwasm/build.ps1",
+    "dev:projects": "PROJECT_LAB_LOCAL=1 next dev --hostname 127.0.0.1",
+    "start:projects": "PROJECT_LAB_LOCAL=1 next start --hostname 127.0.0.1"
   },
   "dependencies": {
     "@monaco-editor/react": "4.7.0",
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@radix-ui/react-progress": "^1.1.16",
+    "@radix-ui/react-slot": "^1.3.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "geist": "^1.7.2",
     "gray-matter": "4.0.3",
+    "lucide-react": "^1.48.0",
+    "mermaid": "11.17.2",
+    "motion": "^13.4.4",
     "next": "^15.5.19",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -31,6 +41,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "shiki": "1.29.2",
+    "tailwind-merge": "^3.7.0",
     "unified": "^11.0.5"
   },
   "devDependencies": {
@@ -40,6 +51,7 @@
     "autoprefixer": "10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.5.19",
+    "jsdom": "26.1.0",
     "postcss": "8.4.49",
     "typescript": "5.6.3",
     "vitest": "^2.1.8"

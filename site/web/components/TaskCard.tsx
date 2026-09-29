@@ -66,10 +66,14 @@ export function TaskCard({ task }: { task: TaskMeta }) {
   return (
     <Link
       href={`/${task.courseId}/tasks/${task.slug}`}
+      title={task.title}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         display: "flex",
+        minWidth: 0,
+        width: "100%",
+        boxSizing: "border-box",
         alignItems: "center",
         gap: "var(--space-3)",
         minHeight: 56,

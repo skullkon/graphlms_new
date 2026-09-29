@@ -6,6 +6,10 @@ import "sync"
 // Выходной канал закрывается, когда все входные каналы вычитаны и закрыты.
 func Merge(channels ...<-chan int) <-chan int {
 	out := make(chan int)
+	if len(channels) == 0 {
+		close(out)
+		return out
+	}
 
 	var wg sync.WaitGroup
 	wg.Add(len(channels))

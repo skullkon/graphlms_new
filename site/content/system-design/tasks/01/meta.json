@@ -1,0 +1,13 @@
+{
+  "id": "01",
+  "num": 1,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Школьный «Клуб»: события и запись",
+  "slug": "club",
+  "type": "design",
+  "difficulty": "easy",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "04-capacity"
+}

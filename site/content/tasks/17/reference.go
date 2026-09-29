@@ -4,9 +4,8 @@ import "time"
 
 // LeakyBucket — ограничитель по алгоритму leaky bucket.
 //
-// Внутренний цикл по тикам ticker'а открывает «ворота» (читает один запрос
-// из gate) раз в interval. Каждый Acquire отправляет себя в gate и блокируется,
-// пока его не «выпустят».
+// Внутренний цикл выдаёт разрешение через gate, затем заново отсчитывает
+// interval. Простой не накапливает разрешения. Acquire ждёт разрешение.
 type LeakyBucket struct {
 	gate chan struct{}
 	stop chan struct{}
@@ -23,16 +22,17 @@ func NewLeakyBucket(interval time.Duration) *LeakyBucket {
 }
 
 func (lb *LeakyBucket) run(interval time.Duration) {
-	ticker := time.NewTicker(interval)
-	defer ticker.Stop()
+	timer := time.NewTimer(interval)
+	defer timer.Stop()
 	for {
 		select {
 		case <-lb.stop:
 			return
-		case <-ticker.C:
+		case <-timer.C:
 			// Выпускаем одного ожидающего, если он есть.
 			select {
 			case lb.gate <- struct{}{}:
+				timer.Reset(interval)
 			case <-lb.stop:
 				return
 			}

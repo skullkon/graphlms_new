@@ -1,0 +1,13 @@
+{
+  "id": "05",
+  "num": 5,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Запуск популярного курса",
+  "slug": "launch",
+  "type": "design",
+  "difficulty": "hard",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "13-reliability"
+}

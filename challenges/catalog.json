@@ -1,0 +1,3921 @@
+{
+  "version": 1,
+  "challenges": [
+    {
+      "slug": "http-server",
+      "title": "Собственный HTTP-сервер",
+      "shortName": "HTTP server",
+      "description": "TCP, HTTP-запросы, файлы, сжатие и постоянные соединения.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-http-server",
+      "sourceCommit": "45f62db93c659648b1d0b33ab5a70786d414877f",
+      "testerRepository": "https://github.com/codecrafters-io/http-server-tester.git",
+      "testerCommit": "c071f344acb9b877b0edf7d3cf49d181f47de805",
+      "languages": [
+        "c",
+        "clojure",
+        "cpp",
+        "csharp",
+        "dart",
+        "elixir",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "odin",
+        "ocaml",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "scala",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "at4",
+          "name": "Bind to a port",
+          "group": "base",
+          "descriptionPath": "content/http-server/at4.md",
+          "testerStage": "at4",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "ia4",
+          "name": "Respond with 200",
+          "group": "base",
+          "descriptionPath": "content/http-server/ia4.md",
+          "testerStage": "ia4",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "ih0",
+          "name": "Extract URL path",
+          "group": "base",
+          "descriptionPath": "content/http-server/ih0.md",
+          "testerStage": "ih0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "cn2",
+          "name": "Respond with body",
+          "group": "base",
+          "descriptionPath": "content/http-server/cn2.md",
+          "testerStage": "cn2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fs3",
+          "name": "Read header",
+          "group": "base",
+          "descriptionPath": "content/http-server/fs3.md",
+          "testerStage": "fs3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ej5",
+          "name": "Concurrent connections",
+          "group": "base",
+          "descriptionPath": "content/http-server/ej5.md",
+          "testerStage": "ej5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ap6",
+          "name": "Return a file",
+          "group": "base",
+          "descriptionPath": "content/http-server/ap6.md",
+          "testerStage": "ap6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qv8",
+          "name": "Read request body",
+          "group": "base",
+          "descriptionPath": "content/http-server/qv8.md",
+          "testerStage": "qv8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "df4",
+          "name": "Compression headers",
+          "group": "http-compression",
+          "descriptionPath": "content/http-server/df4.md",
+          "testerStage": "df4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ij8",
+          "name": "Multiple compression schemes",
+          "group": "http-compression",
+          "descriptionPath": "content/http-server/ij8.md",
+          "testerStage": "ij8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cr8",
+          "name": "Gzip compression",
+          "group": "http-compression",
+          "descriptionPath": "content/http-server/cr8.md",
+          "testerStage": "cr8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ag9",
+          "name": "Persistent connections",
+          "group": "http-persistent-connections",
+          "descriptionPath": "content/http-server/ag9.md",
+          "testerStage": "ag9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ul1",
+          "name": "Concurrent persistent connections",
+          "group": "http-persistent-connections",
+          "descriptionPath": "content/http-server/ul1.md",
+          "testerStage": "ul1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "kh7",
+          "name": "Connection closure",
+          "group": "http-persistent-connections",
+          "descriptionPath": "content/http-server/kh7.md",
+          "testerStage": "kh7",
+          "difficulty": "medium"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "http-compression",
+          "name": "HTTP Compression",
+          "description_markdown": "In this challenge extension you'll add [compression][http-compression] support to your HTTP server implementation.\n\nAlong the way you'll learn about compression, compression scheme negotiation and more.\n\n[http-compression]: https://en.wikipedia.org/wiki/HTTP_compression\n"
+        },
+        {
+          "slug": "http-persistent-connections",
+          "name": "Persistent Connections",
+          "description_markdown": "In this challenge extension you'll add [persistent connections][http-persistent-connections] support to your HTTP server implementation.\n\nAlong the way you'll learn about persistent connections, the `Connection` header and more.\n\n[http-persistent-connections]: https://en.wikipedia.org/wiki/HTTP_persistent_connection\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/http-server.LICENSE"
+    },
+    {
+      "slug": "redis",
+      "title": "Собственный Redis",
+      "shortName": "Redis",
+      "description": "Команды Redis, структуры данных, хранение и репликация.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-redis",
+      "sourceCommit": "8dd4ba28f9b345a0a865206f5814bab42898d1da",
+      "testerRepository": "https://github.com/codecrafters-io/redis-tester.git",
+      "testerCommit": "e7c10128f10c053a3d1c59bb6f6d137f0fc3a808",
+      "languages": [
+        "c",
+        "clojure",
+        "cpp",
+        "crystal",
+        "csharp",
+        "dart",
+        "elixir",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "ocaml",
+        "odin",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "typescript",
+        "scala",
+        "swift",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "jm1",
+          "name": "Bind to a port",
+          "group": "base",
+          "descriptionPath": "content/redis/jm1.md",
+          "testerStage": "jm1",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "rg2",
+          "name": "Respond to PING",
+          "group": "base",
+          "descriptionPath": "content/redis/rg2.md",
+          "testerStage": "rg2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "wy1",
+          "name": "Respond to multiple PINGs",
+          "group": "base",
+          "descriptionPath": "content/redis/wy1.md",
+          "testerStage": "wy1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zu2",
+          "name": "Handle concurrent clients",
+          "group": "base",
+          "descriptionPath": "content/redis/zu2.md",
+          "testerStage": "zu2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qq0",
+          "name": "Implement the ECHO command",
+          "group": "base",
+          "descriptionPath": "content/redis/qq0.md",
+          "testerStage": "qq0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "la7",
+          "name": "Implement the SET & GET commands",
+          "group": "base",
+          "descriptionPath": "content/redis/la7.md",
+          "testerStage": "la7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yz1",
+          "name": "Expiry",
+          "group": "base",
+          "descriptionPath": "content/redis/yz1.md",
+          "testerStage": "yz1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "zg5",
+          "name": "RDB file config",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/zg5.md",
+          "testerStage": "zg5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jz6",
+          "name": "Read a key",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/jz6.md",
+          "testerStage": "jz6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gc6",
+          "name": "Read a string value",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/gc6.md",
+          "testerStage": "gc6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jw4",
+          "name": "Read multiple keys",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/jw4.md",
+          "testerStage": "jw4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dq3",
+          "name": "Read multiple string values",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/dq3.md",
+          "testerStage": "dq3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sm4",
+          "name": "Read value with expiry",
+          "group": "persistence-rdb",
+          "descriptionPath": "content/redis/sm4.md",
+          "testerStage": "sm4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "uj3",
+          "name": "Default AOF options",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/uj3.md",
+          "testerStage": "uj3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "vd9",
+          "name": "AOF options from flags",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/vd9.md",
+          "testerStage": "vd9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fm0",
+          "name": "Create append-only directory",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/fm0.md",
+          "testerStage": "fm0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "dw4",
+          "name": "Create append-only file",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/dw4.md",
+          "testerStage": "dw4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pb9",
+          "name": "Create manifest file",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/pb9.md",
+          "testerStage": "pb9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "dc8",
+          "name": "Write a single command",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/dc8.md",
+          "testerStage": "dc8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "fi1",
+          "name": "Write multiple commands",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/fi1.md",
+          "testerStage": "fi1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ep6",
+          "name": "Filter write commands",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/ep6.md",
+          "testerStage": "ep6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "xz2",
+          "name": "Replay a single command",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/xz2.md",
+          "testerStage": "xz2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "kn2",
+          "name": "Replay multiple commands",
+          "group": "persistence-aof",
+          "descriptionPath": "content/redis/kn2.md",
+          "testerStage": "kn2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bw1",
+          "name": "Configure listening port",
+          "group": "replication",
+          "descriptionPath": "content/redis/bw1.md",
+          "testerStage": "bw1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ye5",
+          "name": "The INFO command",
+          "group": "replication",
+          "descriptionPath": "content/redis/ye5.md",
+          "testerStage": "ye5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "hc6",
+          "name": "The INFO command on a replica",
+          "group": "replication",
+          "descriptionPath": "content/redis/hc6.md",
+          "testerStage": "hc6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xc1",
+          "name": "Initial replication ID and offset",
+          "group": "replication",
+          "descriptionPath": "content/redis/xc1.md",
+          "testerStage": "xc1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "gl7",
+          "name": "Send handshake (1/3)",
+          "group": "replication",
+          "descriptionPath": "content/redis/gl7.md",
+          "testerStage": "gl7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "eh4",
+          "name": "Send handshake (2/3)",
+          "group": "replication",
+          "descriptionPath": "content/redis/eh4.md",
+          "testerStage": "eh4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ju6",
+          "name": "Send handshake (3/3)",
+          "group": "replication",
+          "descriptionPath": "content/redis/ju6.md",
+          "testerStage": "ju6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fj0",
+          "name": "Receive handshake (1/2)",
+          "group": "replication",
+          "descriptionPath": "content/redis/fj0.md",
+          "testerStage": "fj0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "vm3",
+          "name": "Receive handshake (2/2)",
+          "group": "replication",
+          "descriptionPath": "content/redis/vm3.md",
+          "testerStage": "vm3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "cf8",
+          "name": "Empty RDB transfer",
+          "group": "replication",
+          "descriptionPath": "content/redis/cf8.md",
+          "testerStage": "cf8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zn8",
+          "name": "Single-replica propagation",
+          "group": "replication",
+          "descriptionPath": "content/redis/zn8.md",
+          "testerStage": "zn8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hd5",
+          "name": "Multi-replica propagation",
+          "group": "replication",
+          "descriptionPath": "content/redis/hd5.md",
+          "testerStage": "hd5",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "yg4",
+          "name": "Command processing",
+          "group": "replication",
+          "descriptionPath": "content/redis/yg4.md",
+          "testerStage": "yg4",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "xv6",
+          "name": "ACKs with no commands",
+          "group": "replication",
+          "descriptionPath": "content/redis/xv6.md",
+          "testerStage": "xv6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yd3",
+          "name": "ACKs with commands",
+          "group": "replication",
+          "descriptionPath": "content/redis/yd3.md",
+          "testerStage": "yd3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "my8",
+          "name": "WAIT with no replicas",
+          "group": "replication",
+          "descriptionPath": "content/redis/my8.md",
+          "testerStage": "my8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "tu8",
+          "name": "WAIT with no commands",
+          "group": "replication",
+          "descriptionPath": "content/redis/tu8.md",
+          "testerStage": "tu8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "na2",
+          "name": "WAIT with multiple commands",
+          "group": "replication",
+          "descriptionPath": "content/redis/na2.md",
+          "testerStage": "na2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "cc3",
+          "name": "The TYPE command",
+          "group": "streams",
+          "descriptionPath": "content/redis/cc3.md",
+          "testerStage": "cc3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "cf6",
+          "name": "Create a stream",
+          "group": "streams",
+          "descriptionPath": "content/redis/cf6.md",
+          "testerStage": "cf6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hq8",
+          "name": "Validating entry IDs",
+          "group": "streams",
+          "descriptionPath": "content/redis/hq8.md",
+          "testerStage": "hq8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yh3",
+          "name": "Partially auto-generated IDs",
+          "group": "streams",
+          "descriptionPath": "content/redis/yh3.md",
+          "testerStage": "yh3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xu6",
+          "name": "Fully auto-generated IDs",
+          "group": "streams",
+          "descriptionPath": "content/redis/xu6.md",
+          "testerStage": "xu6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "zx1",
+          "name": "Query entries from stream",
+          "group": "streams",
+          "descriptionPath": "content/redis/zx1.md",
+          "testerStage": "zx1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yp1",
+          "name": "Query with -",
+          "group": "streams",
+          "descriptionPath": "content/redis/yp1.md",
+          "testerStage": "yp1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fs1",
+          "name": "Query with +",
+          "group": "streams",
+          "descriptionPath": "content/redis/fs1.md",
+          "testerStage": "fs1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "um0",
+          "name": "Query single stream using XREAD",
+          "group": "streams",
+          "descriptionPath": "content/redis/um0.md",
+          "testerStage": "um0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ru9",
+          "name": "Query multiple streams using XREAD",
+          "group": "streams",
+          "descriptionPath": "content/redis/ru9.md",
+          "testerStage": "ru9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bs1",
+          "name": "Blocking reads",
+          "group": "streams",
+          "descriptionPath": "content/redis/bs1.md",
+          "testerStage": "bs1",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "hw1",
+          "name": "Blocking reads without timeout",
+          "group": "streams",
+          "descriptionPath": "content/redis/hw1.md",
+          "testerStage": "hw1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xu1",
+          "name": "Blocking reads using $",
+          "group": "streams",
+          "descriptionPath": "content/redis/xu1.md",
+          "testerStage": "xu1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "si4",
+          "name": "The INCR command (1/3)",
+          "group": "transactions",
+          "descriptionPath": "content/redis/si4.md",
+          "testerStage": "si4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "lz8",
+          "name": "The INCR command (2/3)",
+          "group": "transactions",
+          "descriptionPath": "content/redis/lz8.md",
+          "testerStage": "lz8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "mk1",
+          "name": "The INCR command (3/3)",
+          "group": "transactions",
+          "descriptionPath": "content/redis/mk1.md",
+          "testerStage": "mk1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pn0",
+          "name": "The MULTI command",
+          "group": "transactions",
+          "descriptionPath": "content/redis/pn0.md",
+          "testerStage": "pn0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "lo4",
+          "name": "The EXEC command",
+          "group": "transactions",
+          "descriptionPath": "content/redis/lo4.md",
+          "testerStage": "lo4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "we1",
+          "name": "Empty transaction",
+          "group": "transactions",
+          "descriptionPath": "content/redis/we1.md",
+          "testerStage": "we1",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "rs9",
+          "name": "Queueing commands",
+          "group": "transactions",
+          "descriptionPath": "content/redis/rs9.md",
+          "testerStage": "rs9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fy6",
+          "name": "Executing a transaction",
+          "group": "transactions",
+          "descriptionPath": "content/redis/fy6.md",
+          "testerStage": "fy6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "rl9",
+          "name": "The DISCARD command",
+          "group": "transactions",
+          "descriptionPath": "content/redis/rl9.md",
+          "testerStage": "rl9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "sg9",
+          "name": "Failures within transactions",
+          "group": "transactions",
+          "descriptionPath": "content/redis/sg9.md",
+          "testerStage": "sg9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jf8",
+          "name": "Multiple transactions",
+          "group": "transactions",
+          "descriptionPath": "content/redis/jf8.md",
+          "testerStage": "jf8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jb7",
+          "name": "The WATCH command",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/jb7.md",
+          "testerStage": "jb7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jq9",
+          "name": "WATCH inside transaction",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/jq9.md",
+          "testerStage": "jq9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "mh8",
+          "name": "Tracking key modifications",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/mh8.md",
+          "testerStage": "mh8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fp0",
+          "name": "Watching multiple keys",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/fp0.md",
+          "testerStage": "fp0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "uo9",
+          "name": "Watching missing keys",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/uo9.md",
+          "testerStage": "uo9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "bn1",
+          "name": "The UNWATCH command",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/bn1.md",
+          "testerStage": "bn1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fn4",
+          "name": "Unwatch on EXEC",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/fn4.md",
+          "testerStage": "fn4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "hq1",
+          "name": "Unwatch on DISCARD",
+          "group": "optimistic-locking",
+          "descriptionPath": "content/redis/hq1.md",
+          "testerStage": "hq1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "mh6",
+          "name": "Create a list",
+          "group": "lists",
+          "descriptionPath": "content/redis/mh6.md",
+          "testerStage": "mh6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "tn7",
+          "name": "Append an element",
+          "group": "lists",
+          "descriptionPath": "content/redis/tn7.md",
+          "testerStage": "tn7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "lx4",
+          "name": "Append multiple elements",
+          "group": "lists",
+          "descriptionPath": "content/redis/lx4.md",
+          "testerStage": "lx4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "sf6",
+          "name": "List elements (positive indexes)",
+          "group": "lists",
+          "descriptionPath": "content/redis/sf6.md",
+          "testerStage": "sf6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ri1",
+          "name": "List elements (negative indexes)",
+          "group": "lists",
+          "descriptionPath": "content/redis/ri1.md",
+          "testerStage": "ri1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "gu5",
+          "name": "Prepend elements",
+          "group": "lists",
+          "descriptionPath": "content/redis/gu5.md",
+          "testerStage": "gu5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fv6",
+          "name": "Query list length",
+          "group": "lists",
+          "descriptionPath": "content/redis/fv6.md",
+          "testerStage": "fv6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ef1",
+          "name": "Remove an element",
+          "group": "lists",
+          "descriptionPath": "content/redis/ef1.md",
+          "testerStage": "ef1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jp1",
+          "name": "Remove multiple elements",
+          "group": "lists",
+          "descriptionPath": "content/redis/jp1.md",
+          "testerStage": "jp1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ec3",
+          "name": "Blocking retrieval",
+          "group": "lists",
+          "descriptionPath": "content/redis/ec3.md",
+          "testerStage": "ec3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xj7",
+          "name": "Blocking retrieval with timeout",
+          "group": "lists",
+          "descriptionPath": "content/redis/xj7.md",
+          "testerStage": "xj7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mx3",
+          "name": "Subscribe to a channel",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/mx3.md",
+          "testerStage": "mx3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zc8",
+          "name": "Subscribe to multiple channels",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/zc8.md",
+          "testerStage": "zc8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "aw8",
+          "name": "Enter subscribed mode",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/aw8.md",
+          "testerStage": "aw8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "lf1",
+          "name": "PING in subscribed mode",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/lf1.md",
+          "testerStage": "lf1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "hf2",
+          "name": "Publish a message",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/hf2.md",
+          "testerStage": "hf2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "dn4",
+          "name": "Deliver messages",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/dn4.md",
+          "testerStage": "dn4",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ze9",
+          "name": "Unsubscribe",
+          "group": "pub-sub",
+          "descriptionPath": "content/redis/ze9.md",
+          "testerStage": "ze9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ct1",
+          "name": "Create a sorted set",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/ct1.md",
+          "testerStage": "ct1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "hf1",
+          "name": "Add members",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/hf1.md",
+          "testerStage": "hf1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "lg6",
+          "name": "Retrieve member rank",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/lg6.md",
+          "testerStage": "lg6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ic1",
+          "name": "List sorted set members",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/ic1.md",
+          "testerStage": "ic1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "bj4",
+          "name": "ZRANGE with negative indexes",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/bj4.md",
+          "testerStage": "bj4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "kn4",
+          "name": "Count sorted set members",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/kn4.md",
+          "testerStage": "kn4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "gd7",
+          "name": "Retrieve member score",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/gd7.md",
+          "testerStage": "gd7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sq7",
+          "name": "Remove a member",
+          "group": "sorted-sets",
+          "descriptionPath": "content/redis/sq7.md",
+          "testerStage": "sq7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "bq9",
+          "name": "Create a bitmap",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/bq9.md",
+          "testerStage": "bq9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qj1",
+          "name": "Retrieve a bit",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/qj1.md",
+          "testerStage": "qj1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yj2",
+          "name": "Read a string as bits",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/yj2.md",
+          "testerStage": "yj2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "pk5",
+          "name": "Read bits as a string",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/pk5.md",
+          "testerStage": "pk5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yf6",
+          "name": "Grow a bitmap",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/yf6.md",
+          "testerStage": "yf6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "nx3",
+          "name": "Count set bits",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/nx3.md",
+          "testerStage": "nx3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hv4",
+          "name": "AND two bitmaps",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/hv4.md",
+          "testerStage": "hv4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dk2",
+          "name": "AND bitmaps of different lengths",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/dk2.md",
+          "testerStage": "dk2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fr8",
+          "name": "OR two bitmaps",
+          "group": "bitmaps",
+          "descriptionPath": "content/redis/fr8.md",
+          "testerStage": "fr8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zt4",
+          "name": "Respond to GEOADD",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/zt4.md",
+          "testerStage": "zt4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ck3",
+          "name": "Validate coordinates",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/ck3.md",
+          "testerStage": "ck3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "tn5",
+          "name": "Store a location",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/tn5.md",
+          "testerStage": "tn5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cr3",
+          "name": "Calculate location score",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/cr3.md",
+          "testerStage": "cr3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "xg4",
+          "name": "Respond to GEOPOS",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/xg4.md",
+          "testerStage": "xg4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "hb5",
+          "name": "Decode coordinates",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/hb5.md",
+          "testerStage": "hb5",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ek6",
+          "name": "Calculate distance",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/ek6.md",
+          "testerStage": "ek6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rm9",
+          "name": "Search within radius",
+          "group": "geospatial",
+          "descriptionPath": "content/redis/rm9.md",
+          "testerStage": "rm9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jn4",
+          "name": "Respond to ACL WHOAMI",
+          "group": "authentication",
+          "descriptionPath": "content/redis/jn4.md",
+          "testerStage": "jn4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "gx8",
+          "name": "Respond to ACL GETUSER",
+          "group": "authentication",
+          "descriptionPath": "content/redis/gx8.md",
+          "testerStage": "gx8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ql6",
+          "name": "The nopass flag",
+          "group": "authentication",
+          "descriptionPath": "content/redis/ql6.md",
+          "testerStage": "ql6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pl7",
+          "name": "The passwords property",
+          "group": "authentication",
+          "descriptionPath": "content/redis/pl7.md",
+          "testerStage": "pl7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "uv9",
+          "name": "Setting default user password",
+          "group": "authentication",
+          "descriptionPath": "content/redis/uv9.md",
+          "testerStage": "uv9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hz3",
+          "name": "The AUTH command",
+          "group": "authentication",
+          "descriptionPath": "content/redis/hz3.md",
+          "testerStage": "hz3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "nm2",
+          "name": "Enforce authentication",
+          "group": "authentication",
+          "descriptionPath": "content/redis/nm2.md",
+          "testerStage": "nm2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ws7",
+          "name": "Authenticate using AUTH",
+          "group": "authentication",
+          "descriptionPath": "content/redis/ws7.md",
+          "testerStage": "ws7",
+          "difficulty": "medium"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "lists",
+          "name": "Lists",
+          "description_markdown": "In this challenge extension you'll add support for [Lists][redis-lists] to your Redis implementation.\n\nAlong the way, you'll learn commands like [RPUSH][rpush-command], [LRANGE][lrange-command], and more.\n\n[redis-lists]: https://redis.io/docs/latest/develop/data-types/lists/\n[rpush-command]: https://redis.io/docs/latest/commands/rpush/\n[lrange-command]: https://redis.io/docs/latest/commands/lrange/"
+        },
+        {
+          "slug": "streams",
+          "name": "Streams",
+          "description_markdown": "In this challenge extension you'll add support for the [Stream][redis-streams-data-type] data type to your Redis implementation.\n\nAlong the way you'll learn about commands like [XADD][xadd-command], [XRANGE][xrange-command] and more.\n\n[redis-streams-data-type]: https://redis.io/docs/latest/develop/data-types/streams/\n[xadd-command]: https://redis.io/commands/xadd/\n[xrange-command]: https://redis.io/commands/xrange/"
+        },
+        {
+          "slug": "transactions",
+          "name": "Transactions",
+          "description_markdown": "In this challenge extension you'll add support for [Transactions][redis-transactions] to your Redis implementation.\n\nAlong the way, you'll learn about the [MULTI][multi-command], [EXEC][exec-command], and [DISCARD][discard-command] commands, as well as how Redis handles transactions atomically.\n\n[redis-transactions]: https://redis.io/docs/latest/develop/interact/transactions/\n[multi-command]: https://redis.io/commands/multi/\n[exec-command]: https://redis.io/commands/exec/\n[discard-command]: https://redis.io/commands/discard/"
+        },
+        {
+          "slug": "optimistic-locking",
+          "name": "Optimistic Locking",
+          "description_markdown": "In this challenge extension you'll add support for [Optimistic Locking][redis-optimistic-locking] to your Redis implementation.\n\nAlong the way you'll learn about the [WATCH][watch-command] command and how it works in synergy with the `MULTI`, `EXEC`, and `DISCARD` commands to achieve optimistic locking.\n\n[redis-optimistic-locking]: https://redis.io/docs/latest/develop/using-commands/transactions/#cas\n[watch-command]: https://redis.io/docs/latest/commands/watch/\n"
+        },
+        {
+          "slug": "replication",
+          "name": "Replication",
+          "description_markdown": "In this challenge extension you'll add support for [Replication][redis-replication] to your Redis implementation.\n\nAlong the way you'll learn about how Redis's leader-follower replication works, the [PSYNC][redis-psync-command] command and more.\n\n[redis-replication]: https://redis.io/docs/latest/operate/oss_and_stack/management/replication/\n[redis-psync-command]: https://redis.io/commands/psync/\n"
+        },
+        {
+          "slug": "persistence-rdb",
+          "name": "RDB Persistence",
+          "description_markdown": "In this challenge extension you'll add [persistence][redis-persistence] support to your Redis implementation.\n\nAlong the way you'll learn about Redis's [RDB file format][rdb-file-format] and more.\n\n[redis-persistence]: https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/\n[rdb-file-format]: https://github.com/sripathikrishnan/redis-rdb-tools/blob/548b11ec3c81a603f5b321228d07a61a0b940159/docs/RDB_File_Format.textile\n"
+        },
+        {
+          "slug": "persistence-aof",
+          "name": "AOF Persistence",
+          "description_markdown": "In this challenge extension, you'll add [AOF persistence][aof-persistence] support to your Redis implementation.\n\nAlong the way, you'll learn about Redis' AOF file format, and how Redis restores its database after crash.\n\n[aof-persistence]: https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#aof-advantages\n"
+        },
+        {
+          "slug": "pub-sub",
+          "name": "Pub/Sub",
+          "description_markdown": "In this challenge extension you'll add support for [Publish/Subscribe (Pub/Sub)][redis-pub-sub] to your Redis implementation.\n\nAlong the way, you'll learn commands like [SUBSCRIBE][subscribe-command], [PUBLISH][publish-command], and more.\n\n[redis-pub-sub]: https://redis.io/docs/latest/develop/pubsub/\n[subscribe-command]: https://redis.io/docs/latest/commands/subscribe/\n[publish-command]: https://redis.io/docs/latest/commands/publish/"
+        },
+        {
+          "slug": "sorted-sets",
+          "name": "Sorted Sets",
+          "description_markdown": "In this challenge extension you'll add support for [Sorted Sets (zsets)][redis-zset] to your Redis implementation.\n\nAlong the way, you'll learn commands like [ZADD][zadd-command], [ZRANGE][zrange-command], and more.\n\n[redis-zset]: https://redis.io/docs/latest/develop/data-types/sorted-sets/\n[zadd-command]: https://redis.io/docs/latest/commands/zadd/\n[zrange-command]: https://redis.io/docs/latest/commands/zrange/"
+        },
+        {
+          "slug": "bitmaps",
+          "name": "Bitmaps",
+          "description_markdown": "In this challenge extension you'll add support for [Bitmaps][redis-bitmap] to your Redis implementation.\n\nAlong the way, you'll learn commands like [SETBIT][setbit-command], [GETBIT][getbit-command], [BITCOUNT][bitcount-command], and more.\n\n[redis-bitmap]: https://redis.io/docs/latest/develop/data-types/bitmaps/\n[setbit-command]: https://redis.io/docs/latest/commands/setbit/\n[getbit-command]: https://redis.io/docs/latest/commands/getbit/\n[bitcount-command]: https://redis.io/docs/latest/commands/bitcount/\n"
+        },
+        {
+          "slug": "geospatial",
+          "name": "Geospatial Commands",
+          "description_markdown": "In this challenge extension you'll add support for [Geospatial Commands][geospatial-commands] to your Redis implementation.\n\nAlong the way, you'll learn commands like [GEOADD][geoadd-command], [GEOSEARCH][geosearch-command], and more.\n\n[geospatial-commands]: https://redis.io/docs/latest/develop/data-types/geospatial/\n[geoadd-command]: https://redis.io/docs/latest/commands/geoadd/\n[geosearch-command]: https://redis.io/docs/latest/commands/geosearch/\n"
+        },
+        {
+          "slug": "authentication",
+          "name": "Authentication",
+          "description_markdown": "In this challenge extension you'll add support for default user [Authentication][redis-authentication] to your Redis implementation.\n\nAlong the way, you'll learn about commands like [ACL WHOAMI][acl-whoami-command], [ACL GETUSER][acl-getuser-command], [ACL SETUSER][acl-setuser-command], and [AUTH][auth-command], and more.\n\n[redis-authentication]: https://redis.io/docs/latest/operate/oss_and_stack/management/security/\n[acl-whoami-command]: https://redis.io/docs/latest/commands/acl-whoami/\n[acl-getuser-command]: https://redis.io/docs/latest/commands/acl-getuser/\n[acl-setuser-command]: https://redis.io/docs/latest/commands/acl-setuser/\n[auth-command]: https://redis.io/docs/latest/commands/auth/\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/redis.LICENSE"
+    },
+    {
+      "slug": "shell",
+      "title": "Собственный Shell",
+      "shortName": "Shell",
+      "description": "Командная оболочка: процессы, перенаправление, конвейеры и история.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-shell",
+      "sourceCommit": "78cc884af5238ae486d7dae0f029e13628e4fd8d",
+      "testerRepository": "https://github.com/codecrafters-io/shell-tester.git",
+      "testerCommit": "2735affdeeebd41417a38050da37da10156f3a83",
+      "languages": [
+        "ada",
+        "c",
+        "cpp",
+        "csharp",
+        "dart",
+        "elixir",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "ocaml",
+        "odin",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "scala",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "oo8",
+          "name": "Print a prompt",
+          "group": "base",
+          "descriptionPath": "content/shell/oo8.md",
+          "testerStage": "oo8",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "cz2",
+          "name": "Handle invalid commands",
+          "group": "base",
+          "descriptionPath": "content/shell/cz2.md",
+          "testerStage": "cz2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ff0",
+          "name": "Implement a REPL",
+          "group": "base",
+          "descriptionPath": "content/shell/ff0.md",
+          "testerStage": "ff0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pn5",
+          "name": "Implement exit",
+          "group": "base",
+          "descriptionPath": "content/shell/pn5.md",
+          "testerStage": "pn5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "iz3",
+          "name": "Implement echo",
+          "group": "base",
+          "descriptionPath": "content/shell/iz3.md",
+          "testerStage": "iz3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ez5",
+          "name": "Implement type",
+          "group": "base",
+          "descriptionPath": "content/shell/ez5.md",
+          "testerStage": "ez5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "mg5",
+          "name": "Locate executable files",
+          "group": "base",
+          "descriptionPath": "content/shell/mg5.md",
+          "testerStage": "mg5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ip1",
+          "name": "Run a program",
+          "group": "base",
+          "descriptionPath": "content/shell/ip1.md",
+          "testerStage": "ip1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ei0",
+          "name": "The pwd builtin",
+          "group": "navigation",
+          "descriptionPath": "content/shell/ei0.md",
+          "testerStage": "ei0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ra6",
+          "name": "The cd builtin: Absolute paths",
+          "group": "navigation",
+          "descriptionPath": "content/shell/ra6.md",
+          "testerStage": "ra6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gq9",
+          "name": "The cd builtin: Relative paths",
+          "group": "navigation",
+          "descriptionPath": "content/shell/gq9.md",
+          "testerStage": "gq9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gp4",
+          "name": "The cd builtin: Home directory",
+          "group": "navigation",
+          "descriptionPath": "content/shell/gp4.md",
+          "testerStage": "gp4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ni6",
+          "name": "Single quotes",
+          "group": "quoting",
+          "descriptionPath": "content/shell/ni6.md",
+          "testerStage": "ni6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "tg6",
+          "name": "Double quotes",
+          "group": "quoting",
+          "descriptionPath": "content/shell/tg6.md",
+          "testerStage": "tg6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yt5",
+          "name": "Backslash outside quotes",
+          "group": "quoting",
+          "descriptionPath": "content/shell/yt5.md",
+          "testerStage": "yt5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "le5",
+          "name": "Backslash within single quotes",
+          "group": "quoting",
+          "descriptionPath": "content/shell/le5.md",
+          "testerStage": "le5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gu3",
+          "name": "Backslash within double quotes",
+          "group": "quoting",
+          "descriptionPath": "content/shell/gu3.md",
+          "testerStage": "gu3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qj0",
+          "name": "Executing a quoted executable",
+          "group": "quoting",
+          "descriptionPath": "content/shell/qj0.md",
+          "testerStage": "qj0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jv1",
+          "name": "Redirect stdout",
+          "group": "redirection",
+          "descriptionPath": "content/shell/jv1.md",
+          "testerStage": "jv1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "vz4",
+          "name": "Redirect stderr",
+          "group": "redirection",
+          "descriptionPath": "content/shell/vz4.md",
+          "testerStage": "vz4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "el9",
+          "name": "Append stdout",
+          "group": "redirection",
+          "descriptionPath": "content/shell/el9.md",
+          "testerStage": "el9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "un3",
+          "name": "Append stderr",
+          "group": "redirection",
+          "descriptionPath": "content/shell/un3.md",
+          "testerStage": "un3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qp2",
+          "name": "Builtin completion",
+          "group": "completions",
+          "descriptionPath": "content/shell/qp2.md",
+          "testerStage": "qp2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gm9",
+          "name": "Completion with arguments",
+          "group": "completions",
+          "descriptionPath": "content/shell/gm9.md",
+          "testerStage": "gm9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qm8",
+          "name": "Missing completions",
+          "group": "completions",
+          "descriptionPath": "content/shell/qm8.md",
+          "testerStage": "qm8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "gy5",
+          "name": "Executable completion",
+          "group": "completions",
+          "descriptionPath": "content/shell/gy5.md",
+          "testerStage": "gy5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "wh6",
+          "name": "Multiple completions",
+          "group": "completions",
+          "descriptionPath": "content/shell/wh6.md",
+          "testerStage": "wh6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "wt6",
+          "name": "Partial completions",
+          "group": "completions",
+          "descriptionPath": "content/shell/wt6.md",
+          "testerStage": "wt6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "zv2",
+          "name": "File completion",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/zv2.md",
+          "testerStage": "zv2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ue6",
+          "name": "Nested file completion",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/ue6.md",
+          "testerStage": "ue6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "lc6",
+          "name": "Directory completion",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/lc6.md",
+          "testerStage": "lc6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "vs5",
+          "name": "Missing completions",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/vs5.md",
+          "testerStage": "vs5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "no5",
+          "name": "Multiple matches",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/no5.md",
+          "testerStage": "no5",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "jp8",
+          "name": "Partial completions",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/jp8.md",
+          "testerStage": "jp8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "bf8",
+          "name": "Multi-argument completions",
+          "group": "filename-completion",
+          "descriptionPath": "content/shell/bf8.md",
+          "testerStage": "bf8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ne7",
+          "name": "Register complete builtin",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/ne7.md",
+          "testerStage": "ne7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "oi7",
+          "name": "Printing missing specifications",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/oi7.md",
+          "testerStage": "oi7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "wl6",
+          "name": "Displaying registered specifications",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/wl6.md",
+          "testerStage": "wl6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "pm5",
+          "name": "Single completion",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/pm5.md",
+          "testerStage": "pm5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qf1",
+          "name": "Handling no completions",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/qf1.md",
+          "testerStage": "qf1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zi0",
+          "name": "Passing command-line arguments",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/zi0.md",
+          "testerStage": "zi0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "nr7",
+          "name": "Passing environment variables",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/nr7.md",
+          "testerStage": "nr7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ep2",
+          "name": "Multiple completer candidates",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/ep2.md",
+          "testerStage": "ep2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "xz3",
+          "name": "Longest common prefix",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/xz3.md",
+          "testerStage": "xz3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "tz2",
+          "name": "Unregister a completion",
+          "group": "programmable-completion",
+          "descriptionPath": "content/shell/tz2.md",
+          "testerStage": "tz2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "af3",
+          "name": "The jobs builtin",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/af3.md",
+          "testerStage": "af3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "at7",
+          "name": "Starting background jobs",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/at7.md",
+          "testerStage": "at7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "si2",
+          "name": "Printing background job output",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/si2.md",
+          "testerStage": "si2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jd6",
+          "name": "List a single job",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/jd6.md",
+          "testerStage": "jd6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dk5",
+          "name": "List multiple jobs",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/dk5.md",
+          "testerStage": "dk5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ma9",
+          "name": "Reap one job",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/ma9.md",
+          "testerStage": "ma9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rq2",
+          "name": "Reap multiple jobs",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/rq2.md",
+          "testerStage": "rq2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bv8",
+          "name": "Reap before the next prompt",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/bv8.md",
+          "testerStage": "bv8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fy4",
+          "name": "Recycle job numbers",
+          "group": "background-jobs",
+          "descriptionPath": "content/shell/fy4.md",
+          "testerStage": "fy4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "br6",
+          "name": "Dual-command pipeline",
+          "group": "pipelines",
+          "descriptionPath": "content/shell/br6.md",
+          "testerStage": "br6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ny9",
+          "name": "Pipelines with built-ins",
+          "group": "pipelines",
+          "descriptionPath": "content/shell/ny9.md",
+          "testerStage": "ny9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "xk3",
+          "name": "Multi-command pipelines",
+          "group": "pipelines",
+          "descriptionPath": "content/shell/xk3.md",
+          "testerStage": "xk3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "bq4",
+          "name": "The history builtin",
+          "group": "history",
+          "descriptionPath": "content/shell/bq4.md",
+          "testerStage": "bq4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yf5",
+          "name": "Listing history",
+          "group": "history",
+          "descriptionPath": "content/shell/yf5.md",
+          "testerStage": "yf5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ag6",
+          "name": "Limiting history entries",
+          "group": "history",
+          "descriptionPath": "content/shell/ag6.md",
+          "testerStage": "ag6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rh7",
+          "name": "Up-arrow navigation",
+          "group": "history",
+          "descriptionPath": "content/shell/rh7.md",
+          "testerStage": "rh7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "vq0",
+          "name": "Down-arrow navigation",
+          "group": "history",
+          "descriptionPath": "content/shell/vq0.md",
+          "testerStage": "vq0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dm2",
+          "name": "Executing commands from history",
+          "group": "history",
+          "descriptionPath": "content/shell/dm2.md",
+          "testerStage": "dm2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "za2",
+          "name": "Read history from file",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/za2.md",
+          "testerStage": "za2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "in3",
+          "name": "Write history to file",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/in3.md",
+          "testerStage": "in3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sx3",
+          "name": "Append history to file",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/sx3.md",
+          "testerStage": "sx3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "zp4",
+          "name": "Read history on startup",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/zp4.md",
+          "testerStage": "zp4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "kz7",
+          "name": "Write history on exit",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/kz7.md",
+          "testerStage": "kz7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jv2",
+          "name": "Append history on exit",
+          "group": "history-persistence",
+          "descriptionPath": "content/shell/jv2.md",
+          "testerStage": "jv2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ji0",
+          "name": "The declare builtin",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/ji0.md",
+          "testerStage": "ji0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "oa2",
+          "name": "Printing missing variables",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/oa2.md",
+          "testerStage": "oa2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "kv5",
+          "name": "Storing shell variables",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/kv5.md",
+          "testerStage": "kv5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "db8",
+          "name": "Validating variable names",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/db8.md",
+          "testerStage": "db8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ge9",
+          "name": "Expanding variables",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/ge9.md",
+          "testerStage": "ge9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "br2",
+          "name": "Expansion with braces",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/br2.md",
+          "testerStage": "br2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "my0",
+          "name": "Expanding empty variables",
+          "group": "parameter-expansion",
+          "descriptionPath": "content/shell/my0.md",
+          "testerStage": "my0",
+          "difficulty": "easy"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "navigation",
+          "name": "Navigation",
+          "description_markdown": "In this challenge extension, you'll add directory navigation support by implementing the `cd` and `pwd` commands.\n\nAlong the way, you'll learn about what the \"current working directory\" is, how to change it and more.\n"
+        },
+        {
+          "slug": "quoting",
+          "name": "Quoting",
+          "description_markdown": "In this challenge extension, you'll add quoting support to your shell.\n\nQuoting allows you to preserve whitespace and special characters in your shell commands.\n"
+        },
+        {
+          "slug": "redirection",
+          "name": "Redirection",
+          "description_markdown": "In this challenge extension, you'll add redirection support to your shell.\n\nRedirection allows you to redirect the output of a command to a file or another command.\n"
+        },
+        {
+          "slug": "completions",
+          "name": "Command Completion",
+          "description_markdown": "In this challenge extension, you'll add command completion support to your shell.\n\nCommand completion allows you to autocomplete commands and executable files.\n"
+        },
+        {
+          "slug": "filename-completion",
+          "name": "Filename Completion",
+          "description_markdown": "In this challenge extension, you'll add path completion support to your shell.\n\nPath completion allows you to autocomplete file and directory names.\n"
+        },
+        {
+          "slug": "programmable-completion",
+          "name": "Programmable Completion",
+          "description_markdown": "In this challenge extension, you'll add support for the `complete` builtin and external completer scripts (`-C`).\n\nProgrammable completion lets you register custom tab-completion behavior for specific commands.\n"
+        },
+        {
+          "slug": "background-jobs",
+          "name": "Background Jobs",
+          "description_markdown": "In this challenge extension, you'll add support for launching and managing background jobs.\n\nBackground jobs allows you to run multiple commands in the background at once.\n"
+        },
+        {
+          "slug": "pipelines",
+          "name": "Pipelines",
+          "description_markdown": "In this challenge extension, you'll add support for pipelines to your shell.\n\nPipelines allow you to connect multiple commands together, so the output of one command becomes the input of the next command.\n"
+        },
+        {
+          "slug": "history",
+          "name": "History",
+          "description_markdown": "In this challenge extension, you'll add support for viewing and recalling previously entered commands using the `history` builtin.\n\nHistory allows you to view and recall previously entered commands. Also, use it to re-run previous commands using the UP and DOWN arrow keys.\n"
+        },
+        {
+          "slug": "history-persistence",
+          "name": "History Persistence",
+          "description_markdown": "In this challenge extension, you'll add support for persisting history to a file.\n\nHistory persistence allows you to save and load previously entered commands to and from a file.\n"
+        },
+        {
+          "slug": "parameter-expansion",
+          "name": "Parameter Expansion",
+          "description_markdown": "In this challenge extension, you'll add support for shell variables and parameter expansion.\n\nShell variables allow you to store values and reference them in commands using `$VAR` or `${VAR}`.\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/shell.LICENSE"
+    },
+    {
+      "slug": "git",
+      "title": "Собственный Git",
+      "shortName": "Git",
+      "description": "Объекты Git, коммиты, деревья и клонирование репозитория.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-git",
+      "sourceCommit": "4ec4dbd5f205b506b4ce0c1ad94b5ff78f130315",
+      "testerRepository": "https://github.com/codecrafters-io/git-tester.git",
+      "testerCommit": "6d28e97fa23523a0a1f9ab3aa098eddb7f8957cf",
+      "languages": [
+        "c",
+        "cpp",
+        "csharp",
+        "elixir",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "ocaml",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "kotlin",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "gg4",
+          "name": "Initialize the .git directory",
+          "group": "base",
+          "descriptionPath": "content/git/gg4.md",
+          "testerStage": "gg4",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "ic4",
+          "name": "Read a blob object",
+          "group": "base",
+          "descriptionPath": "content/git/ic4.md",
+          "testerStage": "ic4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jt4",
+          "name": "Create a blob object",
+          "group": "base",
+          "descriptionPath": "content/git/jt4.md",
+          "testerStage": "jt4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "kp1",
+          "name": "Read a tree object",
+          "group": "base",
+          "descriptionPath": "content/git/kp1.md",
+          "testerStage": "kp1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fe4",
+          "name": "Write a tree object",
+          "group": "base",
+          "descriptionPath": "content/git/fe4.md",
+          "testerStage": "fe4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jm9",
+          "name": "Create a commit",
+          "group": "base",
+          "descriptionPath": "content/git/jm9.md",
+          "testerStage": "jm9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mg6",
+          "name": "Clone a repository",
+          "group": "base",
+          "descriptionPath": "content/git/mg6.md",
+          "testerStage": "mg6",
+          "difficulty": "hard"
+        }
+      ],
+      "extensions": [],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/git.LICENSE"
+    },
+    {
+      "slug": "sqlite",
+      "title": "Собственный SQLite",
+      "shortName": "SQLite",
+      "description": "Чтение формата SQLite, SQL-запросы и индексы.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-sqlite",
+      "sourceCommit": "61b22076db3361104752ff51cad034372b467cd4",
+      "testerRepository": "https://github.com/codecrafters-io/sqlite-tester.git",
+      "testerCommit": "93f00c428e8b67266afc296f2299d2d4be5d11a6",
+      "languages": [
+        "c",
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "gleam",
+        "go",
+        "java",
+        "javascript",
+        "kotlin",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "typescript",
+        "zig",
+        "swift"
+      ],
+      "stages": [
+        {
+          "slug": "dr6",
+          "name": "Print page size",
+          "group": "base",
+          "descriptionPath": "content/sqlite/dr6.md",
+          "testerStage": "dr6",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "ce0",
+          "name": "Print number of tables",
+          "group": "base",
+          "descriptionPath": "content/sqlite/ce0.md",
+          "testerStage": "ce0",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "sz4",
+          "name": "Print table names",
+          "group": "base",
+          "descriptionPath": "content/sqlite/sz4.md",
+          "testerStage": "sz4",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "nd9",
+          "name": "Count rows in a table",
+          "group": "base",
+          "descriptionPath": "content/sqlite/nd9.md",
+          "testerStage": "nd9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "az9",
+          "name": "Read data from a single column",
+          "group": "base",
+          "descriptionPath": "content/sqlite/az9.md",
+          "testerStage": "az9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "vc9",
+          "name": "Read data from multiple columns",
+          "group": "base",
+          "descriptionPath": "content/sqlite/vc9.md",
+          "testerStage": "vc9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "rf3",
+          "name": "Filter data with a WHERE clause",
+          "group": "base",
+          "descriptionPath": "content/sqlite/rf3.md",
+          "testerStage": "rf3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ws9",
+          "name": "Retrieve data using a full-table scan",
+          "group": "base",
+          "descriptionPath": "content/sqlite/ws9.md",
+          "testerStage": "ws9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "nz8",
+          "name": "Retrieve data using an index",
+          "group": "base",
+          "descriptionPath": "content/sqlite/nz8.md",
+          "testerStage": "nz8",
+          "difficulty": "hard"
+        }
+      ],
+      "extensions": [],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/sqlite.LICENSE"
+    },
+    {
+      "slug": "dns-server",
+      "title": "Собственный DNS-сервер",
+      "shortName": "DNS Server",
+      "description": "DNS-пакеты, записи, ответы и пересылка запросов.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-dns-server",
+      "sourceCommit": "0c420a3aeffe7e7be1f88569bd78ba62d13dc06b",
+      "testerRepository": "https://github.com/codecrafters-io/dns-server-tester.git",
+      "testerCommit": "8c4ddc239151ad1e2c26a76206067a5214ecdc23",
+      "languages": [
+        "c",
+        "cpp",
+        "csharp",
+        "elixir",
+        "go",
+        "java",
+        "javascript",
+        "kotlin",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "ux2",
+          "name": "Setup UDP server",
+          "group": "base",
+          "descriptionPath": "content/dns-server/ux2.md",
+          "testerStage": "ux2",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "tz1",
+          "name": "Write header section",
+          "group": "base",
+          "descriptionPath": "content/dns-server/tz1.md",
+          "testerStage": "tz1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bf2",
+          "name": "Write question section",
+          "group": "base",
+          "descriptionPath": "content/dns-server/bf2.md",
+          "testerStage": "bf2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xm2",
+          "name": "Write answer section",
+          "group": "base",
+          "descriptionPath": "content/dns-server/xm2.md",
+          "testerStage": "xm2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "uc8",
+          "name": "Parse header section",
+          "group": "base",
+          "descriptionPath": "content/dns-server/uc8.md",
+          "testerStage": "uc8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "hd8",
+          "name": "Parse question section",
+          "group": "base",
+          "descriptionPath": "content/dns-server/hd8.md",
+          "testerStage": "hd8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yc9",
+          "name": "Parse compressed packet",
+          "group": "base",
+          "descriptionPath": "content/dns-server/yc9.md",
+          "testerStage": "yc9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gt1",
+          "name": "Forwarding Server",
+          "group": "base",
+          "descriptionPath": "content/dns-server/gt1.md",
+          "testerStage": "gt1",
+          "difficulty": "medium"
+        }
+      ],
+      "extensions": [],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/dns-server.LICENSE"
+    },
+    {
+      "slug": "bittorrent",
+      "title": "Собственный BitTorrent",
+      "shortName": "BitTorrent",
+      "description": "Торрент-файлы, пиры, загрузка данных и magnet-ссылки.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-bittorrent",
+      "sourceCommit": "b5217cd30ebe0f9580b25a4048521429db7ff80d",
+      "testerRepository": "https://github.com/codecrafters-io/bittorrent-tester.git",
+      "testerCommit": "63c2612dc285c2124d6bd616f64c180ba6760210",
+      "languages": [
+        "c",
+        "cpp",
+        "csharp",
+        "elixir",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "python",
+        "ruby",
+        "rust",
+        "scala",
+        "zig",
+        "typescript"
+      ],
+      "stages": [
+        {
+          "slug": "ns2",
+          "name": "Decode bencoded strings",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/ns2.md",
+          "testerStage": "ns2",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "eb4",
+          "name": "Decode bencoded integers",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/eb4.md",
+          "testerStage": "eb4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ah1",
+          "name": "Decode bencoded lists",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/ah1.md",
+          "testerStage": "ah1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "mn6",
+          "name": "Decode bencoded dictionaries",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/mn6.md",
+          "testerStage": "mn6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ow9",
+          "name": "Parse torrent file",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/ow9.md",
+          "testerStage": "ow9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "rb2",
+          "name": "Calculate info hash",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/rb2.md",
+          "testerStage": "rb2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bf7",
+          "name": "Piece hashes",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/bf7.md",
+          "testerStage": "bf7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "fi9",
+          "name": "Discover peers",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/fi9.md",
+          "testerStage": "fi9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ca4",
+          "name": "Peer handshake",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/ca4.md",
+          "testerStage": "ca4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "nd2",
+          "name": "Download a piece",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/nd2.md",
+          "testerStage": "nd2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "jv8",
+          "name": "Download the whole file",
+          "group": "base",
+          "descriptionPath": "content/bittorrent/jv8.md",
+          "testerStage": "jv8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "hw0",
+          "name": "Parse magnet link",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/hw0.md",
+          "testerStage": "hw0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pk2",
+          "name": "Announce extension support",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/pk2.md",
+          "testerStage": "pk2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "xi4",
+          "name": "Send extension handshake",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/xi4.md",
+          "testerStage": "xi4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jk6",
+          "name": "Receive extension handshake",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/jk6.md",
+          "testerStage": "jk6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ns5",
+          "name": "Request metadata",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/ns5.md",
+          "testerStage": "ns5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zh1",
+          "name": "Receive metadata",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/zh1.md",
+          "testerStage": "zh1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "qv6",
+          "name": "Download a piece",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/qv6.md",
+          "testerStage": "qv6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "dv7",
+          "name": "Download the whole file",
+          "group": "magnet-links",
+          "descriptionPath": "content/bittorrent/dv7.md",
+          "testerStage": "dv7",
+          "difficulty": "hard"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "magnet-links",
+          "name": "Magnet Links",
+          "description_markdown": "This extension covers magnet links. Magnet links allow downloading files without the need of downloading a .torrent file first.\n\nAlong the way, you'll learn about the [magnet URI format](https://en.wikipedia.org/wiki/Magnet_URI_scheme), the [extension protocol](https://www.bittorrent.org/beps/bep_0010.html) and the [metadata extension](https://www.bittorrent.org/beps/bep_0009.html).\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/bittorrent.LICENSE"
+    },
+    {
+      "slug": "kafka",
+      "title": "Собственная Kafka",
+      "shortName": "Kafka",
+      "description": "Бинарный протокол Kafka, разделы, чтение и запись сообщений.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-kafka",
+      "sourceCommit": "dbc934e2a9614f11f78eb59ac299474a5102b94e",
+      "testerRepository": "https://github.com/codecrafters-io/kafka-tester.git",
+      "testerCommit": "548089cf5b930d29a57e9fc4f6aa38bae336b158",
+      "languages": [
+        "c",
+        "cpp",
+        "csharp",
+        "elixir",
+        "gleam",
+        "go",
+        "java",
+        "javascript",
+        "kotlin",
+        "python",
+        "rust",
+        "scala",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "vi6",
+          "name": "Bind to a port",
+          "group": "base",
+          "descriptionPath": "content/kafka/vi6.md",
+          "testerStage": "vi6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "nv3",
+          "name": "Send Correlation ID",
+          "group": "base",
+          "descriptionPath": "content/kafka/nv3.md",
+          "testerStage": "nv3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "wa6",
+          "name": "Parse Correlation ID",
+          "group": "base",
+          "descriptionPath": "content/kafka/wa6.md",
+          "testerStage": "wa6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "nc5",
+          "name": "Parse API Version",
+          "group": "base",
+          "descriptionPath": "content/kafka/nc5.md",
+          "testerStage": "nc5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "pv1",
+          "name": "Handle ApiVersions requests",
+          "group": "base",
+          "descriptionPath": "content/kafka/pv1.md",
+          "testerStage": "pv1",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "nh4",
+          "name": "Serial requests",
+          "group": "concurrent-clients",
+          "descriptionPath": "content/kafka/nh4.md",
+          "testerStage": "nh4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sk0",
+          "name": "Concurrent requests",
+          "group": "concurrent-clients",
+          "descriptionPath": "content/kafka/sk0.md",
+          "testerStage": "sk0",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "yk1",
+          "name": "Include DescribeTopicPartitions in ApiVersions",
+          "group": "listing-partitions",
+          "descriptionPath": "content/kafka/yk1.md",
+          "testerStage": "yk1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "vt6",
+          "name": "List for an unknown topic",
+          "group": "listing-partitions",
+          "descriptionPath": "content/kafka/vt6.md",
+          "testerStage": "vt6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ea7",
+          "name": "List for a single partition",
+          "group": "listing-partitions",
+          "descriptionPath": "content/kafka/ea7.md",
+          "testerStage": "ea7",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ku4",
+          "name": "List for multiple partitions",
+          "group": "listing-partitions",
+          "descriptionPath": "content/kafka/ku4.md",
+          "testerStage": "ku4",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "wq2",
+          "name": "List for multiple topics",
+          "group": "listing-partitions",
+          "descriptionPath": "content/kafka/wq2.md",
+          "testerStage": "wq2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "gs0",
+          "name": "Include Fetch in ApiVersions",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/gs0.md",
+          "testerStage": "gs0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dh6",
+          "name": "Fetch with no topics",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/dh6.md",
+          "testerStage": "dh6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hn6",
+          "name": "Fetch with an unknown topic",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/hn6.md",
+          "testerStage": "hn6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cm4",
+          "name": "Fetch with an empty topic",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/cm4.md",
+          "testerStage": "cm4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "eg2",
+          "name": "Fetch single message from disk",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/eg2.md",
+          "testerStage": "eg2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "fd8",
+          "name": "Fetch multiple messages from disk",
+          "group": "consuming-messages",
+          "descriptionPath": "content/kafka/fd8.md",
+          "testerStage": "fd8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "xz1",
+          "name": "Include Produce in ApiVersions",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/xz1.md",
+          "testerStage": "xz1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "zf2",
+          "name": "Respond for invalid topic or partition",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/zf2.md",
+          "testerStage": "zf2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gg1",
+          "name": "Respond for valid topic and partition",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/gg1.md",
+          "testerStage": "gg1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ls8",
+          "name": "Produce a single record",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/ls8.md",
+          "testerStage": "ls8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "yd8",
+          "name": "Produce multiple records",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/yd8.md",
+          "testerStage": "yd8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ct4",
+          "name": "Produce to multiple partitions",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/ct4.md",
+          "testerStage": "ct4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ov0",
+          "name": "Produce to multiple partitions of multiple topics",
+          "group": "producing-messages",
+          "descriptionPath": "content/kafka/ov0.md",
+          "testerStage": "ov0",
+          "difficulty": "easy"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "concurrent-clients",
+          "name": "Concurrent Clients",
+          "description_markdown": "In this challenge extension you'll add support for serving multiple clients simultaneously.\n\nAlong the way you'll learn about TCP connections, how to handle concurrency and more.\n"
+        },
+        {
+          "slug": "listing-partitions",
+          "name": "Listing Partitions",
+          "description_markdown": "In this challenge extension you'll add support for listing topic partitions by implementing the [DescribeTopicPartitions][describe-topic-partitions] API.\n\nAlong the way you'll learn about how Kafka stores messages on disk, the `__cluster_metadata` topic and more.\n\n[describe-topic-partitions]: https://kafka.apache.org/42/design/protocol/#The_Messages_DescribeTopicPartitions\n"
+        },
+        {
+          "slug": "consuming-messages",
+          "name": "Consuming Messages",
+          "description_markdown": "In this challenge extension you'll add support for consuming messages by implementing the [Fetch][fetch-api] API.\n\nAlong the way you'll learn about how Kafka's Fetch API works, how Kafka stores messages on disk and more.\n\n[fetch-api]: https://kafka.apache.org/42/design/protocol/#The_Messages_Fetch\n"
+        },
+        {
+          "slug": "producing-messages",
+          "name": "Producing Messages",
+          "description_markdown": "In this challenge extension you'll add support for producing messages by implementing the [Produce][produce-api] API.\n\nAlong the way you'll learn about how Kafka's Produce API works, how Kafka stores messages on disk and more.\n\n[produce-api]: https://kafka.apache.org/42/design/protocol/#The_Messages_Produce\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/kafka.LICENSE"
+    },
+    {
+      "slug": "grep",
+      "title": "Собственный Grep",
+      "shortName": "grep",
+      "description": "Регулярные выражения, поиск в файлах и группы захвата.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-grep",
+      "sourceCommit": "cba13e7b4bd17b2a098715942a14d18dcdb7cfe6",
+      "testerRepository": "https://github.com/codecrafters-io/grep-tester.git",
+      "testerCommit": "4ee94bdc587814c090bdd365e9096404493bc292",
+      "languages": [
+        "c",
+        "cpp",
+        "csharp",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "odin",
+        "php",
+        "python",
+        "rust",
+        "typescript",
+        "ruby",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "cq2",
+          "name": "Match a literal character",
+          "group": "base",
+          "descriptionPath": "content/grep/cq2.md",
+          "testerStage": "cq2",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "oq2",
+          "name": "Match digits",
+          "group": "base",
+          "descriptionPath": "content/grep/oq2.md",
+          "testerStage": "oq2",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "mr9",
+          "name": "Match word characters",
+          "group": "base",
+          "descriptionPath": "content/grep/mr9.md",
+          "testerStage": "mr9",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "tl6",
+          "name": "Positive Character Groups",
+          "group": "base",
+          "descriptionPath": "content/grep/tl6.md",
+          "testerStage": "tl6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rk3",
+          "name": "Negative Character Groups",
+          "group": "base",
+          "descriptionPath": "content/grep/rk3.md",
+          "testerStage": "rk3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sh9",
+          "name": "Combining Character Classes",
+          "group": "base",
+          "descriptionPath": "content/grep/sh9.md",
+          "testerStage": "sh9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rr8",
+          "name": "Start of string anchor",
+          "group": "base",
+          "descriptionPath": "content/grep/rr8.md",
+          "testerStage": "rr8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ao7",
+          "name": "End of string anchor",
+          "group": "base",
+          "descriptionPath": "content/grep/ao7.md",
+          "testerStage": "ao7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fz7",
+          "name": "Match one or more times",
+          "group": "base",
+          "descriptionPath": "content/grep/fz7.md",
+          "testerStage": "fz7",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ny8",
+          "name": "Match zero or one times",
+          "group": "base",
+          "descriptionPath": "content/grep/ny8.md",
+          "testerStage": "ny8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "zb3",
+          "name": "Wildcard",
+          "group": "base",
+          "descriptionPath": "content/grep/zb3.md",
+          "testerStage": "zb3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "zm7",
+          "name": "Alternation",
+          "group": "base",
+          "descriptionPath": "content/grep/zm7.md",
+          "testerStage": "zm7",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "sb5",
+          "name": "Single Backreference",
+          "group": "backreferences",
+          "descriptionPath": "content/grep/sb5.md",
+          "testerStage": "sb5",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "tg1",
+          "name": "Multiple Backreferences",
+          "group": "backreferences",
+          "descriptionPath": "content/grep/tg1.md",
+          "testerStage": "tg1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xe5",
+          "name": "Nested Backreferences",
+          "group": "backreferences",
+          "descriptionPath": "content/grep/xe5.md",
+          "testerStage": "xe5",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "dr5",
+          "name": "Search a single-line file",
+          "group": "file-search",
+          "descriptionPath": "content/grep/dr5.md",
+          "testerStage": "dr5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ol9",
+          "name": "Search a multi-line file",
+          "group": "file-search",
+          "descriptionPath": "content/grep/ol9.md",
+          "testerStage": "ol9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "is6",
+          "name": "Search multiple files",
+          "group": "file-search",
+          "descriptionPath": "content/grep/is6.md",
+          "testerStage": "is6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yx6",
+          "name": "Recursive search",
+          "group": "file-search",
+          "descriptionPath": "content/grep/yx6.md",
+          "testerStage": "yx6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ai9",
+          "name": "Match zero or more times",
+          "group": "quantifiers",
+          "descriptionPath": "content/grep/ai9.md",
+          "testerStage": "ai9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "wy9",
+          "name": "Match exactly n times",
+          "group": "quantifiers",
+          "descriptionPath": "content/grep/wy9.md",
+          "testerStage": "wy9",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "hk3",
+          "name": "Match at least n times",
+          "group": "quantifiers",
+          "descriptionPath": "content/grep/hk3.md",
+          "testerStage": "hk3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ug0",
+          "name": "Match between n and m times",
+          "group": "quantifiers",
+          "descriptionPath": "content/grep/ug0.md",
+          "testerStage": "ug0",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ku5",
+          "name": "Print a single matching line",
+          "group": "printing-matches",
+          "descriptionPath": "content/grep/ku5.md",
+          "testerStage": "ku5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pz6",
+          "name": "Print multiple matching lines",
+          "group": "printing-matches",
+          "descriptionPath": "content/grep/pz6.md",
+          "testerStage": "pz6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "cj0",
+          "name": "Print single match",
+          "group": "multiple-matches",
+          "descriptionPath": "content/grep/cj0.md",
+          "testerStage": "cj0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ss2",
+          "name": "Print multiple matches",
+          "group": "multiple-matches",
+          "descriptionPath": "content/grep/ss2.md",
+          "testerStage": "ss2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bo4",
+          "name": "Process multiple input lines",
+          "group": "multiple-matches",
+          "descriptionPath": "content/grep/bo4.md",
+          "testerStage": "bo4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bm2",
+          "name": "Highlight a single match",
+          "group": "highlighting",
+          "descriptionPath": "content/grep/bm2.md",
+          "testerStage": "bm2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "eq0",
+          "name": "Highlight multiple matches",
+          "group": "highlighting",
+          "descriptionPath": "content/grep/eq0.md",
+          "testerStage": "eq0",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "wg2",
+          "name": "Highlight matches in multiple lines",
+          "group": "highlighting",
+          "descriptionPath": "content/grep/wg2.md",
+          "testerStage": "wg2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "jk4",
+          "name": "Disable highlighting",
+          "group": "highlighting",
+          "descriptionPath": "content/grep/jk4.md",
+          "testerStage": "jk4",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "na5",
+          "name": "Implement the auto color option",
+          "group": "highlighting",
+          "descriptionPath": "content/grep/na5.md",
+          "testerStage": "na5",
+          "difficulty": "medium"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "printing-matches",
+          "name": "Printing Matches",
+          "description_markdown": "In this challenge extension, you'll add support for printing matching lines to your Grep implementation.\n\nAlong the way, you'll learn about extracting matched lines, formatting output, and managing line-by-line processing.\n"
+        },
+        {
+          "slug": "multiple-matches",
+          "name": "Multiple Matches",
+          "description_markdown": "In this challenge extension, you'll add support for printing the multiple matching results to your Grep implementation.\n\nAlong the way, you'll learn about how to implement the `-o` flag.\n"
+        },
+        {
+          "slug": "highlighting",
+          "name": "Highlighting",
+          "description_markdown": "In this challenge extension, you'll add support for [highlighting][1] to your Grep implementation.\n\nAlong the way, you'll learn about [ANSI escape codes][2], and more.\n\n[1]: https://linuxcommando.blogspot.com/2007/10/grep-with-color-output.html\n[2]: https://en.wikipedia.org/wiki/ANSI_escape_code\n"
+        },
+        {
+          "slug": "file-search",
+          "name": "File Search",
+          "description_markdown": "In this challenge extension, you'll add support for searching files.\n\nAlong the way, you'll learn about how to implement efficient file I/O, directory traversal and pattern matching on file contents.\n"
+        },
+        {
+          "slug": "quantifiers",
+          "name": "Quantifiers",
+          "description_markdown": "In this challenge extension, you'll add support for [quantifiers][1] to your Grep implementation.\n\nAlong the way, you'll learn about how to implement the `*` quantifier (zero or more), and bounded quantifiers.\n[1]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions\n"
+        },
+        {
+          "slug": "backreferences",
+          "name": "Backreferences",
+          "description_markdown": "In this challenge extension, you'll add support for [backreferences][1] to your Grep implementation.\n\nAlong the way, you'll learn about how capture groups and backreferences work.\n[1]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/backreference-constructs-in-regular-expressions#numbered-backreferences\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/grep.LICENSE"
+    },
+    {
+      "slug": "interpreter",
+      "title": "Собственный интерпретатор",
+      "shortName": "Interpreter",
+      "description": "От токенов и выражений до функций, классов и наследования.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-interpreter",
+      "sourceCommit": "027771301f854f8800e0d8e1a9f4813cad3574f0",
+      "testerRepository": "https://github.com/codecrafters-io/interpreter-tester.git",
+      "testerCommit": "1c254806993b4998358b54b02c802fd8f6dca333",
+      "languages": [
+        "c",
+        "clojure",
+        "cpp",
+        "csharp",
+        "elixir",
+        "gleam",
+        "go",
+        "haskell",
+        "java",
+        "kotlin",
+        "ocaml",
+        "odin",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "javascript",
+        "scala",
+        "swift",
+        "typescript",
+        "zig"
+      ],
+      "stages": [
+        {
+          "slug": "ry8",
+          "name": "Scanning: Empty file",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ry8.md",
+          "testerStage": "ry8",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "ol4",
+          "name": "Scanning: Parentheses",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ol4.md",
+          "testerStage": "ol4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "oe8",
+          "name": "Scanning: Braces",
+          "group": "base",
+          "descriptionPath": "content/interpreter/oe8.md",
+          "testerStage": "oe8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "xc5",
+          "name": "Scanning: Other single-character tokens",
+          "group": "base",
+          "descriptionPath": "content/interpreter/xc5.md",
+          "testerStage": "xc5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ea6",
+          "name": "Scanning: Lexical errors",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ea6.md",
+          "testerStage": "ea6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mp7",
+          "name": "Scanning: Assignment & equality Operators",
+          "group": "base",
+          "descriptionPath": "content/interpreter/mp7.md",
+          "testerStage": "mp7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bu3",
+          "name": "Scanning: Negation & inequality operators",
+          "group": "base",
+          "descriptionPath": "content/interpreter/bu3.md",
+          "testerStage": "bu3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "et2",
+          "name": "Scanning: Relational operators",
+          "group": "base",
+          "descriptionPath": "content/interpreter/et2.md",
+          "testerStage": "et2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ml2",
+          "name": "Scanning: Division operator & comments",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ml2.md",
+          "testerStage": "ml2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "er2",
+          "name": "Scanning: Whitespace",
+          "group": "base",
+          "descriptionPath": "content/interpreter/er2.md",
+          "testerStage": "er2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "tz7",
+          "name": "Scanning: Multi-line errors",
+          "group": "base",
+          "descriptionPath": "content/interpreter/tz7.md",
+          "testerStage": "tz7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ue7",
+          "name": "Scanning: String literals",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ue7.md",
+          "testerStage": "ue7",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "kj0",
+          "name": "Scanning: Number literals",
+          "group": "base",
+          "descriptionPath": "content/interpreter/kj0.md",
+          "testerStage": "kj0",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ey7",
+          "name": "Scanning: Identifiers",
+          "group": "base",
+          "descriptionPath": "content/interpreter/ey7.md",
+          "testerStage": "ey7",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "pq5",
+          "name": "Scanning: Reserved words",
+          "group": "base",
+          "descriptionPath": "content/interpreter/pq5.md",
+          "testerStage": "pq5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "sc2",
+          "name": "Booleans & Nil",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/sc2.md",
+          "testerStage": "sc2",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "ra8",
+          "name": "Number literals",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/ra8.md",
+          "testerStage": "ra8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "th5",
+          "name": "String literals",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/th5.md",
+          "testerStage": "th5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xe6",
+          "name": "Parentheses",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/xe6.md",
+          "testerStage": "xe6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mq1",
+          "name": "Unary Operators",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/mq1.md",
+          "testerStage": "mq1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "wa9",
+          "name": "Arithmetic operators (1/2)",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/wa9.md",
+          "testerStage": "wa9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yf2",
+          "name": "Arithmetic operators (2/2)",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/yf2.md",
+          "testerStage": "yf2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "uh4",
+          "name": "Comparison operators",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/uh4.md",
+          "testerStage": "uh4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ht8",
+          "name": "Equality operators",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/ht8.md",
+          "testerStage": "ht8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "wz8",
+          "name": "Syntactic errors",
+          "group": "parsing-expressions",
+          "descriptionPath": "content/interpreter/wz8.md",
+          "testerStage": "wz8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "iz6",
+          "name": "Literals: Booleans & Nil",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/iz6.md",
+          "testerStage": "iz6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "lv1",
+          "name": "Literals: Strings & Numbers",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/lv1.md",
+          "testerStage": "lv1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "oq9",
+          "name": "Parentheses",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/oq9.md",
+          "testerStage": "oq9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dc1",
+          "name": "Unary Operators: Negation & Not",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/dc1.md",
+          "testerStage": "dc1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bp3",
+          "name": "Arithmetic Operators (1/2)",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/bp3.md",
+          "testerStage": "bp3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jy2",
+          "name": "Arithmetic Operators (2/2)",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/jy2.md",
+          "testerStage": "jy2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jx8",
+          "name": "String Concatenation",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/jx8.md",
+          "testerStage": "jx8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "et4",
+          "name": "Relational Operators",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/et4.md",
+          "testerStage": "et4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "hw7",
+          "name": "Equality Operators",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/hw7.md",
+          "testerStage": "hw7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gj9",
+          "name": "Runtime Errors: Unary Operators",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/gj9.md",
+          "testerStage": "gj9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yu6",
+          "name": "Runtime Errors: Binary Operators (1/2)",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/yu6.md",
+          "testerStage": "yu6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "cq1",
+          "name": "Runtime Errors: Binary Operators (2/2)",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/cq1.md",
+          "testerStage": "cq1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ib5",
+          "name": "Runtime Errors: Relational Operators",
+          "group": "evaluating-expressions",
+          "descriptionPath": "content/interpreter/ib5.md",
+          "testerStage": "ib5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xy1",
+          "name": "Print: Generate output",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/xy1.md",
+          "testerStage": "xy1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "oe4",
+          "name": "Print: Multiple statements",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/oe4.md",
+          "testerStage": "oe4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fi3",
+          "name": "Expression statements",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/fi3.md",
+          "testerStage": "fi3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "yg2",
+          "name": "Variables: Declare variables",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/yg2.md",
+          "testerStage": "yg2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "sv7",
+          "name": "Variables: Runtime Errors",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/sv7.md",
+          "testerStage": "sv7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "bc1",
+          "name": "Variables: Initialize variables",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/bc1.md",
+          "testerStage": "bc1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "dw9",
+          "name": "Variables: Redeclare variables",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/dw9.md",
+          "testerStage": "dw9",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "pl3",
+          "name": "Assignment operation",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/pl3.md",
+          "testerStage": "pl3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "vr5",
+          "name": "Block syntax",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/vr5.md",
+          "testerStage": "vr5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fb4",
+          "name": "Scopes",
+          "group": "statements-and-state",
+          "descriptionPath": "content/interpreter/fb4.md",
+          "testerStage": "fb4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ne3",
+          "name": "If statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/ne3.md",
+          "testerStage": "ne3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "st5",
+          "name": "Else statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/st5.md",
+          "testerStage": "st5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "fh8",
+          "name": "Else-if statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/fh8.md",
+          "testerStage": "fh8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "xj4",
+          "name": "Nested if statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/xj4.md",
+          "testerStage": "xj4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "wk8",
+          "name": "Logical OR operator",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/wk8.md",
+          "testerStage": "wk8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jx4",
+          "name": "Logical AND operator",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/jx4.md",
+          "testerStage": "jx4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qy3",
+          "name": "While statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/qy3.md",
+          "testerStage": "qy3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bw6",
+          "name": "For statements",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/bw6.md",
+          "testerStage": "bw6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "vt1",
+          "name": "Syntactic errors",
+          "group": "control-flow",
+          "descriptionPath": "content/interpreter/vt1.md",
+          "testerStage": "vt1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "av4",
+          "name": "Native functions",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/av4.md",
+          "testerStage": "av4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "pg8",
+          "name": "Functions without arguments",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/pg8.md",
+          "testerStage": "pg8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "lb6",
+          "name": "Functions with arguments",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/lb6.md",
+          "testerStage": "lb6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "px4",
+          "name": "Syntax errors",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/px4.md",
+          "testerStage": "px4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "rd2",
+          "name": "Return statements",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/rd2.md",
+          "testerStage": "rd2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ey3",
+          "name": "Higher order functions",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/ey3.md",
+          "testerStage": "ey3",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "fj7",
+          "name": "Runtime errors",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/fj7.md",
+          "testerStage": "fj7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "bz4",
+          "name": "Function scope",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/bz4.md",
+          "testerStage": "bz4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gg6",
+          "name": "Closures",
+          "group": "functions",
+          "descriptionPath": "content/interpreter/gg6.md",
+          "testerStage": "gg6",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "de8",
+          "name": "Identifier Resolution",
+          "group": "resolving-binding",
+          "descriptionPath": "content/interpreter/de8.md",
+          "testerStage": "de8",
+          "difficulty": "hard"
+        },
+        {
+          "slug": "pt7",
+          "name": "Self Initialization",
+          "group": "resolving-binding",
+          "descriptionPath": "content/interpreter/pt7.md",
+          "testerStage": "pt7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "pz7",
+          "name": "Variable Redeclaration",
+          "group": "resolving-binding",
+          "descriptionPath": "content/interpreter/pz7.md",
+          "testerStage": "pz7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "eh3",
+          "name": "Invalid Return",
+          "group": "resolving-binding",
+          "descriptionPath": "content/interpreter/eh3.md",
+          "testerStage": "eh3",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "vf4",
+          "name": "Class Declarations",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/vf4.md",
+          "testerStage": "vf4",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yk8",
+          "name": "Class Instances",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/yk8.md",
+          "testerStage": "yk8",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yf3",
+          "name": "Getters & Setters",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/yf3.md",
+          "testerStage": "yf3",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qr2",
+          "name": "Instance Methods",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/qr2.md",
+          "testerStage": "qr2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "yd7",
+          "name": "The 'this' keyword",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/yd7.md",
+          "testerStage": "yd7",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "dg2",
+          "name": "Invalid usages of 'this'",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/dg2.md",
+          "testerStage": "dg2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ou5",
+          "name": "Constructor calls",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/ou5.md",
+          "testerStage": "ou5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "eb9",
+          "name": "Return within constructors",
+          "group": "classes",
+          "descriptionPath": "content/interpreter/eb9.md",
+          "testerStage": "eb9",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mf6",
+          "name": "Class Hierarchy",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/mf6.md",
+          "testerStage": "mf6",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ky1",
+          "name": "Inheriting Methods",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/ky1.md",
+          "testerStage": "ky1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ka5",
+          "name": "Overriding Methods",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/ka5.md",
+          "testerStage": "ka5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ab0",
+          "name": "Inheritance errors",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/ab0.md",
+          "testerStage": "ab0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "qi0",
+          "name": "The super keyword",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/qi0.md",
+          "testerStage": "qi0",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "ib9",
+          "name": "Invalid Usages of the super Keyword",
+          "group": "inheritance",
+          "descriptionPath": "content/interpreter/ib9.md",
+          "testerStage": "ib9",
+          "difficulty": "medium"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "parsing-expressions",
+          "name": "Parsing Expressions",
+          "description_markdown": "This extension covers chapters 5 & 6 of the book ([Representing Code](https://craftinginterpreters.com/representing-code.html) & [Parsing Expressions](https://craftinginterpreters.com/parsing-expressions.html)).\n\nIn this extension, you'll add the ability to parse expressions.\n"
+        },
+        {
+          "slug": "evaluating-expressions",
+          "name": "Evaluating Expressions",
+          "description_markdown": "This extension covers chapters 7 of the book ([Evaluating Expressions](https://craftinginterpreters.com/evaluating-expressions.html)).\n\nIn this extension, you'll add the ability to evaluate expressions.\n"
+        },
+        {
+          "slug": "statements-and-state",
+          "name": "Statements & State",
+          "description_markdown": "This extension covers chapters 8 of the book ([Statements & State](https://craftinginterpreters.com/statements-and-state.html)).\n\nIn this extension, you'll add the ability to add internal state to your interpreter & produce output.\n"
+        },
+        {
+          "slug": "control-flow",
+          "name": "Control Flow",
+          "description_markdown": "This extension covers chapters 9 of the book ([Control Flow](https://craftinginterpreters.com/control-flow.html)).\n\nIn this extension, you'll add the ability to handle control flow statements like `if/else`, `while` & `for`.\n"
+        },
+        {
+          "slug": "functions",
+          "name": "Functions",
+          "description_markdown": "This extension covers chapters 10 of the book ([Functions](https://craftinginterpreters.com/functions.html)).\n\nIn this extension, you'll add the ability to handle lox native functions & user-defined functions.\n"
+        },
+        {
+          "slug": "resolving-binding",
+          "name": "Resolving & Binding",
+          "description_markdown": "This extension covers chapters 11 of the book ([Resolving & Binding](https://craftinginterpreters.com/resolving-and-binding.html)).\n\nIn this extension, you'll add the ability to semantically analyze variable declarations and resolve variable bindings at compile time.\n"
+        },
+        {
+          "slug": "classes",
+          "name": "Classes",
+          "description_markdown": "This extension covers chapters 12 of the book ([Classes](https://craftinginterpreters.com/classes.html)).\n\nIn this extension, you'll add the ability to handle lox classes, instances, constructors and methods.\n"
+        },
+        {
+          "slug": "inheritance",
+          "name": "Inheritance",
+          "description_markdown": "This extension covers chapters 13 of the book ([Inheritance](https://craftinginterpreters.com/inheritance.html)).\n\nIn this extension, you'll add the ability to handle class inheritance, method overriding and the super keyword.\n"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/interpreter.LICENSE"
+    },
+    {
+      "slug": "claude-code",
+      "title": "Собственный Claude Code",
+      "shortName": "Claude Code",
+      "description": "Цикл ИИ-агента, инструменты и навыки для работы с кодом.",
+      "upstreamUrl": "https://github.com/codecrafters-io/build-your-own-claude-code",
+      "sourceCommit": "65a248400a6219bd3f66686ef9b950d9da03b7fe",
+      "testerRepository": "https://github.com/codecrafters-io/claude-code-tester.git",
+      "testerCommit": "d41a15f2dd90906d6debaa7d697ac6dcff93ed36",
+      "languages": [
+        "c",
+        "go",
+        "python",
+        "javascript",
+        "typescript",
+        "rust",
+        "zig",
+        "cpp",
+        "csharp",
+        "java"
+      ],
+      "stages": [
+        {
+          "slug": "yy2",
+          "name": "Communicate with the LLM",
+          "group": "base",
+          "descriptionPath": "content/claude-code/yy2.md",
+          "testerStage": "yy2",
+          "difficulty": "very_easy"
+        },
+        {
+          "slug": "aq1",
+          "name": "Advertise the read tool",
+          "group": "base",
+          "descriptionPath": "content/claude-code/aq1.md",
+          "testerStage": "aq1",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "md6",
+          "name": "Execute the read tool",
+          "group": "base",
+          "descriptionPath": "content/claude-code/md6.md",
+          "testerStage": "md6",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "ff2",
+          "name": "Implement the agent loop",
+          "group": "base",
+          "descriptionPath": "content/claude-code/ff2.md",
+          "testerStage": "ff2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "oz7",
+          "name": "Implement the write tool",
+          "group": "base",
+          "descriptionPath": "content/claude-code/oz7.md",
+          "testerStage": "oz7",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "oq5",
+          "name": "Implement the bash tool",
+          "group": "base",
+          "descriptionPath": "content/claude-code/oq5.md",
+          "testerStage": "oq5",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "vh1",
+          "name": "Advertise skills to the LLM",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/vh1.md",
+          "testerStage": "vh1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "jd8",
+          "name": "Invoke a skill by name",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/jd8.md",
+          "testerStage": "jd8",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "wd2",
+          "name": "Pass arguments to a skill",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/wd2.md",
+          "testerStage": "wd2",
+          "difficulty": "easy"
+        },
+        {
+          "slug": "sk5",
+          "name": "Stack multiple skills",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/sk5.md",
+          "testerStage": "sk5",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "tq1",
+          "name": "Run a script bundled with a skill",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/tq1.md",
+          "testerStage": "tq1",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "gq2",
+          "name": "Let the model choose a skill",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/gq2.md",
+          "testerStage": "gq2",
+          "difficulty": "medium"
+        },
+        {
+          "slug": "mj2",
+          "name": "Run a skill in a subagent",
+          "group": "skills",
+          "descriptionPath": "content/claude-code/mj2.md",
+          "testerStage": "mj2",
+          "difficulty": "hard"
+        }
+      ],
+      "extensions": [
+        {
+          "slug": "skills",
+          "name": "Skills",
+          "description_markdown": "In this challenge extension, you'll add support for [Skills][agent-skills] to your Claude Code implementation.\n\nA skill is a folder of instructions for one specific task. Your agent finds skills on disk and loads one only when it's needed.\n\nAlong the way you'll learn about [progressive disclosure][progressive-disclosure], frontmatter parsing, argument substitution, letting the model choose a skill on its own, and handing one to a subagent.\n\n[agent-skills]: https://agentskills.io/home\n[progressive-disclosure]: https://agentskills.io/specification#progressive-disclosure"
+        }
+      ],
+      "descriptionLanguage": "en",
+      "templateLanguage": "go",
+      "licensePath": "licenses/claude-code.LICENSE"
+    }
+  ]
+}

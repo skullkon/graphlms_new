@@ -1,6 +1,7 @@
 import { readdir, readFile, access } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { checkManifest } from "./content-manifest.mjs";
+import matter from "gray-matter";
 
 const content = resolve(process.cwd(), "..", "content");
 const courses = JSON.parse(await readFile(join(content, "courses.json"), "utf8"));
@@ -9,7 +10,10 @@ errors.push(...await checkManifest());
 const exists = async (file) => access(file).then(() => true).catch(() => false);
 const semver = /^\d+\.\d+\.\d+$/;
 let changelogEntries = [];
-const routes = new Set(["/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
+const routes = new Set(["/learn", "/learn/backend", "/projects/tracks", "/downloads/backend-path-starter.zip", "/downloads/backend-path-reference.zip", "/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
+for (const route of ["project", "review", "interview", "labs", "pilot"]) {
+  if (await exists(resolve(process.cwd(), "app", "system-design", route, "page.tsx"))) routes.add(`/system-design/${route}`);
+}
 const linkRefs = [];
 const normalizeRoute = (href) => {
   const clean = href.replace(/[?#].*$/, "").replace(/\/$/, "") || "/";
@@ -73,7 +77,11 @@ for (const course of courses) {
       routes.add(`/${course.slug}/tasks/${meta.slug ?? meta.id}`);
       routes.add(`/${course.slug}/tasks/${meta.id}`);
       routes.add(`/${course.slug}/tasks/${meta.num ?? parseInt(meta.id, 10)}`);
-      if (!(await exists(join(tasks, dir.name, "starter.go")))) errors.push(`${course.id}/tasks/${dir.name}: missing starter.go`);
+      if (meta.type === "design") {
+        if (!(await exists(join(tasks, dir.name, "problem.mdx")))) errors.push(`${course.id}/tasks/${dir.name}: missing design brief`);
+        if (!meta.chapterSlug) errors.push(`${course.id}/tasks/${dir.name}: missing chapterSlug`);
+        else linkRefs.push({ href: `/${course.slug}/book/${meta.chapterSlug}`, label: `${course.id}/tasks/${dir.name}/meta.json` });
+      } else if (!(await exists(join(tasks, dir.name, "starter.go")))) errors.push(`${course.id}/tasks/${dir.name}: missing starter.go`);
       for (const file of ["problem.md", "problem.mdx", "theory.mdx", "solution.mdx", "editorial.mdx"]) {
         const filePath = join(tasks, dir.name, file);
         if (await exists(filePath)) collectLinks(await readFile(filePath, "utf8"), `${course.id}/tasks/${dir.name}/${file}`);
@@ -97,6 +105,22 @@ for (const course of courses) {
     }
   }
   const sims = join(root, "sims");
+  const hardParts = join(root, "hard-parts");
+  if (await exists(hardParts)) {
+    routes.add(`/${course.slug}/hard-parts`);
+    const orders = new Set();
+    for (const file of (await readdir(hardParts)).filter(name => name.endsWith(".mdx"))) {
+      const raw = await readFile(join(hardParts, file), "utf8");
+      const { data } = matter(raw);
+      const label = `${course.id}/hard-parts/${file}`;
+      routes.add(`/${course.slug}/hard-parts/${file.slice(0, -4)}`);
+      if (!data.title || !data.summary || !Number.isInteger(data.order) || data.order < 1 || orders.has(data.order)) errors.push(`${label}: invalid metadata or duplicate order`);
+      orders.add(data.order);
+      if (!Array.isArray(data.prerequisites) || !data.prerequisites.length) errors.push(`${label}: missing prerequisites`);
+      else for (const slug of data.prerequisites) if (!chapterSlugs.has(slug)) errors.push(`${label}: unknown prerequisite ${slug}`);
+      collectLinks(raw, label);
+    }
+  }
   if (await exists(sims)) {
     for (const file of (await readdir(sims)).filter((name) => name.endsWith(".json"))) {
       let sim;

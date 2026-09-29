@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useProgress } from "@/lib/progress";
-import { TaskListItem, ProgressBar, Logo, Kbd } from "@/ds";
+import { TaskListItem, ProgressBar, Kbd } from "@/ds";
 import type { NavTopic, Difficulty } from "./types";
 
 export function TaskNav({
@@ -50,15 +50,9 @@ export function TaskNav({
           borderBottom: "1px solid var(--border-subtle)",
         }}
       >
-        {collapsed ? (
-          <Link href="/" aria-label="GraphLMS" style={{ display: "inline-flex" }}>
-            <Logo size={22} showWordmark={false} />
-          </Link>
-        ) : (
-          <Link href="/" style={{ textDecoration: "none", display: "inline-flex" }}>
-            <Logo size={20} />
-          </Link>
-        )}
+        <Link href={`/${course}/practice`} style={{ textDecoration: "none", color: "var(--text-primary)", fontSize: 13, fontWeight: 650 }} title="Все задачи">
+          {collapsed ? "01" : "Задачи курса"}
+        </Link>
       </div>
 
       {/* progress */}

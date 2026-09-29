@@ -1,5 +1,7 @@
 "use client";
 
+import styles from "./TaskWorkspace.module.css";
+
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Editor, { type OnMount } from "@monaco-editor/react";
 import { Button, Terminal, Kbd, Badge, SegmentedControl, type TerminalStatus } from "@/ds";
@@ -322,7 +324,7 @@ export function EditorPanel({
   const showStructured = hasTests && resultsTab === "tests";
 
   return (
-    <div
+    <div className={styles.darkEditor}
       style={{
         display: "flex",
         minHeight: 0,
@@ -332,7 +334,7 @@ export function EditorPanel({
       }}
     >
       {/* toolbar */}
-      <div
+      <div className={styles.editorToolbar}
         style={{
           height: 48,
           flexShrink: 0,
@@ -398,7 +400,7 @@ export function EditorPanel({
                 background: "var(--success)",
               }}
             />
-            <span style={{ fontFamily: "var(--font-mono)" }}>go test -race</span>
+            <span className={styles.commandLabel} style={{ fontFamily: "var(--font-mono)" }}>go test -race</span>
           </span>
         )}
       </div>
@@ -471,7 +473,7 @@ export function EditorPanel({
               </div>
             }
             options={{
-              fontSize: 13,
+              fontSize: 14,
               fontFamily:
                 'var(--font-mono), "SF Mono", ui-monospace, Menlo, monospace',
               minimap: { enabled: false },
@@ -480,7 +482,7 @@ export function EditorPanel({
               insertSpaces: false,
               renderWhitespace: "selection",
               smoothScrolling: true,
-              padding: { top: 12, bottom: 12 },
+              padding: { top: 22, bottom: 22 },
               automaticLayout: true,
             }}
           />

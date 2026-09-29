@@ -1,5 +1,6 @@
 import { getAllSims, getAllTaskMeta, getBookChapters, type TaskMeta } from "./content";
 import { getCourse, getCourses } from "./courses";
+import { getHardParts } from "./system-design/hardParts";
 
 export type LearningItemKind = "chapter" | "task" | "lab";
 
@@ -50,7 +51,7 @@ export function getLearningItems(courseId: string): LearningItem[] {
       title: chapter.title,
       href: `/${course.slug}/book/${chapter.slug}`,
       prerequisites: index > 0 ? [`${course.id}:chapter:${chapters[index - 1].slug}`] : [],
-      relatedSkills: [course.id === "os" ? "operating-systems" : "go"],
+      relatedSkills: [course.id === "os" ? "operating-systems" : course.id === "system-design" ? "system-design" : "go"],
       previousId: index > 0 ? `${course.id}:chapter:${chapters[index - 1].slug}` : undefined,
       nextId: index < chapters.length - 1 ? `${course.id}:chapter:${chapters[index + 1].slug}` : undefined,
       relatedLabIds: labs
@@ -59,11 +60,23 @@ export function getLearningItems(courseId: string): LearningItem[] {
     });
   });
 
+  if (course.id === "system-design") {
+    for (const part of getHardParts()) items.push({
+      id: `${course.id}:chapter:hard-part-${part.slug}`,
+      kind: "chapter",
+      courseId: course.id,
+      title: part.title,
+      href: `/system-design/hard-parts/${part.slug}`,
+      prerequisites: part.prerequisites.map(slug => `${course.id}:chapter:${slug}`),
+      relatedSkills: ["system-design", part.slug],
+    });
+  }
+
   tasks.forEach((task, index) => {
     const id = `${course.id}:task:${task.id}`;
     const previous = tasks[index - 1];
     const next = tasks[index + 1];
-    const theory = chapters.find((chapter) => chapter.order === task.num) ?? chapters[index % Math.max(1, chapters.length)];
+    const theory = chapters.find((chapter) => chapter.slug === task.chapterSlug) ?? chapters.find((chapter) => chapter.order === task.num) ?? chapters[index % Math.max(1, chapters.length)];
     items.push({
       id,
       kind: "task",

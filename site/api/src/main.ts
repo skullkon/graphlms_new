@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { PrismaService } from './prisma/prisma.service';
 
 function readCookie(request: { headers: { cookie?: string } }, name: string): string | undefined {
@@ -8,7 +9,9 @@ function readCookie(request: { headers: { cookie?: string } }, name: string): st
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  // A course snapshot includes notes and versioned project drafts.
+  app.useBodyParser('json', { limit: '8mb' });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.use((req: { method: string; path: string; headers: { cookie?: string; 'x-csrf-token'?: string } }, res: { status: (code: number) => { json: (body: unknown) => void } }, next: () => void) => {
     if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method) && req.path.startsWith('/me/')) {
@@ -21,7 +24,7 @@ async function bootstrap() {
   const prisma = app.get(PrismaService);
   prisma.enableShutdownHooks(app);
   const port = Number(process.env.PORT) || 4000;
-  await app.listen(port);
+  await app.listen(port, process.env.HOST || '0.0.0.0');
   // eslint-disable-next-line no-console
   console.log(`goroutine-api listening on http://localhost:${port}`);
 }

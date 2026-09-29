@@ -1,0 +1,19 @@
+sequenceDiagram
+    autonumber
+    participant C as Клиент
+    participant D as DNS resolver
+    participant L as Балансировщик
+    participant A as Приложение
+    participant B as База данных
+    opt Адрес ещё не закэширован
+        C->>D: Получить адрес сервиса
+        D-->>C: Адрес и TTL
+    end
+    Note over C,L: При необходимости установить транспортное соединение и TLS
+    C->>L: HTTP-запрос
+    L->>A: Передать выбранному экземпляру
+    A->>B: Выполнить чтение
+    B-->>A: Результат
+    A-->>L: HTTP-ответ
+    L-->>C: HTTP-ответ
+    Note over C,B: Один последовательный запрос; повторы и параллельные ветви не показаны

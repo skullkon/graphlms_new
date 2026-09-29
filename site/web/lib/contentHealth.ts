@@ -1,5 +1,6 @@
 import { getAllSims, getAllTaskMeta, getBookChapters, getTaskContent } from "@/lib/content";
 import { getCourses } from "@/lib/courses";
+import { getHardParts } from "@/lib/system-design/hardParts";
 
 export interface ContentHealthTask {
   kind?: "task" | "chapter" | "lab";
@@ -81,6 +82,8 @@ export function getContentHealth(): ContentHealthReport {
     }
   };
   for (const course of getCourses()) addCourseRoutes(course);
+  for (const route of ["hard-parts", "project", "review", "interview", "labs", "pilot"]) routes.add(`/system-design/${route}`);
+  for (const part of getHardParts()) routes.add(`/system-design/hard-parts/${part.slug}`);
 
   const internalLinks = (source: string): string[] => {
     const links: string[] = [];
@@ -112,6 +115,7 @@ export function getContentHealth(): ContentHealthReport {
       const hasNextStep = Boolean(
         chapters[index + 1] ||
         sims.some((sim) => sim.chapterSlug === chapter.slug) ||
+        tasks.some((task) => task.chapterSlug === chapter.slug) ||
         (course.id === "go" && tasks.some((task) => task.num === chapter.order)),
       );
       const entry: ContentHealthTask = {
@@ -135,16 +139,22 @@ export function getContentHealth(): ContentHealthReport {
       const task = getTaskContent(meta.id, course.id);
       if (!task) continue;
       report.tasks += 1;
-      if (task.theory) report.withTheory += 1;
+      const linkedTheory = Boolean(meta.chapterSlug && chapters.some(chapter => chapter.slug === meta.chapterSlug));
+      if (task.theory || linkedTheory) report.withTheory += 1;
       if (task.solution || task.reference) report.withSolution += 1;
       if (task.hints.length > 0) report.withHints += 1;
       if (task.editorial) report.withEditorial += 1;
 
       const missing: string[] = [];
-      if (!task.theory) missing.push("теория");
-      if (!task.solution && !task.reference) missing.push("решение");
-      if (task.hints.length === 0) missing.push("подсказки");
-      if (!task.editorial) missing.push("editorial");
+      if (!task.theory && !linkedTheory) missing.push("теория");
+      if (meta.type === "design") {
+        if (!task.problem.includes("## Как проверить решение")) missing.push("критерии проверки");
+        if (!task.problem.includes("## Подсказка")) missing.push("подсказки");
+      } else {
+        if (!task.solution && !task.reference) missing.push("решение");
+        if (task.hints.length === 0) missing.push("подсказки");
+        if (!task.editorial) missing.push("editorial");
+      }
       const entry: ContentHealthTask = {
         kind: "task",
         courseId: course.id,

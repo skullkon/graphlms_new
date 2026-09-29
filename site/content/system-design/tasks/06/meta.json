@@ -1,0 +1,13 @@
+{
+  "id": "06",
+  "num": 6,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Миграция и резервный регион",
+  "slug": "migration",
+  "type": "design",
+  "difficulty": "hard",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "14-evolution"
+}

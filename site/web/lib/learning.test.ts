@@ -3,7 +3,7 @@ import { getCourseStartItem, getLearningItem, getLearningItems, getTaskLearningC
 
 describe("learning item registry", () => {
   it("derives chapter and task items for every course", () => {
-    for (const course of ["go-basics", "go", "os"]) {
+    for (const course of ["go-basics", "go", "os", "system-design"]) {
       const items = getLearningItems(course);
       expect(items.length).toBeGreaterThan(0);
       expect(getCourseStartItem(course)?.kind).toBe("chapter");

@@ -67,3 +67,20 @@ func TestOrEmpty(t *testing.T) {
 		t.Fatal("or() без аргументов должен вернуть nil")
 	}
 }
+
+// A signal value must close the output even when the input stays open.
+func TestOrSingleValueClosesOutput(t *testing.T) {
+	c := make(chan interface{}, 1)
+	c <- "ready"
+	out := or(c)
+	for i := 0; i < 2; i++ {
+		select {
+		case _, ok := <-out:
+			if ok {
+				t.Fatal("output must close, not forward the input value")
+			}
+		case <-time.After(time.Second):
+			t.Fatal("output must close after a single input value")
+		}
+	}
+}

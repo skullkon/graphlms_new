@@ -7,7 +7,8 @@ import { useProgress, loadCode, saveCode, clearCode, getLearningEvents, recordLe
 import { useInterviewSession } from "@/lib/interview";
 import { apiRequest, confirmTaskPass, useAuth } from "@/lib/auth";
 import { AnalyticsPreferences } from "@/components/Analytics";
-import { Button, Logo } from "@/ds";
+import { Button } from "@/ds";
+import styles from "./TaskWorkspace.module.css";
 import { TaskNav } from "./TaskNav";
 import { EditorPanel } from "./EditorPanel";
 import { DescPanel } from "./DescPanel";
@@ -97,6 +98,7 @@ export function TaskWorkspace({
   const result = job.result;
   const confirmedPassProof = job.passProof;
   const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => { if (window.innerWidth < 900) setCollapsed(true); }, []);
 
   // Load persisted code (or starter) on task change.
   useEffect(() => {
@@ -175,48 +177,25 @@ export function TaskWorkspace({
   }, [confirmedPassProof, course, result?.error, result?.pass, task.id, task.title, task.type, user]);
 
   return (
-    <div
-      className="task-shell"
-      style={{
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        background: "var(--bg-canvas)",
-        color: "var(--text-primary)",
-      }}
-    >
-      {/* HEADER */}
-      <header
-        style={{
-          height: 48,
-          flexShrink: 0,
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          padding: "0 14px",
-          borderBottom: "1px solid var(--border-subtle)",
-          background: "var(--bg-surface)",
-        }}
-      >
+    <div className={`task-shell ${styles.shell}`}>
+      <header className={styles.header}>
+        <Link href={`/${course}/practice`} className={styles.backLink}>{ChevL}<span>К практике</span></Link>
         <Button
           hierarchy="ghost"
           size="sm"
           iconOnly
           onClick={() => setCollapsed((c) => !c)}
+          aria-expanded={!collapsed}
+          aria-controls="task-navigation"
           aria-label="Список задач"
           title="Список задач"
         >
           {PanelIcon}
         </Button>
 
-        <Link href="/" aria-label="GraphLMS" style={{ display: "inline-flex" }}>
-          <Logo size={22} showWordmark={false} />
-        </Link>
-
         {/* breadcrumb */}
-        <div style={{ display: "flex", alignItems: "center", gap: 7, minWidth: 0 }}>
-          <span
+        <div className={styles.breadcrumb}>
+          <span className={styles.topic}
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "var(--label-sm)",
@@ -263,7 +242,7 @@ export function TaskWorkspace({
         </div>
 
         {/* account + prev / next */}
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+        <div className={styles.headerActions}>
           {contentVersion && <Link href={`/changelog#v${contentVersion}`} title={contentVersionDate ? `Версия задания от ${contentVersionDate}` : "История изменений задания"} style={{ color: "var(--text-tertiary)", font: "11px var(--font-mono)", textDecoration: "none", whiteSpace: "nowrap" }}>v{contentVersion}</Link>}
           <span className="task-analytics-preferences"><AnalyticsPreferences /></span>
           <Link
@@ -317,18 +296,11 @@ export function TaskWorkspace({
       </header>
 
       {/* BODY */}
-      <div className="task-shell-body" style={{ flex: 1, minHeight: 0, display: "flex" }}>
+      <div className={styles.body}>
         {/* left navigator */}
         <aside
-          className="task-left-nav"
-          style={{
-            width: collapsed ? 56 : 300,
-            flexShrink: 0,
-            borderRight: "1px solid var(--border-subtle)",
-            background: "var(--bg-surface)",
-            transition: "width var(--dur-base) var(--ease-out)",
-            overflow: "hidden",
-          }}
+          id="task-navigation"
+          className={`${styles.navigation} ${collapsed ? styles.collapsed : ""}`}
         >
           <TaskNav
             nav={nav}
@@ -343,8 +315,26 @@ export function TaskWorkspace({
           />
         </aside>
 
+        {/* Read the statement before writing a solution. */}
+        <aside
+          className={styles.description}
+        >
+          <DescPanel
+            taskId={task.id}
+            problemNode={problemNode}
+            theoryNode={theoryNode}
+            solutionNode={solutionNode}
+            editorialNode={editorialNode}
+            hasSolution={hasSolution}
+            solved={solved}
+            hints={hints}
+            discussionTaskId={`${course}:${task.id}`}
+            learningContext={learningContext}
+          />
+        </aside>
+
         {/* center: editor + terminal */}
-        <main className="task-editor" style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column" }}>
+        <main id="task-code" className={styles.editor}>
           <EditorPanel
             code={code}
             onChange={handleChange}
@@ -377,7 +367,7 @@ export function TaskWorkspace({
               </div>
               <div className="pass-evidence-actions">
                 <Link href="/account/report">Открыть skill report ↗</Link>
-                <Link href="/projects">Собрать проектный артефакт ↗</Link>
+                <Link href="/projects/tracks">Собрать проектный артефакт ↗</Link>
                 <Link href="/go/interview">Подготовиться к интервью ↗</Link>
                 {next && <Link href={`/${course}/tasks/${next.slug}`}>Закрыть следующий пробел ↗</Link>}
               </div>
@@ -385,46 +375,9 @@ export function TaskWorkspace({
           )}
         </main>
 
-        {/* right: description tabs */}
-        <aside
-          className="task-description"
-          style={{
-            width: 380,
-            flexShrink: 0,
-            minWidth: 300,
-            borderLeft: "1px solid var(--border-subtle)",
-            background: "var(--bg-surface)",
-          }}
-        >
-          <DescPanel
-            taskId={task.id}
-            problemNode={problemNode}
-            theoryNode={theoryNode}
-            solutionNode={solutionNode}
-            editorialNode={editorialNode}
-            hasSolution={hasSolution}
-            solved={solved}
-            hints={hints}
-            discussionTaskId={`${course}:${task.id}`}
-            learningContext={learningContext}
-          />
-        </aside>
+
       </div>
-      <style>{`@media (max-width: 900px) {
-        .task-shell { height: auto !important; min-height: 100vh; overflow: auto !important; }
-        .task-shell-body { flex-direction: column; overflow: visible; }
-        .task-left-nav { width: 100% !important; height: 180px; border-right: 0 !important; border-bottom: 1px solid var(--border-subtle); }
-        .task-left-nav > div { height: 100%; }
-        .task-editor { min-height: 560px; flex: none !important; }
-        .task-description { width: 100% !important; min-width: 0 !important; min-height: 380px; border-left: 0 !important; border-top: 1px solid var(--border-subtle); }
-      }
-      @media (max-width: 560px) {
-        .task-shell > header { gap: 7px !important; padding: 0 8px !important; }
-        .task-shell > header > div:last-child { gap: 4px !important; }
-        .task-shell > header > div:last-child a { display: none; }
-        .task-analytics-preferences { display: none; }
-      }`}</style>
-      <style>{`.pass-evidence-panel{display:flex;justify-content:space-between;gap:20px;padding:16px 18px;border-top:1px solid rgba(57,217,138,.35);background:#101c18;color:var(--text-primary)}.pass-evidence-kicker{display:block;color:#39d98a;font:10px var(--font-mono);letter-spacing:.08em}.pass-evidence-panel h2{margin:6px 0 4px;font-size:15px}.pass-evidence-panel p{max-width:620px;margin:0;color:var(--text-secondary);font-size:12px;line-height:1.45}.pass-evidence-checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;color:#9ee7bc;font:11px var(--font-mono)}.pass-evidence-checks span{padding:4px 7px;border:1px solid rgba(57,217,138,.3);border-radius:4px}.pass-evidence-actions{display:flex;flex-direction:column;align-items:flex-end;gap:7px;min-width:190px}.pass-evidence-actions a{color:#9ec1ff;font-size:12px;text-decoration:none;white-space:nowrap}.pass-evidence-actions a:hover{text-decoration:underline}@media(max-width:700px){.pass-evidence-panel{flex-direction:column}.pass-evidence-actions{align-items:flex-start;min-width:0}}`}</style>
+      <style>{`.pass-evidence-panel{display:flex;justify-content:space-between;gap:20px;padding:16px 18px;border-top:1px solid rgba(57,217,138,.35);background:#101c18;color:#ecf5ef}.pass-evidence-kicker{display:block;color:#39d98a;font:10px var(--font-mono);letter-spacing:.08em}.pass-evidence-panel h2{margin:6px 0 4px;font-size:15px}.pass-evidence-panel p{max-width:620px;margin:0;color:#b5c5bb;font-size:12px;line-height:1.45}.pass-evidence-checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;color:#9ee7bc;font:11px var(--font-mono)}.pass-evidence-checks span{padding:4px 7px;border:1px solid rgba(57,217,138,.3);border-radius:4px}.pass-evidence-actions{display:flex;flex-direction:column;align-items:flex-end;gap:7px;min-width:190px}.pass-evidence-actions a{color:#9ec1ff;font-size:12px;text-decoration:none;white-space:nowrap}.pass-evidence-actions a:hover{text-decoration:underline}@media(max-width:700px){.pass-evidence-panel{flex-direction:column}.pass-evidence-actions{align-items:flex-start;min-width:0}}`}</style>
     </div>
   );
 }

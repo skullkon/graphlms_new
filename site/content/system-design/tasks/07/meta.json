@@ -1,0 +1,13 @@
+{
+  "id": "07",
+  "num": 7,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Бронирование мест с оплатой в песочнице",
+  "slug": "booking",
+  "type": "design",
+  "difficulty": "hard",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "15-design-review"
+}

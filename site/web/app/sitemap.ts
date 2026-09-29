@@ -6,34 +6,96 @@ import {
   getTopicGroups,
 } from "@/lib/content";
 import { getCourses } from "@/lib/courses";
+import { getHardParts } from "@/lib/system-design/hardParts";
 import { SITE_URL as BASE } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const entries: MetadataRoute.Sitemap = [
-    { url: `${BASE}/`, lastModified: now, changeFrequency: "daily", priority: 1 },
-    { url: `${BASE}/projects`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/go/interview`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE}/changelog`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
+    {
+      url: `${BASE}/learn`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE}/`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    {
+      url: `${BASE}/projects`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/go/interview`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE}/changelog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
   ];
 
+  entries.push({ url: `${BASE}/learn/backend`, lastModified: now, changeFrequency: "weekly", priority: 0.9 });
+
   for (const course of getCourses()) {
-    entries.push({ url: `${BASE}/${course.slug}`, lastModified: now, changeFrequency: "weekly", priority: 0.9 });
+    if (course.id === "system-design") {
+      for (const route of ["book", "practice", "labs", "project", "review", "interview", "pilot", "hard-parts", ...getHardParts().map(part => `hard-parts/${part.slug}`)]) entries.push({ url: `${BASE}/system-design/${route}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 });
+    }
+    entries.push({
+      url: `${BASE}/${course.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
 
     for (const c of getBookChapters(course.id)) {
-      entries.push({ url: `${BASE}/${course.slug}/book/${c.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.7 });
+      entries.push({
+        url: `${BASE}/${course.slug}/book/${c.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
     }
     for (const t of getTopicGroups(course.id)) {
-      entries.push({ url: `${BASE}/${course.slug}/topics/${t.num}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+      entries.push({
+        url: `${BASE}/${course.slug}/topics/${t.num}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.6,
+      });
     }
     for (const t of getAllTaskMeta(course.id)) {
-      entries.push({ url: `${BASE}/${course.slug}/tasks/${t.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+      entries.push({
+        url: `${BASE}/${course.slug}/tasks/${t.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.6,
+      });
     }
     if (course.id === "os") {
-      entries.push({ url: `${BASE}/os/labs`, lastModified: now, changeFrequency: "weekly", priority: 0.8 });
+      entries.push({
+        url: `${BASE}/os/labs`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.8,
+      });
       for (const sim of getAllSims(course.id)) {
-        entries.push({ url: `${BASE}/os/sim/${sim.id}`, lastModified: now, changeFrequency: "monthly", priority: 0.7 });
+        entries.push({
+          url: `${BASE}/os/sim/${sim.id}`,
+          lastModified: now,
+          changeFrequency: "monthly",
+          priority: 0.7,
+        });
       }
     }
   }

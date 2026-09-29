@@ -1,0 +1,13 @@
+{
+  "id": "02",
+  "num": 2,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Каталог и короткие ссылки на курсы",
+  "slug": "catalog",
+  "type": "design",
+  "difficulty": "medium",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "08-partitioning"
+}

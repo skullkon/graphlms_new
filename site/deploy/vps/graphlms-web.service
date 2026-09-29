@@ -1,0 +1,20 @@
+[Unit]
+Description=GraphLMS web
+After=network.target graphlms-api.service
+
+[Service]
+User=graphlms
+Group=graphlms
+WorkingDirectory=/opt/graphlms/runtime/web
+EnvironmentFile=/etc/graphlms/web.env
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/graphlms/runtime/web/.next
+
+[Install]
+WantedBy=multi-user.target

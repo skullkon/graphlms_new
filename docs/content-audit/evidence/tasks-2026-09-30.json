@@ -1,0 +1,162 @@
+[
+  {
+    "task": "01",
+    "ok": true,
+    "output": "ok  \taudit\t2.404s\n"
+  },
+  {
+    "task": "02",
+    "ok": true,
+    "output": "ok  \taudit\t1.745s\n"
+  },
+  {
+    "task": "03",
+    "ok": true,
+    "output": "ok  \taudit\t3.474s\n"
+  },
+  {
+    "task": "04",
+    "ok": true,
+    "output": "ok  \taudit\t2.017s\n"
+  },
+  {
+    "task": "05",
+    "ok": true,
+    "output": "ok  \taudit\t2.811s\n"
+  },
+  {
+    "task": "06",
+    "ok": true,
+    "output": "ok  \taudit\t1.499s\n"
+  },
+  {
+    "task": "07",
+    "ok": true,
+    "output": "ok  \taudit\t1.390s\n"
+  },
+  {
+    "task": "08",
+    "ok": true,
+    "output": "ok  \taudit\t1.405s\n"
+  },
+  {
+    "task": "09",
+    "ok": true,
+    "output": "ok  \taudit\t1.432s\n"
+  },
+  {
+    "task": "10",
+    "ok": true,
+    "output": "ok  \taudit\t1.581s\n"
+  },
+  {
+    "task": "11",
+    "ok": true,
+    "output": "ok  \taudit\t1.335s\n"
+  },
+  {
+    "task": "12",
+    "ok": true,
+    "output": "ok  \taudit\t1.521s\n"
+  },
+  {
+    "task": "13",
+    "ok": true,
+    "output": "ok  \taudit\t1.595s\n"
+  },
+  {
+    "task": "14",
+    "ok": true,
+    "output": "ok  \taudit\t1.929s\n"
+  },
+  {
+    "task": "15",
+    "ok": true,
+    "output": "ok  \taudit\t1.425s\n"
+  },
+  {
+    "task": "16",
+    "ok": true,
+    "output": "ok  \taudit\t2.467s\n"
+  },
+  {
+    "task": "17",
+    "ok": true,
+    "output": "ok  \taudit\t1.882s\n"
+  },
+  {
+    "task": "18",
+    "ok": true,
+    "output": "ok  \taudit\t1.416s\n"
+  },
+  {
+    "task": "19",
+    "ok": true,
+    "output": "ok  \taudit\t1.703s\n"
+  },
+  {
+    "task": "20",
+    "ok": true,
+    "output": "ok  \taudit\t1.476s\n"
+  },
+  {
+    "task": "21",
+    "ok": true,
+    "output": "ok  \taudit\t1.717s\n"
+  },
+  {
+    "task": "22",
+    "ok": true,
+    "output": "ok  \taudit\t1.980s\n"
+  },
+  {
+    "task": "23",
+    "ok": true,
+    "output": "ok  \taudit\t2.223s\n"
+  },
+  {
+    "task": "24",
+    "ok": true,
+    "output": "ok  \taudit\t1.348s\n"
+  },
+  {
+    "task": "25",
+    "ok": true,
+    "output": "ok  \taudit\t1.771s\n"
+  },
+  {
+    "task": "26",
+    "ok": true,
+    "output": "ok  \taudit\t1.832s\n"
+  },
+  {
+    "task": "27",
+    "ok": true,
+    "output": "ok  \taudit\t4.460s\n"
+  },
+  {
+    "task": "28",
+    "ok": true,
+    "output": "ok  \taudit\t1.759s\n"
+  },
+  {
+    "task": "29",
+    "ok": true,
+    "output": "ok  \taudit\t1.687s\n"
+  },
+  {
+    "task": "30",
+    "ok": true,
+    "output": "ok  \taudit\t1.858s\n"
+  },
+  {
+    "task": "31",
+    "ok": true,
+    "output": "ok  \taudit\t2.324s\n"
+  },
+  {
+    "task": "32",
+    "ok": true,
+    "output": "ok  \taudit\t1.797s\n"
+  }
+]

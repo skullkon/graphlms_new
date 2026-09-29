@@ -17,13 +17,14 @@ type UserProfile struct {
 // Исправленная версия: воркеры пишут результат в предвыделённый слайс по
 // своему индексу (никакого общего append → нет гонки), а кэш защищён мьютексом.
 type UserFetcher struct {
-	cache map[int]UserProfile
-	mu    sync.Mutex
+	cache   map[int]UserProfile
+	pending map[int]*profileCall
+	mu      sync.Mutex
 }
 
 // NewUserFetcher создаёт загрузчик с пустым кэшем.
 func NewUserFetcher() *UserFetcher {
-	return &UserFetcher{cache: make(map[int]UserProfile)}
+	return &UserFetcher{cache: make(map[int]UserProfile), pending: make(map[int]*profileCall)}
 }
 
 // fetchFromRemoteAPI имитирует медленный HTTP-запрос и возвращает профиль.
@@ -32,18 +33,33 @@ func (uf *UserFetcher) fetchFromRemoteAPI(id int) UserProfile {
 	return UserProfile{ID: id, Name: fmt.Sprintf("User%d", id)}
 }
 
+// profileCall publishes one result to all concurrent callers for the same ID.
+type profileCall struct {
+	done    chan struct{}
+	profile UserProfile
+}
+
 func (uf *UserFetcher) getProfile(id int) UserProfile {
 	uf.mu.Lock()
 	if p, ok := uf.cache[id]; ok {
 		uf.mu.Unlock()
 		return p
 	}
+	if call, ok := uf.pending[id]; ok {
+		uf.mu.Unlock()
+		<-call.done
+		return call.profile
+	}
+	call := &profileCall{done: make(chan struct{})}
+	uf.pending[id] = call
 	uf.mu.Unlock()
 
 	p := uf.fetchFromRemoteAPI(id)
-
 	uf.mu.Lock()
 	uf.cache[id] = p
+	call.profile = p
+	delete(uf.pending, id)
+	close(call.done)
 	uf.mu.Unlock()
 	return p
 }

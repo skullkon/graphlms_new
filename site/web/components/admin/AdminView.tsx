@@ -75,10 +75,10 @@ export function AdminView({ contentHealth }: { contentHealth: ContentHealthRepor
     };
   }, [loading, user]);
 
-  if (state === "loading") return <div className="admin-page"><div className="admin-loading">Загрузка консоли...</div></div>;
+  if (state === "loading") return <div className="admin-page"><AdminTheme /><div className="admin-loading">Загрузка консоли...</div></div>;
   if (state === "forbidden") {
     return (
-      <div className="admin-page">
+      <div className="admin-page"><AdminTheme />
         <div className="admin-empty">
           <span className="admin-empty-code">403</span>
           <h1>Доступ ограничен</h1>
@@ -89,11 +89,11 @@ export function AdminView({ contentHealth }: { contentHealth: ContentHealthRepor
     );
   }
   if (state === "error" || !data) {
-    return <div className="admin-page"><div className="admin-empty"><h1>Консоль недоступна</h1><p>Не удалось получить данные API. Проверь, что сервер запущен.</p></div></div>;
+    return <div className="admin-page"><AdminTheme /><div className="admin-empty"><h1>Консоль недоступна</h1><p>Не удалось получить данные API. Проверь, что сервер запущен.</p></div></div>;
   }
 
   return (
-    <div className="admin-page">
+    <div className="admin-page"><AdminTheme />
       <div className="admin-head">
         <div><span className="eyebrow">GRAPH / ADMIN</span><h1>Операционный обзор</h1><p>Пользователи, активность и сигнал качества обучения.</p></div>
         <Link href="/" className="quiet-action">На главную ↗</Link>
@@ -183,3 +183,23 @@ function ContentMetric({ value, label, percent }: { value: number; label: string
 
 function Stat({ value, label }: { value: number; label: string }) { return <div className="admin-stat"><strong>{value.toLocaleString("ru-RU")}</strong><span>{label}</span></div>; }
 function QualityStat({ value, label, detail }: { value: string | number; label: string; detail: string }) { return <div className="admin-quality-stat"><strong>{typeof value === "number" ? value.toLocaleString("ru-RU") : value}</strong><span>{label}</span><small>{detail}</small></div>; }
+
+function AdminTheme() {
+  return <style>{`
+    .admin-page {color:var(--text-primary);padding-top:48px}
+    .admin-page :is(.admin-head,.admin-stat,.admin-table-wrap,.admin-table-title,.admin-table-row,.admin-loading,.admin-empty,.admin-quality,.admin-quality-stat,.admin-content-quality,.admin-content-metric,.admin-content-attention,.admin-content-row,.admin-task-quality,.admin-task-quality-list,.admin-task-quality-row){border-color:var(--border-default)}
+    .admin-page :is(.admin-stat,.admin-table-wrap,.admin-loading,.admin-empty,.admin-quality,.admin-quality-stat,.admin-content-quality,.admin-content-metric,.admin-task-quality){background:var(--bg-surface);border-radius:12px}
+    .admin-page :is(.admin-quality-stat,.admin-content-metric){background:var(--bg-canvas);border-radius:8px}
+    .admin-page :is(h1,h2,.admin-stat strong,.admin-quality-stat strong,.admin-content-metric strong,.admin-user b,.admin-content-row b,.admin-task-quality-row strong){color:var(--text-primary)}
+    .admin-page :is(.admin-head p,.admin-stat span,.admin-table-title span,.admin-table-row,.admin-quality-window,.admin-quality-stat span,.admin-quality-stat small,.admin-content-metric span,.admin-content-metric small,.admin-content-attention-head,.admin-content-row small,.admin-content-empty,.admin-task-quality-row small,.admin-empty p,.admin-table-header){color:var(--text-secondary)}
+    .admin-page :is(.admin-content-attention-head span,.admin-content-row em,.admin-task-quality-row>div){color:var(--warning-fg)}
+    .admin-page .admin-empty-code{color:var(--error-fg)}
+    .admin-page :is(.admin-content-row,.admin-task-quality-row):hover{background:var(--bg-hover)}
+    .admin-page .admin-user i{background:var(--accent);color:var(--text-inverse)}
+    .admin-page .admin-quality-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .admin-page .admin-content-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .admin-page :is(.admin-quality,.admin-content-quality,.admin-task-quality){padding:24px}
+    .admin-page a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    @media(max-width:680px){.admin-page :is(.admin-quality-grid,.admin-content-metrics){grid-template-columns:1fr}.admin-page :is(.admin-quality,.admin-content-quality,.admin-task-quality){padding:18px}.admin-page .admin-stats{gap:10px}}
+  `}</style>;
+}

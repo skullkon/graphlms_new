@@ -1,0 +1,13 @@
+{
+  "id": "08",
+  "num": 8,
+  "topic": "Топик 1 · Архитектурные проекты",
+  "title": "Защита развившегося «Клуба»",
+  "slug": "defense",
+  "type": "design",
+  "difficulty": "hard",
+  "tags": [
+    "system-design"
+  ],
+  "chapterSlug": "16-interviews"
+}

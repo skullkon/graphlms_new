@@ -7,12 +7,12 @@ import (
 
 // RateLimiter — ограничитель частоты по алгоритму token bucket.
 //
-// Бакет вмещает до rps токенов и полностью пополняется раз в секунду.
+// Бакет вмещает до rps токенов и пополняется со скоростью rps в секунду.
 // Каждый разрешённый Allow() тратит один токен.
 type RateLimiter struct {
 	mu       sync.Mutex
 	rps      int
-	tokens   int
+	tokens   float64
 	lastFill time.Time
 	now      func() time.Time
 }
@@ -21,7 +21,7 @@ type RateLimiter struct {
 func NewRateLimiter(rps int) *RateLimiter {
 	return &RateLimiter{
 		rps:      rps,
-		tokens:   rps,
+		tokens:   float64(rps),
 		lastFill: time.Now(),
 		now:      time.Now,
 	}
@@ -38,17 +38,14 @@ func (rl *RateLimiter) Allow() bool {
 	// но не превышаем ёмкость бакета.
 	elapsed := now.Sub(rl.lastFill)
 	if elapsed > 0 {
-		add := int(float64(rl.rps) * elapsed.Seconds())
-		if add > 0 {
-			rl.tokens += add
-			if rl.tokens > rl.rps {
-				rl.tokens = rl.rps
-			}
-			rl.lastFill = now
+		rl.tokens += float64(rl.rps) * elapsed.Seconds()
+		if rl.tokens > float64(rl.rps) {
+			rl.tokens = float64(rl.rps)
 		}
+		rl.lastFill = now
 	}
 
-	if rl.tokens > 0 {
+	if rl.tokens >= 1 {
 		rl.tokens--
 		return true
 	}

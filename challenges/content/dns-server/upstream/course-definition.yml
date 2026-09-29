@@ -1,0 +1,174 @@
+# Used in your course's URL: https://app.codecrafters.io/courses/<slug>
+# Example: "redis"
+slug: "dns-server"
+
+# The name of your course. This will be displayed in the course catalog, and on other course pages.
+# Example: "Build your own Redis"
+name: "Build your own DNS server"
+
+# A short name for your course, this'll be used in copy like emails.
+# Example: "Redis"
+short_name: "DNS Server"
+
+# The release status for your course.
+#
+# - alpha: Only visible to yourself and CodeCrafters staff.
+# - beta: Visible to all CodeCrafters users, but with a "beta" label.
+# - live: Visible to all CodeCrafters users, no label.
+#
+# Allowed values: "alpha", "beta", "live"
+release_status: "live"
+
+# This is shown on the course overview page. Markdown supported, recommended length ~40 words.
+#
+# Recommended format:
+#
+# > ABC is <whatever>. In this challenge, you'll build your own ABC that's capable of D, E, F and G.
+# >
+# > Along the way, we'll learn about X, Y, Z and more.
+#
+# Example:
+#
+# > Redis is an in-memory data structure store often used as a database, cache, message broken and streaming engine. In this challenge
+# > you'll build your own Redis server that is capable of serving basic commands, reading RDB files and more.
+# >
+# > Along the way, you'll learn about TCP servers, the Redis Protocol and more.
+description_md: |-
+  DNS is a protocol used to resolve domain names to IP addresses. In this challenge, you'll build a DNS server that's capable of responding to
+  basic DNS queries.
+
+  Along the way you'll learn about the DNS protocol, DNS packet format, DNS record types, UDP servers and more.
+
+# This is shown on the catalog. Plaintext only, recommended length ~10 words.
+#
+# Recommended format:
+#
+# > Learn about X, Y, Z and more
+#
+# Example:
+#
+# > Learn about TCP servers, the Redis protocol and more
+#
+# **TODO**: Remove _md suffix since markdown isn't supported
+short_description_md: |-
+  Learn about the DNS protocol, DNS record types and more.
+
+# The percentage of users who complete your course. We'll calculate this automatically in the future, safe to ignore for now.
+completion_percentage: 15
+
+# The languages that your course supports.
+languages:
+  - slug: "c"
+  - slug: "cpp"
+  - slug: "csharp"
+  - slug: "elixir"
+  - slug: "go"
+  - slug: "java"
+  - slug: "javascript"
+  - slug: "kotlin"
+  - slug: "php"
+  - slug: "python"
+  - slug: "ruby"
+  - slug: "rust"
+  - slug: "typescript"
+  - slug: "zig"
+
+marketing:
+  # Shown in the catalog.
+  #
+  # Recommended guidelines:
+  #
+  # - "easy": < 2h of work for an experienced developer
+  # - "medium": > 6h of work for an experienced developer
+  # - "hard": > 6h of work for an experienced developer
+  #
+  # Allowed values: "easy", "medium", "hard"
+  difficulty: medium
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "Persistence" (from the Redis challenge)
+  sample_extension_idea_title: "EDNS"
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "A Redis server that can read and write .rdb files" (from the Redis challenge)
+  sample_extension_idea_description: "Extend the DNS protocol with different abilities"
+
+  # These are some default testimonials that you can use. Feel free to switch these out with your own.
+  testimonials:
+    - author_name: "Ananthalakshmi Sankar"
+      author_description: "Automation Engineer at Apple"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/oxta.jpeg"
+      link: "https://github.com/anu294"
+      text: "There are few sites I like as much that have a step by step guide. The real-time feedback is so good, it's creepy!"
+
+    - author_name: "Patrick Burris"
+      author_description: "Senior Software Developer, CenturyLink"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/patrick-burris.jpeg"
+      link: "https://github.com/Jumballaya"
+      text: |-
+        I think the instant feedback right there in the git push is really cool.
+        Didn't even know that was possible!
+
+stages:
+  - slug: "ux2" # A identifier for this stage, needs to be unique within a course.
+
+    # The name of the stage. This is shown in the course catalog, and on other course pages.
+    name: "Setup UDP server"
+
+    # The difficulty of this stage.
+    #
+    # Recommended guidelines, based on how long the stage will take an experienced developer to complete:
+    #
+    # - Very Easy (< 5 minutes)
+    # - Easy (5-10 minutes)
+    # - Medium (30m-1h)
+    # - Hard (> 1h)
+    #
+    # Allowed values: "very_easy", "easy", "medium", "hard"
+    difficulty: very_easy
+
+    # The instructions for your stage. Markdown supported. Shown on the course page.
+    marketing_md: |-
+      In this stage, we'll start a UDP server on port 2053.
+
+  - slug: "tz1"
+    name: "Write header section"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, we'll write a DNS packet's header contents
+
+  - slug: "bf2"
+    name: "Write question section"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, we'll write a DNS packet's question section
+
+  - slug: "xm2"
+    name: "Write answer section"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, we'll write a DNS packet's answer section
+
+  - slug: "uc8"
+    name: "Parse header section"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, we'll parse a DNS packet's header section
+
+  - slug: "hd8"
+    name: "Parse question section"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, we'll parse a DNS packet's question section
+
+  - slug: "yc9"
+    name: "Parse compressed packet"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, we'll parse a DNS packet's question in which the label sequences have been compressed
+
+  - slug: "gt1"
+    name: "Forwarding Server"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, we'll call a DNS server which will do the actual DNS resolution.

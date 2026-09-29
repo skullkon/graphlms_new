@@ -43,10 +43,9 @@ func TestBasicSetGetDelete(t *testing.T) {
 	}
 }
 
-// TestManyKeysDistribute: множество различных ключей корректно хранятся.
-// Len, равный числу различных ключей, подтверждает распределение без коллизий
-// (все ключи доступны независимо от шарда, куда попали).
-func TestManyKeysDistribute(t *testing.T) {
+// TestManyKeys: проверяет сохранность ключей и значения Len.
+// Эта проверка не доказывает распределение по шардам и производительность.
+func TestManyKeys(t *testing.T) {
 	m := NewShardedMap()
 	const n = 1000
 	for i := 0; i < n; i++ {

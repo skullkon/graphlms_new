@@ -1,0 +1,1 @@
+Claude Code использует REST API для взаимодействия с большой языковой моделью (LLM). На этом этапе вы обратитесь к предоставленной LLM через [API, совместимый с OpenAI](https://openrouter.ai/docs/quickstart#using-the-openrouter-api).

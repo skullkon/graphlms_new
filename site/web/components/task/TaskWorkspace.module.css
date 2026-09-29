@@ -1,0 +1,38 @@
+.shell { height:100dvh; display:flex; flex-direction:column; overflow:hidden; background:var(--bg-canvas); color:var(--text-primary); }
+.header { min-height:56px; flex-shrink:0; display:flex; align-items:center; gap:18px; padding:0 24px; border-bottom:1px solid var(--border-subtle); background:var(--bg-surface); }
+.backLink { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; color:var(--text-secondary); text-decoration:none; font-size:13px; padding-right:18px; border-right:1px solid var(--border-default); }
+.backLink:hover {color:var(--accent-text)}
+.breadcrumb {display:flex; align-items:center; gap:7px; min-width:0; flex:1;}
+.headerActions {display:flex; align-items:center; gap:8px; flex-shrink:0; margin-left:auto;}
+.body {display:flex; flex:1; min-height:0; padding:0; gap:0;}
+.navigation {width:224px; flex-shrink:0; overflow:hidden; border:0; border-right:1px solid var(--border-default); border-radius:0; background:var(--bg-surface); transition:width 180ms ease;}
+.collapsed {width:56px;}
+.description {width:38%; min-width:320px; flex-shrink:0; background:var(--bg-surface); border:0; border-right:1px solid var(--border-default); border-radius:0; overflow:hidden;}
+.descriptionTabs {display:flex; flex-wrap:wrap; gap:4px; flex-shrink:0; padding:12px; border-bottom:1px solid var(--border-subtle);}
+.descriptionTabs button {border:0; border-radius:0; background:transparent; padding:8px 10px; font:500 12px var(--font-sans); color:var(--text-secondary); cursor:pointer;}
+.descriptionTabs button[aria-selected=true] {background:#eaeae3; color:#202020;}
+.descriptionTabs button:hover {background:var(--bg-canvas);}
+.descriptionTabs button:focus-visible {outline:2px solid var(--accent); outline-offset:2px;}
+.descriptionContent {flex:1; min-height:0; overflow-y:auto; padding:28px; overflow-wrap:anywhere;}
+.descriptionContent :global(.mdx) {font-size:14px; line-height:1.8;}
+.descriptionContent :global(.mdx h1) {font-size:26px; line-height:1.25; letter-spacing:-.7px;}
+.mobileCodeLink {display:none;}
+.editor {flex:1; min-width:0; display:flex; flex-direction:column; border-radius:0; overflow:auto; border:1px solid #303844; background:#1e1e1e;}
+.darkEditor {--bg-canvas:#1e1e1e; --bg-surface:#242422; --bg-inset:#1e1e1e; --bg-elevated:#30302c; --bg-terminal:#191918; --text-primary:#eeeeea; --text-secondary:#bfc0b6; --text-tertiary:#96998b; --text-disabled:#707366; --border-subtle:#36382f; --border-default:#45483c; --border-strong:#5d6350; --accent:#dadfc3; --accent-hover:#e5e8d6; --accent-text:#dfe1ce; --accent-fg:#1c1d19; --success:#6cdb9a; --danger:#ff8d98; color:var(--text-primary); color-scheme:dark;}
+.editorToolbar {flex-wrap:wrap; height:auto !important; min-height:58px; padding:10px 14px !important; gap:8px !important;}
+.editorToolbar > button:first-child {background:var(--accent); color:var(--accent-fg); border-color:var(--accent);}
+@media(min-width:901px) and (max-width:1200px) {.navigation{width:180px}.collapsed{width:48px}.body{gap:0;padding:0}.description{min-width:300px;width:36%}.descriptionContent{padding:20px}.topic{display:none}.commandLabel{display:none}.header{gap:10px;padding:0 14px}.headerActions :global(.task-analytics-preferences){display:none}}
+@media(max-width:900px) {
+ .shell {height:auto; min-height:100dvh; overflow:visible;}
+ .header {position:sticky; top:0; z-index:30; min-height:58px; gap:9px; padding:0 12px;}
+ .backLink {padding-right:8px;}.backLink span{display:none}.topic{display:none}.breadcrumb > span:nth-child(2){display:none}
+ .headerActions {gap:4px}.headerActions > a,.headerActions :global(.task-analytics-preferences){display:none}
+ .body {flex-direction:column; padding:0; gap:0; overflow:visible;}
+ .navigation {width:100%; height:300px;}.collapsed{display:none;}
+ .description {width:100%; min-width:0; flex:none; max-height:650px;}.description > div{max-height:650px}
+ .descriptionContent {padding:22px;}.descriptionTabs{padding:10px;gap:2px}.descriptionTabs button{padding:8px 9px}
+ .mobileCodeLink{display:block;padding:12px 20px;border-bottom:1px solid var(--border-subtle);color:var(--accent-text);font-size:12px;text-decoration:none}
+ .editor {min-height:690px; flex:none; scroll-margin-top:70px;}.darkEditor{min-height:690px !important}
+ .editorToolbar {position:sticky; top:58px; z-index:10; padding:10px !important}.commandLabel{display:none}
+}
+@media(max-width:420px){.header{gap:5px}.headerActions button{width:28px;min-width:28px}.body{padding:0}.descriptionContent{padding:20px}.editorToolbar{gap:6px !important}.editorToolbar :global(kbd){display:none}}

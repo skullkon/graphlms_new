@@ -1,51 +1,29 @@
 import { SiteHeader } from "@/components/SiteHeader";
-import { Logo } from "@/ds";
 import { AnalyticsPreferences } from "@/components/Analytics";
 import Link from "next/link";
-
-/**
- * Standard page chrome: sticky course-aware header + footer around the content.
- * Shared by the catalog/account layout and each course's reading pages. The
- * full-screen task IDE deliberately does NOT use this (it renders its own
- * header), so task routes live under a separate "bare" layout.
- */
 export function ChromeShell({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        minHeight: "100vh",
-        flexDirection: "column",
-        background: "var(--bg-canvas)",
-      }}
-    >
+    <div className="learning-shell">
+      <a className="skip-link" href="#main-content">
+        Перейти к содержимому
+      </a>
       <SiteHeader />
-      <main style={{ flex: 1 }}>{children}</main>
-      <footer style={{ borderTop: "var(--border-width) solid var(--border-subtle)" }}>
-        <div
-          style={{
-            maxWidth: 1080,
-            margin: "0 auto",
-            padding: "32px 28px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 20,
-            flexWrap: "wrap",
-          }}
-        >
-          <Logo size={20} color="var(--text-secondary)" mark="var(--text-tertiary)" />
-          <div style={{ display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-tertiary)" }}>
-              {"// интерактивные учебники для инженеров · Go · ОС"}
-            </span>
-            <Link href="/changelog" style={{ color: "var(--text-secondary)", fontSize: 12, textDecoration: "none" }}>История изменений ↗</Link>
+      <div className="learning-body">
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+        <footer className="learning-footer">
+          <span>
+            graphlms <span aria-hidden="true">·</span> Учись создавать
+            работающие системы
+          </span>
+          <div>
+            <Link href="/changelog">Что нового</Link>
             <AnalyticsPreferences />
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
-
 export default ChromeShell;

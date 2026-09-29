@@ -1,0 +1,7 @@
+[Unit]
+Description=Back up GraphLMS progress database
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/graphlms/site/deploy/vps/backup.py
+UMask=0077

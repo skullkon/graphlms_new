@@ -7,6 +7,8 @@ import { ProgressSync } from "@/components/ProgressSync";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "@/ds/styles.css";
 import "./globals.css";
+import "./design.css";
+import "./product-chrome.css";
 
 const TITLE = "GraphLMS — инженерная лаборатория роста";
 const DESCRIPTION =
@@ -77,7 +79,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="ru"
+      data-theme="light"
+      data-scroll-behavior="smooth"
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <body>
         {children}
         <Analytics />

@@ -1,0 +1,700 @@
+slug: "interpreter"
+name: "Build your own Interpreter"
+short_name: "Interpreter"
+release_status: "live"
+
+description_md: |-
+  This challenge follows the book [Crafting Interpreters](https://craftinginterpreters.com/) by Robert Nystrom.
+
+  In this challenge you'll build an interpreter for [Lox](https://craftinginterpreters.com/the-lox-language.html), a simple scripting
+  language. Along the way, you'll learn about tokenization, ASTs, tree-walk interpreters and more.
+
+  Before starting this challenge, make sure you've read the "Welcome" part of the book that contains these chapters:
+
+  - [Introduction](https://craftinginterpreters.com/introduction.html) (chapter 1)
+  - [A Map of the Territory](https://craftinginterpreters.com/a-map-of-the-territory.html) (chapter 2)
+  - [The Lox Language](https://craftinginterpreters.com/the-lox-language.html) (chapter 3)
+
+  These chapters don't involve writing code, so they won't be covered in this challenge. This challenge will start
+  from chapter 4, [Scanning](https://craftinginterpreters.com/scanning.html).
+
+short_description_md: |-
+  Learn about tokenization, ASTs, tree-walk interpreters and more.
+
+completion_percentage: 15
+
+languages:
+  - slug: "c"
+  - slug: "clojure"
+  - slug: "cpp"
+  - slug: "csharp"
+  - slug: "elixir"
+  - slug: "gleam"
+  - slug: "go"
+  - slug: "haskell"
+  - slug: "java"
+  - slug: "kotlin"
+  - slug: "ocaml"
+  - slug: "odin"
+    release_status: "beta"
+  - slug: "php"
+  - slug: "python"
+  - slug: "ruby"
+  - slug: "rust"
+  - slug: "javascript"
+  - slug: "scala"
+  - slug: "swift"
+    release_status: "alpha"
+    alpha_tester_usernames: ["JWShroyer"]
+  - slug: "typescript"
+  - slug: "zig"
+
+marketing:
+  difficulty: hard
+  sample_extension_idea_title: "Control flow"
+  sample_extension_idea_description: "An interpreter that can handle control flow statements like if/else"
+  testimonials:
+    - author_name: "Ananthalakshmi Sankar"
+      author_description: "Automation Engineer at Apple"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/oxta.jpeg"
+      link: "https://github.com/anu294"
+      text: "There are few sites I like as much that have a step by step guide. The real-time feedback is so good, it's creepy!"
+
+    - author_name: "Patrick Burris"
+      author_description: "Senior Software Developer, CenturyLink"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/patrick-burris.jpeg"
+      link: "https://github.com/Jumballaya"
+      text: |-
+        I think the instant feedback right there in the git push is really cool.
+        Didn't even know that was possible!
+
+extensions:
+  - slug: "parsing-expressions"
+    name: "Parsing Expressions"
+    description_markdown: |
+      This extension covers chapters 5 & 6 of the book ([Representing Code](https://craftinginterpreters.com/representing-code.html) & [Parsing Expressions](https://craftinginterpreters.com/parsing-expressions.html)).
+
+      In this extension, you'll add the ability to parse expressions.
+
+  - slug: "evaluating-expressions"
+    name: "Evaluating Expressions"
+    description_markdown: |
+      This extension covers chapters 7 of the book ([Evaluating Expressions](https://craftinginterpreters.com/evaluating-expressions.html)).
+
+      In this extension, you'll add the ability to evaluate expressions.
+
+  - slug: "statements-and-state"
+    name: "Statements & State"
+    description_markdown: |
+      This extension covers chapters 8 of the book ([Statements & State](https://craftinginterpreters.com/statements-and-state.html)).
+
+      In this extension, you'll add the ability to add internal state to your interpreter & produce output.
+
+  - slug: "control-flow"
+    name: "Control Flow"
+    description_markdown: |
+      This extension covers chapters 9 of the book ([Control Flow](https://craftinginterpreters.com/control-flow.html)).
+
+      In this extension, you'll add the ability to handle control flow statements like `if/else`, `while` & `for`.
+
+  - slug: "functions"
+    name: "Functions"
+    description_markdown: |
+      This extension covers chapters 10 of the book ([Functions](https://craftinginterpreters.com/functions.html)).
+
+      In this extension, you'll add the ability to handle lox native functions & user-defined functions.
+
+  - slug: "resolving-binding"
+    name: "Resolving & Binding"
+    description_markdown: |
+      This extension covers chapters 11 of the book ([Resolving & Binding](https://craftinginterpreters.com/resolving-and-binding.html)).
+
+      In this extension, you'll add the ability to semantically analyze variable declarations and resolve variable bindings at compile time.
+
+  - slug: "classes"
+    name: "Classes"
+    description_markdown: |
+      This extension covers chapters 12 of the book ([Classes](https://craftinginterpreters.com/classes.html)).
+
+      In this extension, you'll add the ability to handle lox classes, instances, constructors and methods.
+
+  - slug: "inheritance"
+    name: "Inheritance"
+    description_markdown: |
+      This extension covers chapters 13 of the book ([Inheritance](https://craftinginterpreters.com/inheritance.html)).
+
+      In this extension, you'll add the ability to handle class inheritance, method overriding and the super keyword.
+
+stages:
+  - slug: "ry8"
+    name: "Scanning: Empty file"
+    difficulty: very_easy
+    marketing_md: |-
+      In this stage, you'll implement basic support for the `tokenize` command which we'll use in all stages that are part of the [Scanning](https://craftinginterpreters.com/scanning.html) chapter.
+
+  - slug: "ol4"
+    name: "Scanning: Parentheses"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning parentheses.
+
+  - slug: "oe8"
+    name: "Scanning: Braces"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll implement support for scanning braces.
+
+  - slug: "xc5"
+    name: "Scanning: Other single-character tokens"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning other single-character tokens.
+
+  - slug: "ea6"
+    name: "Scanning: Lexical errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning lexical errors.
+
+  - slug: "mp7"
+    name: "Scanning: Assignment & equality Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning the assignment & equality operators.
+
+  - slug: "bu3"
+    name: "Scanning: Negation & inequality operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning negation & inequality operators.
+
+  - slug: "et2"
+    name: "Scanning: Relational operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning relational operators.
+
+  - slug: "ml2"
+    name: "Scanning: Division operator & comments"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning the division operator & comments.
+
+  - slug: "er2"
+    name: "Scanning: Whitespace"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning whitespace characters.
+
+  - slug: "tz7"
+    name: "Scanning: Multi-line errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning multi-line errors.
+
+  - slug: "ue7"
+    name: "Scanning: String literals"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll implement support for scanning string literals.
+
+  - slug: "kj0"
+    name: "Scanning: Number literals"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll implement support for scanning number literals.
+
+  - slug: "ey7"
+    name: "Scanning: Identifiers"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll implement support for scanning identifiers.
+
+  - slug: "pq5"
+    name: "Scanning: Reserved words"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for scanning reserved words.
+
+  - slug: "sc2"
+    primary_extension_slug: "parsing-expressions"
+    name: "Booleans & Nil"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll implement support for parsing boolean values and the nil literal.
+
+  - slug: "ra8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Number literals"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing number literals.
+
+  - slug: "th5"
+    primary_extension_slug: "parsing-expressions"
+    name: "String literals"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing string literals.
+
+  - slug: "xe6"
+    primary_extension_slug: "parsing-expressions"
+    name: "Parentheses"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing parentheses.
+
+  - slug: "mq1"
+    primary_extension_slug: "parsing-expressions"
+    name: "Unary Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing unary operators `!` and `-`.
+
+  - slug: "wa9"
+    primary_extension_slug: "parsing-expressions"
+    name: "Arithmetic operators (1/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing multiplicative algebraic operators `*` and `/`.
+
+  - slug: "yf2"
+    primary_extension_slug: "parsing-expressions"
+    name: "Arithmetic operators (2/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing additive algebraic operators `+` and `-`.
+
+  - slug: "uh4"
+    primary_extension_slug: "parsing-expressions"
+    name: "Comparison operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing comparison operators `>`, `<`, `>=` & `<=`.
+
+  - slug: "ht8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Equality operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for parsing equality operators `==` & `!=`.
+
+  - slug: "wz8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Syntactic errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for handling syntax errors in expressions.
+
+  - slug: "iz6"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Literals: Booleans & Nil"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating boolean values and the nil literal.
+
+  - slug: "lv1"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Literals: Strings & Numbers"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating number and string literals.
+
+  - slug: "oq9"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Parentheses"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating expressions inside parentheses.
+
+  - slug: "dc1"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Unary Operators: Negation & Not"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating unary operators `-` and `!`.
+
+  - slug: "bp3"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Arithmetic Operators (1/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating binary operators `*` and `/`.
+
+  - slug: "jy2"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Arithmetic Operators (2/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating binary operators `+` and `-`.
+
+  - slug: "jx8"
+    primary_extension_slug: "evaluating-expressions"
+    name: "String Concatenation"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for overloading the `+` operator. When the `+` operator is applied to two strings, it should concatenate them.
+
+  - slug: "et4"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Relational Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating relational operators `>`, `<`, `>=` & `<=`.
+
+  - slug: "hw7"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Equality Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for evaluating equality operators `==` and `!=`.
+
+  - slug: "gj9"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Runtime Errors: Unary Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for handling runtime errors while evaluating the unary operator `-`.
+
+  - slug: "yu6"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Runtime Errors: Binary Operators (1/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for handling runtime errors while evaluating the binary operators `*` & `/`.
+
+  - slug: "cq1"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Runtime Errors: Binary Operators (2/2)"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for handling runtime errors while evaluating the binary operators `+` & `-`.
+
+  - slug: "ib5"
+    primary_extension_slug: "evaluating-expressions"
+    name: "Runtime Errors: Relational Operators"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll implement support for handling runtime errors while evaluating the relational operators `>`, `<`, `>=` & `<=`.
+
+  - slug: "xy1"
+    primary_extension_slug: "statements-and-state"
+    name: "Print: Generate output"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for generating output using the `print` statement.
+
+  - slug: "oe4"
+    primary_extension_slug: "statements-and-state"
+    name: "Print: Multiple statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for handling multiple statements in a single `program`.
+
+  - slug: "fi3"
+    primary_extension_slug: "statements-and-state"
+    name: "Expression statements"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for handling expression statements.
+
+  - slug: "yg2"
+    primary_extension_slug: "statements-and-state"
+    name: "Variables: Declare variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for declaring variables using the `var` statement.
+
+  - slug: "sv7"
+    primary_extension_slug: "statements-and-state"
+    name: "Variables: Runtime Errors"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for declaring variables using the `var` statement.
+
+  - slug: "bc1"
+    primary_extension_slug: "statements-and-state"
+    name: "Variables: Initialize variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for initializing variables.
+
+  - slug: "dw9"
+    primary_extension_slug: "statements-and-state"
+    name: "Variables: Redeclare variables"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for redeclaring variables.
+
+  - slug: "pl3"
+    primary_extension_slug: "statements-and-state"
+    name: "Assignment operation"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the assignment operation (=).
+
+  - slug: "vr5"
+    primary_extension_slug: "statements-and-state"
+    name: "Block syntax"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for block syntax using curly braces `{}`.
+
+  - slug: "fb4"
+    primary_extension_slug: "statements-and-state"
+    name: "Scopes"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for scopes in your interpreter.
+
+  - slug: "ne3"
+    primary_extension_slug: "control-flow"
+    name: "If statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the `if` statement in your interpreter.
+
+  - slug: "st5"
+    primary_extension_slug: "control-flow"
+    name: "Else statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the `else` statement in your interpreter.
+
+  - slug: "fh8"
+    primary_extension_slug: "control-flow"
+    name: "Else-if statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the `else-if` statement in your interpreter.
+
+  - slug: "xj4"
+    primary_extension_slug: "control-flow"
+    name: "Nested if statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for nested `if` statements in your interpreter.
+
+  - slug: "wk8"
+    primary_extension_slug: "control-flow"
+    name: "Logical OR operator"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the logical OR operator in your interpreter.
+
+  - slug: "jx4"
+    primary_extension_slug: "control-flow"
+    name: "Logical AND operator"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the logical AND operator in your interpreter.
+
+  - slug: "qy3"
+    primary_extension_slug: "control-flow"
+    name: "While statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for `while` statements in your interpreter.
+
+  - slug: "bw6"
+    primary_extension_slug: "control-flow"
+    name: "For statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for `for` statements in your interpreter.
+
+  - slug: "vt1"
+    primary_extension_slug: "control-flow"
+    name: "Syntactic errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll handle several syntactic errors in your interpreter.
+
+  - slug: "av4"
+    primary_extension_slug: "functions"
+    name: "Native functions"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add native functions to your lox interpreter.
+
+  - slug: "pg8"
+    primary_extension_slug: "functions"
+    name: "Functions without arguments"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for user defined functions with no arguments to your lox interpreter.
+
+  - slug: "lb6"
+    primary_extension_slug: "functions"
+    name: "Functions with arguments"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for user defined functions with arguments to your lox interpreter.
+
+  - slug: "px4"
+    primary_extension_slug: "functions"
+    name: "Syntax errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for detecting and handling syntax errors.
+
+  - slug: "rd2"
+    primary_extension_slug: "functions"
+    name: "Return statements"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for return statements in functions to your lox interpreter.
+
+  - slug: "ey3"
+    primary_extension_slug: "functions"
+    name: "Higher order functions"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll add support for higher order functions to your lox interpreter.
+
+  - slug: "fj7"
+    primary_extension_slug: "functions"
+    name: "Runtime errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add handling for runtime errors in your lox interpreter.
+
+  - slug: "bz4"
+    primary_extension_slug: "functions"
+    name: "Function scope"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for global and local scope to your lox interpreter.
+
+  - slug: "gg6"
+    primary_extension_slug: "functions"
+    name: "Closures"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll add support for closures to your lox interpreter.
+
+  - slug: "de8"
+    primary_extension_slug: "resolving-binding"
+    name: "Identifier Resolution"
+    difficulty: hard
+    marketing_md: |-
+      In this stage, you'll add support for identifier resolution and binding at compile time.
+
+  - slug: "pt7"
+    primary_extension_slug: "resolving-binding"
+    name: "Self Initialization"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for detecting invalid self-initialization of variables, ensuring variables can't reference themselves before they're fully defined.
+
+  - slug: "pz7"
+    primary_extension_slug: "resolving-binding"
+    name: "Variable Redeclaration"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for detecting invalid variable redeclarations, ensuring variables can't be declared multiple times in the same local scope.
+
+  - slug: "eh3"
+    primary_extension_slug: "resolving-binding"
+    name: "Invalid Return"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for detecting invalid return statements, ensuring they only appear within function bodies.
+
+  - slug: "vf4"
+    primary_extension_slug: "classes"
+    name: "Class Declarations"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for class declarations, allowing users to define classes in their Lox programs.
+
+  - slug: "yk8"
+    primary_extension_slug: "classes"
+    name: "Class Instances"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for class instantiation, allowing users to create instances of classes in their Lox programs.
+
+  - slug: "yf3"
+    primary_extension_slug: "classes"
+    name: "Getters & Setters"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for getting and setting properties on class instances.
+
+  - slug: "qr2"
+    primary_extension_slug: "classes"
+    name: "Instance Methods"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for instance methods, allowing classes to define behavior that operates on their instances.
+
+  - slug: "yd7"
+    primary_extension_slug: "classes"
+    name: "The 'this' keyword"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the `this` keyword, enabling methods to access and manipulate the instance they were called on.
+
+  - slug: "dg2"
+    primary_extension_slug: "classes"
+    name: "Invalid usages of 'this'"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add validation for the `this` keyword, ensuring it's only used in appropriate contexts and providing clear error messages when it's not.
+
+  - slug: "ou5"
+    primary_extension_slug: "classes"
+    name: "Constructor calls"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for constructors, allowing classes to initialize their instances with custom logic when they're created.
+
+  - slug: "eb9"
+    primary_extension_slug: "classes"
+    name: "Return within constructors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll handle return statements within constructors, ensuring they follow Lox's special rules for initializers.
+
+  - slug: "mf6"
+    primary_extension_slug: "inheritance"
+    name: "Class Hierarchy"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for class inheritance, allowing users to create class hierarchies in their Lox programs.
+
+  - slug: "ky1"
+    primary_extension_slug: "inheritance"
+    name: "Inheriting Methods"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for method inheritance, allowing subclasses to use methods defined in their parent classes.
+
+  - slug: "ka5"
+    primary_extension_slug: "inheritance"
+    name: "Overriding Methods"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for method overriding, allowing subclasses to provide their own implementations of inherited methods.
+
+  - slug: "ab0"
+    primary_extension_slug: "inheritance"
+    name: "Inheritance errors"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add validation for class inheritance, ensuring that class hierarchies are valid and providing clear error messages when they're not.
+
+  - slug: "qi0"
+    primary_extension_slug: "inheritance"
+    name: "The super keyword"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for the `super` keyword, allowing methods to call overridden methods from their parent class.
+
+  - slug: "ib9"
+    primary_extension_slug: "inheritance"
+    name: "Invalid Usages of the super Keyword"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add validation for the `super` keyword, ensuring it's only used in appropriate contexts and providing clear error messages when it's not.

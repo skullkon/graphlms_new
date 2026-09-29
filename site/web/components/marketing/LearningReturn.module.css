@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 22px;
+  color: #191b1b;
+  background: #f5f3ec;
+  border: 1px solid #d7d6cf;
+  border-left: 3px solid #2458ef;
+}
+.copy {
+  min-width: 0;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: #858b7c;
+}
+.copy h2 {
+  margin: 8px 0 6px;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+.copy p {
+  margin: 0;
+  color: #565a58;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px 20px;
+}
+.count {
+  flex-basis: 100%;
+  text-align: right;
+  font-size: 12px;
+  color: #565a58;
+}
+.count strong {
+  color: #191b1b;
+}
+.resume,
+.account {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.resume {
+  padding: 0 18px;
+  background: #2458ef;
+  color: #fff;
+}
+.resume:hover {
+  background: #1745cb;
+}
+.account {
+  color: #191b1b;
+}
+.account:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.resume:focus-visible,
+.account:focus-visible {
+  outline: 2px solid #2458ef;
+  outline-offset: 4px;
+}
+@media (max-width: 640px) {
+  .card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 17px 18px;
+  }
+  .actions {
+    justify-content: flex-start;
+  }
+  .count {
+    text-align: left;
+  }
+}

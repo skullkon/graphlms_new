@@ -30,8 +30,8 @@ func (b *Batcher) run() {
 	defer close(b.done)
 
 	buf := make([]Event, 0, batchSize)
-	ticker := time.NewTicker(flushInterval)
-	defer ticker.Stop()
+	timer := time.NewTimer(flushInterval)
+	defer timer.Stop()
 
 	doFlush := func() {
 		if len(buf) == 0 {
@@ -43,6 +43,15 @@ func (b *Batcher) run() {
 		buf = buf[:0]
 	}
 
+	resetTimer := func() {
+		if !timer.Stop() {
+			select {
+			case <-timer.C:
+			default:
+			}
+		}
+		timer.Reset(flushInterval)
+	}
 	for {
 		select {
 		case ev, ok := <-b.in:
@@ -53,9 +62,11 @@ func (b *Batcher) run() {
 			buf = append(buf, ev)
 			if len(buf) >= batchSize {
 				doFlush()
+				resetTimer()
 			}
-		case <-ticker.C:
+		case <-timer.C:
 			doFlush()
+			resetTimer()
 		}
 	}
 }

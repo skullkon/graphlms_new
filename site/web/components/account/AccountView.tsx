@@ -75,9 +75,9 @@ function tint(count: number): { bg: string; border: string } {
       bg: "var(--bg-inset)",
       border: "var(--border-width) solid var(--border-subtle)",
     };
-  if (count === 1) return { bg: "rgba(47,207,126,0.28)", border: "none" };
-  if (count === 2) return { bg: "rgba(47,207,126,0.5)", border: "none" };
-  if (count === 3) return { bg: "rgba(47,207,126,0.75)", border: "none" };
+  if (count === 1) return { bg: "color-mix(in srgb, var(--success) 25%, var(--bg-surface))", border: "none" };
+  if (count === 2) return { bg: "color-mix(in srgb, var(--success) 45%, var(--bg-surface))", border: "none" };
+  if (count === 3) return { bg: "color-mix(in srgb, var(--success) 70%, var(--bg-surface))", border: "none" };
   return { bg: "var(--success)", border: "none" };
 }
 
@@ -331,7 +331,7 @@ export function AccountView({
       </div>
 
       {/* NEXT ACTION */}
-      {user && <section className="account-entitlement" aria-label="Тариф и доступ"><div><span>ДОСТУП</span><strong>{entitlements?.plans.includes("PRO") ? "Pro" : entitlements?.plans.includes("TEAM") ? "Team" : "Free"}</strong><p>{entitlements?.plans.includes("PRO") ? "Открыты полные skill tracks, проекты и interview mode." : "Диагностика, базовая теория и первый доказанный результат доступны без paywall."}</p></div><div className="account-entitlement-actions"><Link href="/account/report">Проверить evidence ↗</Link>{!entitlements?.plans.includes("PRO") && <button type="button" onClick={() => recordLearningEvent("checkout_started", "pro", { eventId: `checkout_started:${Date.now()}` })}>Запросить Pro доступ ↗</button>}</div></section>}
+      {user && <section className="account-entitlement" aria-label="Бесплатное обучение и дополнительные услуги"><div><span>ДОСТУП</span><strong>Самостоятельное обучение бесплатно</strong><p>Все учебники, задачи, проекты и подготовка к интервью открыты. Разбор специалиста, наставничество и приватная командная инфраструктура — отдельные услуги.</p>{entitlements?.plans.some((plan) => plan !== "FREE") && <p>Дополнительные права: {entitlements.plans.filter((plan) => plan !== "FREE").join(", ")}. Они не ограничивают учебные материалы.</p>}</div><div className="account-entitlement-actions"><Link href="/account/report">Открыть отчёт ↗</Link></div></section>}
       <section
         aria-labelledby="next-action-title"
         style={{
@@ -438,7 +438,7 @@ export function AccountView({
 
       <section style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 18, flexWrap: "wrap", padding: "16px 18px", marginBottom: 24, border: "1px solid var(--border-default)", borderRadius: "var(--radius-md)", background: "var(--bg-elevated)" }}>
         <div><span style={{ display: "block", color: "var(--accent-text)", font: "10px var(--font-mono)", letterSpacing: ".08em" }}>PROJECT TRACKS</span><strong style={{ display: "block", marginTop: 5, color: "var(--text-primary)", fontSize: 15 }}>Собери worker pool, rate limiter или page cache</strong><span style={{ display: "block", marginTop: 4, color: "var(--text-tertiary)", fontSize: 12 }}>Четыре коротких маршрута из задач и OS-лабораторий.</span></div>
-        <Link href="/projects" style={{ color: "var(--accent-text)", font: "12px var(--font-mono)", textDecoration: "none", whiteSpace: "nowrap" }}>Открыть треки →</Link>
+        <Link href="/projects/tracks" style={{ color: "var(--accent-text)", font: "12px var(--font-mono)", textDecoration: "none", whiteSpace: "nowrap" }}>Открыть треки →</Link>
       </section>
 
       {repeatItems.length > 0 && (

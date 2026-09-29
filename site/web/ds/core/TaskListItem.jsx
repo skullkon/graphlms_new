@@ -30,9 +30,10 @@ export function TaskListItem({ index, title, difficulty = 'medium', status = 'to
   return (
     <button
       onClick={onClick}
+      title={title}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       style={{
-        display: 'flex', alignItems: 'center', gap: 10, width: '100%', textAlign: 'left',
+        display: 'flex', alignItems: 'center', gap: 10, width: '100%', minWidth: 0, boxSizing: 'border-box', textAlign: 'left',
         padding: '8px 10px 8px 12px', border: 'none', position: 'relative',
         background: active ? 'var(--accent-subtle)' : hover ? 'var(--bg-hover)' : 'transparent',
         borderRadius: 'var(--radius-sm)', cursor: 'pointer',

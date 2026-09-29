@@ -67,3 +67,15 @@ func TestMergeEmpty(t *testing.T) {
 		t.Fatalf("Merge(): без каналов должен вернуться уже закрытый пустой канал")
 	}
 }
+
+func TestMergeEmptyAlreadyClosed(t *testing.T) {
+	out := Merge()
+	select {
+	case _, ok := <-out:
+		if ok {
+			t.Fatal("empty Merge output must be closed")
+		}
+	default:
+		t.Fatal("empty Merge output must already be closed at return")
+	}
+}

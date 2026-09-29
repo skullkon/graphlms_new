@@ -9,8 +9,8 @@
     "contentDir": "go-basics",
     "order": 0,
     "kind": "course",
-    "version": "0.4.0",
-    "versionDate": "2026-09-06"
+    "version": "0.7.1",
+    "versionDate": "2026-09-30"
   },
   {
     "id": "go",
@@ -22,8 +22,8 @@
     "contentDir": "",
     "order": 1,
     "kind": "trainer",
-    "version": "0.4.0",
-    "versionDate": "2026-09-06"
+    "version": "0.7.1",
+    "versionDate": "2026-09-30"
   },
   {
     "id": "os",
@@ -37,5 +37,31 @@
     "kind": "course",
     "version": "0.4.0",
     "versionDate": "2026-09-06"
+  },
+  {
+    "id": "system-design",
+    "slug": "system-design",
+    "title": "Проектирование систем",
+    "short": "System Design",
+    "description": "Как устроить сервис, рассчитать нагрузку и подготовиться к сбоям. От первого запроса до защиты архитектуры на собеседовании.",
+    "accent": "#276ef1",
+    "contentDir": "system-design",
+    "order": 3,
+    "kind": "course",
+    "version": "0.7.0",
+    "versionDate": "2026-09-28"
+  },
+  {
+    "id": "backend-path",
+    "slug": "backend-path",
+    "title": "Backend на Go: от первой программы до проекта",
+    "short": "Backend на Go",
+    "description": "Бесплатный законченный путь: Go, HTTP, очередь заданий, хранение, надёжность, метрики и защита архитектуры. Один проект с локальными тестами и открытым разбором.",
+    "accent": "#276ef1",
+    "contentDir": "backend-path",
+    "order": 4,
+    "kind": "course",
+    "version": "0.8.0",
+    "versionDate": "2026-09-30"
   }
 ]

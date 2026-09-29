@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { Search, Code2 } from "lucide-react";
+import styles from "../book/reading.module.css";
 import { useEffect, useMemo, useState } from "react";
 import type { TaskMeta } from "@/lib/content";
 import { TaskCard } from "@/components/TaskCard";
@@ -43,78 +45,21 @@ export function TopicsIndexView({
     });
   }, [allTasks, difficulty, inProgress, isSolved, query, status, topic]);
   const grouped = useMemo(() => new Map(topics.map((t) => [t.num, filtered.filter((task) => task.topicNum === t.num)])), [filtered, topics]);
-  return (
-    <div className="topics-index-page" style={{ maxWidth: 920, margin: "0 auto", padding: "56px 28px 80px" }}>
-      <span
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "var(--label-sm)",
-          textTransform: "uppercase",
-          letterSpacing: "0.08em",
-          color: "var(--accent-text)",
-        }}
-      >
-        Топики · {total} задач
-      </span>
-      <h1
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontWeight: "var(--fw-bold)",
-          fontSize: "var(--heading-xl)",
-          lineHeight: "var(--heading-xl-lh)",
-          letterSpacing: "var(--heading-xl-ls)",
-          color: "var(--text-primary)",
-          margin: "14px 0 12px",
-        }}
-      >
-        Тренажёр
-      </h1>
-      <p
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "var(--body-lg)",
-          lineHeight: "var(--body-lg-lh)",
-          color: "var(--text-secondary)",
-          maxWidth: 620,
-          margin: "0 0 28px",
-        }}
-      >
-        {topics.length} топиков, {total} задач. Решай по порядку или ныряй в
-        нужную тему. читай → решай → прогоняй → разбирай.
-      </p>
-
-      <div
-        style={{
-          padding: "16px 18px",
-          background: "var(--bg-elevated)",
-          border: "var(--border-width) solid var(--border-default)",
-          borderRadius: "var(--radius-lg)",
-          marginBottom: 48,
-        }}
-      >
-        <ProgressStat total={total} />
-      </div>
-
-      <LeaderboardPanel />
-
-      <div className="practice-filters" style={{ display: "grid", gridTemplateColumns: "minmax(220px, 1.5fr) repeat(3, minmax(140px, 1fr))", gap: 10, marginBottom: 32 }}>
-        <label className="practice-search"><span aria-hidden="true">⌕</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Поиск по задачам и навыкам" aria-label="Поиск по задачам и навыкам" /></label>
-        <select value={topic} onChange={(e) => setTopic(e.target.value)} aria-label="Фильтр по теме"><option value="all">Все темы</option>{topics.map((t) => <option key={t.num} value={t.num}>{String(t.num).padStart(2, "0")} · {t.label}</option>)}</select>
-        <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} aria-label="Фильтр по сложности"><option value="all">Любая сложность</option><option value="easy">Лёгкая</option><option value="medium">Средняя</option><option value="hard">Сложная</option></select>
-        <select value={status} onChange={(e) => setStatus(e.target.value)} aria-label="Фильтр по статусу"><option value="all">Любой статус</option><option value="todo">Не начато</option><option value="in-progress">В процессе</option><option value="solved">Решено</option></select>
-      </div>
-      {tags.length > 0 && <div style={{ display: "flex", flexWrap: "wrap", gap: 7, margin: "-20px 0 32px" }}><span style={{ color: "var(--text-tertiary)", fontSize: 12, alignSelf: "center" }}>Навыки:</span>{tags.slice(0, 12).map((tag) => <button key={tag} type="button" onClick={() => setQuery(tag)} style={{ border: "1px solid var(--border-default)", background: "var(--bg-elevated)", color: "var(--text-secondary)", borderRadius: 5, padding: "5px 9px", fontSize: 12, cursor: "pointer" }}>{tag}</button>)}</div>}
-      <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
-        {topics.map((t) => {
-          const matching = grouped.get(t.num) ?? [];
-          if (matching.length === 0) return null;
-          return <TopicSection key={t.num} topic={{ ...t, tasks: matching }} />;
-        })}
-        {filtered.length === 0 && <div style={{ padding: "32px 20px", border: "1px dashed var(--border-default)", color: "var(--text-secondary)", textAlign: "center" }}>Ничего не найдено. Измени фильтры или попробуй другой запрос.</div>}
-      </div>
-      <style>{`.practice-search{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-inset);color:var(--text-tertiary)}.practice-search input{width:100%;border:0;outline:0;background:transparent;color:var(--text-primary);font:14px var(--font-sans)}.practice-filters select{height:42px;min-width:0;padding:0 10px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-inset);color:var(--text-secondary);font:13px var(--font-sans)}@media(max-width:760px){.practice-filters{grid-template-columns:1fr 1fr!important}.practice-search{grid-column:1/-1}}@media(max-width:420px){.practice-filters{grid-template-columns:1fr!important}}`}</style>
+  return <div className={styles.index}>
+    <div className={styles.eyebrow}><Code2 size={15} /> Практика</div>
+    <header className={styles.indexHeader}><h1>Практика Go</h1><p>Задачи по конкурентности: каналы, синхронизация, контекст и worker pool. Решения проверяются тестами.</p><div className={styles.meta}><span>{topics.length} тем</span><span>{total} задач</span><span>Проверка решений</span></div></header>
+    <div className={styles.topicProgress}><ProgressStat total={total} /></div>
+    <div className={styles.filters}>
+      <label><Search size={16} /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Найти задачу или навык" aria-label="Поиск по задачам и навыкам" /></label>
+      <select value={topic} onChange={(e) => setTopic(e.target.value)} aria-label="Фильтр по теме"><option value="all">Все темы</option>{topics.map((t) => <option key={t.num} value={t.num}>{String(t.num).padStart(2, "0")} · {t.label}</option>)}</select>
+      <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} aria-label="Фильтр по сложности"><option value="all">Любая сложность</option><option value="easy">Лёгкая</option><option value="medium">Средняя</option><option value="hard">Сложная</option></select>
+      <select value={status} onChange={(e) => setStatus(e.target.value)} aria-label="Фильтр по статусу"><option value="all">Любой статус</option><option value="todo">Не начато</option><option value="in-progress">В процессе</option><option value="solved">Решено</option></select>
     </div>
-  );
+    {tags.length > 0 && <div className={styles.tags}>{tags.slice(0, 12).map((tag) => <button key={tag} type="button" onClick={() => setQuery(tag)} aria-pressed={query === tag}>{tag}</button>)}</div>}
+    <div className={styles.topicSections}>{topics.map((t) => { const matching = grouped.get(t.num) ?? []; return matching.length ? <TopicSection key={t.num} topic={{ ...t, tasks: matching }} /> : null; })}
+    {filtered.length === 0 && <div className={styles.empty}><h2>Задачи не найдены</h2><p>Попробуй другой запрос или сбрось фильтры.</p><button type="button" onClick={() => { setQuery(""); setTopic("all"); setDifficulty("all"); setStatus("all"); }}>Сбросить фильтры</button></div>}</div>
+    <div style={{ marginTop: 40 }}><LeaderboardPanel /></div>
+  </div>;
 }
 
 interface LeaderboardEntry {
@@ -150,7 +95,7 @@ function LeaderboardPanel() {
 
   if (state === "unavailable") return null;
   return (
-    <section aria-label="Рейтинг качества решений" style={{ marginBottom: 36, padding: "16px 18px", border: "1px solid var(--border-default)", borderRadius: 7, background: "var(--bg-elevated)" }}>
+    <section aria-label="Рейтинг качества решений" style={{ marginBottom: 36, padding: "16px 18px", border: "1px solid var(--border-default)", borderRadius: 2, background: "var(--bg-elevated)" }}>
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
         <div><span style={{ display: "block", color: "var(--accent-text)", font: "11px var(--font-mono)", letterSpacing: ".08em" }}>QUALITY BOARD</span><h2 style={{ margin: "6px 0 0", color: "var(--text-primary)", fontSize: 17 }}>Стабильность решений</h2></div>
         <span style={{ color: "var(--text-tertiary)", font: "11px var(--font-mono)" }}>{state === "loading" ? "загрузка" : `${participants} участников`}</span>
@@ -165,74 +110,9 @@ function LeaderboardPanel() {
 }
 
 function TopicSection({ topic }: { topic: TopicItem }) {
-  const [hover, setHover] = useState(false);
-  return (
-    <section>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          flexWrap: "wrap",
-          marginBottom: 14,
-        }}
-      >
-        <Link
-          href={`/go/topics/${topic.num}`}
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--label-sm)",
-            textTransform: "uppercase",
-            letterSpacing: "0.07em",
-            color: "var(--text-tertiary)",
-            textDecoration: "none",
-          }}
-        >
-          Топик {String(topic.num).padStart(2, "0")}
-        </Link>
-        <Link
-          href={`/go/topics/${topic.num}`}
-          style={{
-            fontFamily: "var(--font-sans)",
-            fontWeight: "var(--fw-semibold)",
-            fontSize: "var(--heading-sm)",
-            lineHeight: "var(--heading-sm-lh)",
-            letterSpacing: "var(--heading-sm-ls)",
-            color: "var(--text-primary)",
-            textDecoration: "none",
-          }}
-        >
-          {topic.label}
-        </Link>
-        <TopicProgress tasks={topic.tasks} />
-        <Link
-          href={`/go/topics/${topic.num}`}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          style={{
-            marginLeft: "auto",
-            fontFamily: "var(--font-sans)",
-            fontSize: "var(--label-md)",
-            fontWeight: "var(--fw-medium)",
-            color: "var(--accent-text)",
-            textDecoration: hover ? "underline" : "none",
-            textUnderlineOffset: 2,
-          }}
-        >
-          Подробнее →
-        </Link>
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          gap: 10,
-        }}
-      >
-        {topic.tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))}
-      </div>
-    </section>
-  );
+  return <section><div className={styles.topicSectionHeading}>
+    <Link href={`/go/topics/${topic.num}`}>{String(topic.num).padStart(2, "0")}</Link>
+    <Link href={`/go/topics/${topic.num}`}>{topic.label}</Link><TopicProgress tasks={topic.tasks} />
+    <Link href={`/go/topics/${topic.num}`}>Обзор темы →</Link>
+  </div><div className={styles.taskGrid}>{topic.tasks.map((task) => <TaskCard key={task.id} task={task} />)}</div></section>;
 }

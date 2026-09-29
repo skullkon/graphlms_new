@@ -125,8 +125,8 @@ export default function OnboardingDiagnostic({ nextTask }: { nextTask: string })
   return (
     <section id="diagnostic" className="diagnostic-panel diagnostic-intro" aria-labelledby="diagnostic-intro-title">
       <div>
-        <div className="eyebrow">02 / НАЙДИ СЛЕДУЮЩИЙ ШАГ</div>
-        <h2 id="diagnostic-intro-title">Какой навык быстрее увеличит твою ценность?</h2>
+        <div className="eyebrow">ДИАГНОСТИКА / 3 ВОПРОСА</div>
+        <h2 id="diagnostic-intro-title">С чего начать обучение?</h2>
         <p>Три коротких вопроса. На выходе ты получишь подходящий трек, первую задачу и понятный критерий прогресса.</p>
       </div>
       <button type="button" className="primary-action diagnostic-start" onClick={begin}>Пройти диагностику <span className="dash-arrow">↗</span></button>

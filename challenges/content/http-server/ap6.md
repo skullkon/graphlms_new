@@ -1,0 +1,40 @@
+In this stage, you'll implement the `/files/{filename}` endpoint, which returns a requested file to the client.
+
+### Tests
+
+The tester will execute your program with a `--directory` flag. Your program should read this flag from the command-line arguments, and treat the specified directory as the root directory for all file requests.
+
+```
+$ ./your_program.sh --directory /tmp/
+```
+
+The tester will then send two `GET` requests to the `/files/{filename}` endpoint. Each request corresponds to the file path `{directory}/{filename}`.
+
+Your response should depend on whether the file at `{directory}/{filename}` exists or not.
+
+#### First request
+The first request will ask for a file that exists in the files directory:
+```
+$ echo -n 'Hello, World!' > /tmp/foo
+$ curl -i http://localhost:4221/files/foo
+```
+
+Your server must respond with a `200` response that contains the following parts:
+- `Content-Type` header set to `application/octet-stream`.
+- `Content-Length` header set to the size of the file, in bytes.
+- Response body set to the file contents.
+```
+HTTP/1.1 200 OK\r\nContent-Type: application/octet-stream\r\nContent-Length: 13\r\n\r\nHello, World!
+```
+
+#### Second request
+The second request will ask for a file that doesn't exist in the files directory:
+```
+$ curl -i http://localhost:4221/files/non_existant_file
+```
+
+Your server must respond with a `404` response:
+```
+HTTP/1.1 404 Not Found\r\n\r\n
+```
+

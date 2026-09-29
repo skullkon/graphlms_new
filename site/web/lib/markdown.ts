@@ -7,6 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeStringify from "rehype-stringify";
 import { remarkRunnable } from "./remark-runnable";
+import { remarkDiagrams } from "./remark-diagrams";
 
 /**
  * Render trusted authored Markdown/MDX-lite content to HTML.
@@ -23,6 +24,7 @@ const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
   .use(remarkRunnable)
+  .use(remarkDiagrams)
   .use(remarkRehype) // allowDangerousHtml off: literal '<' stays escaped text
   .use(rehypeSlug)
   .use(rehypePrettyCode, {

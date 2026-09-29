@@ -1,0 +1,298 @@
+---
+# Used in your course's URL: https://app.codecrafters.io/courses/<slug>
+# Example: "redis"
+slug: "http-server"
+
+# The name of your course. This will be displayed in the course catalog, and on
+# other course pages.
+# Example: "Build your own Redis"
+name: "Build your own HTTP server"
+
+# A short name for your course, this'll be used in copy like emails.
+# Example: "Redis"
+short_name: "HTTP server"
+
+# The release status for your course.
+#
+# - alpha: Only visible to yourself and CodeCrafters staff.
+# - beta: Visible to all CodeCrafters users, but with a "beta" label.
+# - live: Visible to all CodeCrafters users, no label.
+#
+# Allowed values: "alpha", "beta", "live"
+release_status: "live"
+
+# This is shown on the course overview page. Markdown supported, recommended length ~40 words.
+#
+# Recommended format:
+#
+# > ABC is <whatever>. In this challenge, you'll build your own ABC that's capable of D, E, F and G.
+# >
+# > Along the way, we'll learn about X, Y, Z and more.
+#
+# Example:
+#
+# > Redis is an in-memory data structure store often used as a database, cache, message broken and streaming engine. In this challenge
+# > you'll build your own Redis server that is capable of serving basic commands, reading RDB files and more.
+# >
+# > Along the way, you'll learn about TCP servers, the Redis Protocol and more.
+description_md: |-
+  HTTP is the protocol that powers the web. In this challenge, you'll build a HTTP server from scratch using TCP primitives. Your server will be capable of handling simple GET/POST requests, serving files and handling multiple concurrent connections.
+
+  Along the way, we'll learn about TCP connections, HTTP headers, HTTP verbs, handling multiple connections and more.
+
+# This is shown on the catalog. Plaintext only, recommended length ~10 words.
+#
+# Recommended format:
+#
+# > Learn about X, Y, Z and more
+#
+# Example:
+#
+# > Learn about TCP servers, the Redis protocol and more
+#
+# **TODO**: Remove _md suffix since markdown isn't supported
+short_description_md: |-
+  Learn about TCP servers, the HTTP protocol and more
+
+# The percentage of users who complete your course. We'll calculate this
+# automatically in the future, safe to ignore for now.
+completion_percentage: 10
+
+# List of concept slugs associated with this course
+concept_slugs: ["network-protocols", "tcp-overview"]
+
+# The languages that your course supports.
+languages:
+  - slug: "c"
+  - slug: "clojure"
+  - slug: "cpp"
+  - slug: "csharp"
+  - slug: "dart"
+  - slug: "elixir"
+  - slug: "gleam"
+  - slug: "go"
+  - slug: "haskell"
+  - slug: "java"
+  - slug: "javascript"
+  - slug: "kotlin"
+  - slug: "odin"
+  - slug: "ocaml"
+  - slug: "php"
+  - slug: "python"
+  - slug: "ruby"
+  - slug: "rust"
+  - slug: "scala"
+  - slug: "typescript"
+  - slug: "zig"
+
+marketing:
+  # Shown in the catalog.
+  #
+  # Recommended guidelines:
+  #
+  # - "easy": < 2h of work for an experienced developer
+  # - "medium": > 6h of work for an experienced developer
+  # - "hard": > 6h of work for an experienced developer
+  #
+  # Allowed values: "easy", "medium", "hard"
+  difficulty: easy
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "Persistence" (from the Redis challenge)
+  sample_extension_idea_title: "Pipelining"
+
+  # This is shown as an example when users suggest extensions to your course.
+  # Example: "A Redis server that can read and write .rdb files" (from the
+  # Redis challenge)
+  sample_extension_idea_description: "A HTTP server that supports HTTP/1.1 pipelining"
+
+  # These are some default testimonials that you can use. Feel free to switch
+  # these out with your own.
+  testimonials:
+    - author_name: "Ananthalakshmi Sankar"
+      author_description: "Automation Engineer at Apple"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/oxta.jpeg"
+      link: "https://github.com/anu294"
+      text:
+        "There are few sites I like as much that have a step by step guide. The
+        real-time feedback is so good, it's creepy!"
+
+    - author_name: "Patrick Burris"
+      author_description: "Senior Software Developer, CenturyLink"
+      author_avatar: "https://codecrafters.io/images/external/testimonials/patrick-burris.jpeg"
+      link: "https://github.com/Jumballaya"
+      text: |-
+        I think the instant feedback right there in the git push is really cool.
+        Didn't even know that was possible!
+
+extensions:
+  - slug: "http-compression"
+    name: "HTTP Compression"
+    description_markdown: |
+      In this challenge extension you'll add [compression][http-compression] support to your HTTP server implementation.
+
+      Along the way you'll learn about compression, compression scheme negotiation and more.
+
+      [http-compression]: https://en.wikipedia.org/wiki/HTTP_compression
+
+  - slug: "http-persistent-connections"
+    name: "Persistent Connections"
+    description_markdown: |
+      In this challenge extension you'll add [persistent connections][http-persistent-connections] support to your HTTP server implementation.
+
+      Along the way you'll learn about persistent connections, the `Connection` header and more.
+
+      [http-persistent-connections]: https://en.wikipedia.org/wiki/HTTP_persistent_connection
+
+stages:
+  # A identifier for this stage, needs to be unique within a course.
+  - slug: "at4"
+    concept_slugs:
+      [
+        "network-protocols",
+        "tcp-overview",
+        "go-tcp-server",
+        "rust-tcp-server",
+        "python-tcp-server",
+        "java-tcp-server",
+        "cpp-tcp-server",
+      ]
+    # The name of the stage. This is shown in the course catalog, and on other
+    # course pages.
+    name: "Bind to a port"
+
+    # The difficulty of this stage.
+    #
+    # Recommended guidelines, based on how long the stage will take an
+    # experienced developer to complete:
+    #
+    # - Very Easy (< 5 minutes)
+    # - Easy (5-10 minutes)
+    # - Medium (30m-1h)
+    # - Hard (> 1h)
+    #
+    # Allowed values: "very_easy", "easy", "medium", "hard"
+    difficulty: very_easy
+
+    # The instructions for your stage. Markdown supported. Shown on the course
+    # page.
+    marketing_md: |-
+      In this stage, you'll build a TCP server that listens on port 4221.
+
+  - slug: "ia4"
+    concept_slugs:
+      [
+        "network-protocols",
+        "tcp-overview",
+        "go-tcp-server",
+        "rust-tcp-server",
+        "python-tcp-server",
+        "java-tcp-server",
+        "cpp-tcp-server",
+      ]
+    name: "Respond with 200"
+    difficulty: very_easy
+    marketing_md: |-
+      In this stage, you'll extend your TCP server to respond to a HTTP request with a 200 response.
+
+  - slug: "ih0"
+    concept_slugs:
+      [
+        "network-protocols",
+        "tcp-overview",
+        "go-tcp-server",
+        "rust-tcp-server",
+        "python-tcp-server",
+        "java-tcp-server",
+        "cpp-tcp-server",
+      ]
+    name: "Extract URL path"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for returning a 404 response if a path isn't valid.
+
+  - slug: "cn2"
+    name: "Respond with body"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for responding with a custom body in your HTTP response.
+
+  - slug: "fs3"
+    name: "Read header"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for parsing HTTP request headers.
+
+  - slug: "ej5"
+    concept_slugs:
+      [
+        "network-protocols",
+        "tcp-overview",
+        "go-tcp-server",
+        "rust-tcp-server",
+        "python-tcp-server",
+        "java-tcp-server",
+        "cpp-tcp-server",
+      ]
+    name: "Concurrent connections"
+    difficulty: easy
+    marketing_md: |-
+      In this stage, you'll add support for handling multiple concurrent connections.
+
+  - slug: "ap6"
+    name: "Return a file"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for serving the contents of a file.
+
+  - slug: "qv8"
+    name: "Read request body"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for receiving POST requests.
+
+  # HTTP Compression
+
+  - slug: "df4"
+    primary_extension_slug: "http-compression"
+    name: "Compression headers"
+    difficulty: easy
+    marketing_md: |
+      In this stage, you'll add support for reading the `Accept-Encoding` header sent by clients, and respond with `Content-Encoding` header in your response.
+
+  - slug: "ij8"
+    primary_extension_slug: "http-compression"
+    name: "Multiple compression schemes"
+    difficulty: medium
+    marketing_md: |
+      In this stage, you'll add support for reading multiple compression values from `Accept-Encoding` header sent by clients, and respond with `Content-Encoding` header in your response.
+
+  - slug: "cr8"
+    primary_extension_slug: "http-compression"
+    name: "Gzip compression"
+    difficulty: medium
+    marketing_md: |
+      In this stage, you'll add support for encoding the response body using `gzip`.
+
+  # Persistent Connections
+
+  - slug: "ag9"
+    primary_extension_slug: "http-persistent-connections"
+    name: "Persistent connections"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for persistent HTTP connections, allowing multiple requests to be handled over the same TCP connection.
+
+  - slug: "ul1"
+    primary_extension_slug: "http-persistent-connections"
+    name: "Concurrent persistent connections"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for handling multiple concurrent persistent connections.
+
+  - slug: "kh7"
+    primary_extension_slug: "http-persistent-connections"
+    name: "Connection closure"
+    difficulty: medium
+    marketing_md: |-
+      In this stage, you'll add support for explicit connection closure using the Connection header.

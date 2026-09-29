@@ -65,6 +65,7 @@ export interface TaskMeta {
   type?: string;
   difficulty?: string;
   tags?: string[];
+  chapterSlug?: string;
 }
 
 export interface TaskContent extends TaskMeta {
@@ -183,6 +184,7 @@ function readMeta(id: string, courseId: string): TaskMeta | null {
     type: parsed.type,
     difficulty: parsed.difficulty,
     tags: parsed.tags,
+    chapterSlug: parsed.chapterSlug,
   };
 }
 

@@ -47,3 +47,6 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Local project-lab tokens and private test reports
+.local/

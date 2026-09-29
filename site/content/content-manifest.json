@@ -2,73 +2,73 @@
   "schema": 1,
   "courses": {
     "go-basics": {
-      "version": "0.4.0",
-      "versionDate": "2026-09-06",
-      "hash": "229170007dff76653d60c37ade72a1a0dc9c1ac36934313cc8ab421ca50b132d",
+      "version": "0.7.1",
+      "versionDate": "2026-09-30",
+      "hash": "938533f5eb4a9279fb2fa56ae2833026de3958eecd0634d77eb8d014fd3155ca",
       "items": {
-        "chapter:collections": "449d12155e802baf6f2084051e15fa58b0ab49ef1e17a736660e5a3dec0987f8",
-        "chapter:control-flow": "e6ac9ff1627d1d55a9d49fae04700633a5caf819d4f9e27f74bfc047f213f246",
-        "chapter:errors": "b755f7b2fe5ad2176ec3eff2321f81c9ce587054aeb44e86702a8b45c9417ba6",
-        "chapter:functions": "fb35830cdc4c0beb185bac683d802788558bf92fcbc19c4e5676d73646eb52b2",
-        "chapter:generics": "e70d2071d984a3fc36e34781c97efee90eff0b71a520767c17e8d2c5bcd7ea03",
-        "chapter:goroutines-intro": "61c75270ba04024c79302caef94d23aec3670654ae883ddc6df7cadb14919c0e",
-        "chapter:hello": "17f1e4a7392469db6b22024f11d6fda704c7be95f5958af90a22540df862f90e",
-        "chapter:interfaces": "9ca34e4fa7739cc7e662088a86dfd97e8c16bd581a50933dc6387aa5d91e8732",
-        "chapter:packages-modules": "8ba856b08880f0196d5cb586b7211dab06df6039e0de5908a9e23205668aaceb",
-        "chapter:pointers": "62e237aa3b3f7bff65eba298a1534f848456f585798f0396a0e656855f7f2b72",
-        "chapter:structs": "a553ca9171124e6213ae1450d3cbbd54a373070372fed1972f5539183920022f",
-        "chapter:variables": "e35028443ec735c64340bba57f31c717154b99721fca06391b55811fe9891349"
+        "chapter:collections": "cae343c35ade268fd45068ad02b6b9620aec44c4402a24b1a8bba61fef898690",
+        "chapter:control-flow": "88fe7fd9aad15b5d280a78d2186de0ffadd47d574f179f9834b1b10f15b8b0e5",
+        "chapter:errors": "072e46e300eaac8cc3af4aaeb22de17f4817e20637869d064b8619071eb2edff",
+        "chapter:functions": "abb80383d3836bca323655b1bc77d2a3d3634fd8334272312a95f97e85b31c86",
+        "chapter:generics": "54d6b6fefec368216eb4caebcd0cb389503758bbd2ecd4b9af051f846e2637cf",
+        "chapter:goroutines-intro": "8e073fbb7ecb15ee277f0f179cfb9ad20b864f439ab3bb6c2c210603456a0271",
+        "chapter:hello": "11a471bb0bd83d144346ea43aea8b3045a0b01f69d49049213be560b3f316d4a",
+        "chapter:interfaces": "ad6caba3647850d04b5b39fe667e977c27e0b1894cb3bf404a6d0151f226b7ac",
+        "chapter:packages-modules": "cc9aa26e014780053fbffdf80f129908b3e1cbfbbe40ff23a7576bdc969fe2c7",
+        "chapter:pointers": "75c5bd850b20c70ea6b9ebb7f978d3df48d36cb2e926451a093fcb78ed18f237",
+        "chapter:structs": "0ce0d27d0066b22776ddf900bc94542a1cbc2f7338bb546e66ab67cca5c19736",
+        "chapter:variables": "2975f6c2768f6b60863aab2cb778f3f064dc0830c340163220cb5af8c8d18eeb"
       }
     },
     "go": {
-      "version": "0.4.0",
-      "versionDate": "2026-09-06",
-      "hash": "97a14b1ee6b1dbd0619f04e0b64a6bfdd699c65c078e74e57ad69a6c6dfea85d",
+      "version": "0.7.1",
+      "versionDate": "2026-09-30",
+      "hash": "ef8f337e37de95e116a6b2e7b94b9f0290b74d08103c565760b706a62ad662e8",
       "items": {
-        "chapter:OUTLINE.md": "abc46819a95b3d85dd9002a971f570f926ea883dd015756d2d250ccb333a8a32",
-        "chapter:atomic": "4c816bbbff2bc559f065ba2674333db942af99dfcd1b9dd22764d85b6f64218d",
-        "chapter:channels": "130a5ea98d135e65262977b69cf1e5d5e1fddd44f91fd049a5b5b5324f053b7e",
-        "chapter:context": "c9131d2d832ffc1baf774d7e5c49509fd77e475591c7b523a4f208abee7776e9",
-        "chapter:goroutines": "e941d2e5e7a7328b02b6769426b7b17a834a4f2764f98e5f2c805a0ba813d3c6",
-        "chapter:leaks-and-races": "3d307afd9781bb0e04ed6469c54df761ba77cc258abb5f5c99477732b74a4081",
-        "chapter:memory-model": "e2568a81cf2e9725c3fe99570ad4ccc0f3d85946821deb99a8b78d71db334730",
-        "chapter:patterns": "ca4bf10eda5623ab73f24c50c2072760849feafec80d46083d2a3efb131e5055",
-        "chapter:scheduler-deep": "3d91f1a2fa889465a8006c33bf64f77cdef1fed7e01f076930a60beed9b67a6a",
-        "chapter:select": "53541a7cf00f717c4d84db64336b67db1d8eff76b340ca2983d9ee44ebd1feca",
-        "chapter:sync-primitives": "68442de4550a0353489b83fb16b85640e997ed98f28af92169d48bfbc25e31a2",
-        "course": "83f6568bc8216c610e7e2abc8d693312afdd36a41fbe1c2d2737b53cdb7e6aea",
-        "task:01": "6cdf626e051f9f2b22c88c3221230c7d8b991e1e43bacfee4cd0aa4395b3c776",
+        "chapter:OUTLINE.md": "f51bdcf8e67897a144717fca049c9005019e84901c33e1b9f5f84ca6d47a147f",
+        "chapter:atomic": "e214ec88dd5b6a7e1bb9d3bfbffb1cd625a8ed647237b5c6afdf8aa302ce91d2",
+        "chapter:channels": "da14f9f3b4bc87e1441dff4dd71dec26b9efd67fc9ca499ade5f438bd2033fda",
+        "chapter:context": "e256a0da1c4b0f8047d08faa7575579af3f595f963deb7b8b17eee693d7a8516",
+        "chapter:goroutines": "0688c6020addc5ef5e1b92dcc69d5c09df45005a57ced45c834d3f5829e9f4d3",
+        "chapter:leaks-and-races": "75ce76da4ad489a14f5e3aef45a305f9ff64682d693901266fb02653f5eb6c03",
+        "chapter:memory-model": "d172b94b69bf41d77cda7ce898f06575cadd343907f21556c9d540c384aa55a0",
+        "chapter:patterns": "6cc1cede622d28c67825617ab1ebd32b04b9f111f476b8b653898e5cb6b631c8",
+        "chapter:scheduler-deep": "d53df9fd85914cbc0d28ae94d0eca88bdf6f0ba9d6ac6d0f5790044e3044f70d",
+        "chapter:select": "31cc8f9427b56852c1360bcf64d8d4d9ccf4f3c37a367efff7b2c34fe7fe9d2b",
+        "chapter:sync-primitives": "a5492f44ccb1bde4d02c270eac3ade5f138c71c94247241b247529f164a97ac0",
+        "course": "8b652a79667fb84e69e4fc9b1e9dbce8bcc18680313ccef1956bcefa894adb1b",
+        "task:01": "9a9d1b84d07118e6dbac035d7e0cbb6300c630c4612a3d34cae6c57c158bf551",
         "task:02": "d3f9eac48c507678ea4a90243b23142c012635c6270b452099a3e9918a706232",
-        "task:03": "a38ca52851687e2432b80679a4a9a20f31eb0fc84ff374549fe0e043dbfde075",
-        "task:04": "f44595bca194c0f1644c2105c740eb1f3ec59919b075e9253ab8a985ab57e74b",
-        "task:05": "5ced900e5a1395a97b128d5bf85cf2288b43df04be83fa4e61a7a85788dc7742",
-        "task:06": "4dd4558ea3f40bd6c11fe42d0f37ee8cd0e5ba22c605043666f62076ce647119",
+        "task:03": "e75600f04c2bf1ad0d9473976dacea8939e40230c55a7ec7566e553db743f50a",
+        "task:04": "8f10338a1aea4757b5a00f479bbbaa25316e054b47a1fdfd57ddf4e3254ee432",
+        "task:05": "f0da852d603e44042f224317bd40352f32c75341cfd84cc33035683b77009317",
+        "task:06": "d72c15745d48052624919f033973f0b3697f3ff805c7dc5f3a45040975e8985d",
         "task:07": "79c38e1ecbfbb5f0f9aedc62667ed53213e91ad4484344c31340a3ab51af858c",
-        "task:08": "ff7251f7ed9c15bbff753756e95895fb87d3389281c9839c1e3a726a698a62a2",
-        "task:09": "8434b9d2d06ae48cb51b234d2dd4fa2ab3525ed83d13bc411ae2314c3605cb42",
-        "task:10": "0c4a711c9bf8daff62402044b02b1e8e51d8144b52d3259192e794a2998ba178",
+        "task:08": "0ae220f512b38e6ef10339264dcb9560e3fc64811ce5c4dbf379e1e96279d148",
+        "task:09": "ba3964d9456c8fc32ac29b9f1268f128e14ddbe388cdee84540590685ccb3680",
+        "task:10": "d47718d45197d164a32759307c0c0bb2aad397de02dd617c672f9f62928c0ad9",
         "task:11": "63a295826c68d16e0aed13559f43bb7a56e44b4ef4d2e44c2b3cdcaff58b53a1",
-        "task:12": "1b708ae4fdbcee6f0f70876d97a5dda8793078f7fbc926c61115eafef0c4f5c6",
-        "task:13": "2285ab2a9bacaeb6d9e541e710561f9f3f7efb877b8e5e4d70039320263b5e2e",
-        "task:14": "43323dc05203923469ae55e37a59eaa7137ea94402862e4a751a2420bdc5466c",
-        "task:15": "483f8ddcaf7c072d13422bc176bd3d60da5d32fba62103353e3f089186c18bd0",
-        "task:16": "413601d8516f31261c2b8519eaee216884af40ec6d3eba41a6554fcb3d34944f",
-        "task:17": "799efe8caf03a5bb95b4cea6416d5623db44c4f49e0277a3222b77bcfc9f144f",
-        "task:18": "3898fd4bc20251e560de2f2d897eda8c31f1d12c83b0ea929d5de52d0fa4f88e",
-        "task:19": "f8855fec1228bfa08eb398b74c4a76a976f0862d89493176311a843187a7f75c",
-        "task:20": "68e8e79c0c8df319f1a91dab611b761faca91e49e7a88e28b178c7352a63bddb",
-        "task:21": "f8a3986e19b87e1dc07dc9dda3cc517479b19d4d5e0b47fbb1c19181ac0e22e0",
-        "task:22": "4b92ae848e46dc7d8c60549c591ffd5f3817d85e25138e79a968af68345214bb",
-        "task:23": "a92a98aabba3e099de27930d767918e62a1d5674fe763ed39eb6311b8fb019f2",
-        "task:24": "eea8b6014d3d47cc19d36dfe4891927b0fd6562e7f9310f95ab93aaf1370fd9a",
-        "task:25": "d5947811fa3e2385c7e020189a75cf4545a67a036b0c6d689000a9263b65dc18",
-        "task:26": "be7a9a5773cbfd06e78d7e6cd8fb0260760f5a355d28d834fd3899b40f261190",
-        "task:27": "90d49afb8f0a7313fc9cd5515e8fba89d1e8cd7d0b82dec347017db23b1802f7",
-        "task:28": "f40d6c0480cbb1acffc412f918a098e4871b4b1f46d0a19f19d12f0aced6c6e3",
-        "task:29": "28a635e35d1a0cada324b3addda7fa168fbd125efb1764e9c922f2fd282782ca",
-        "task:30": "11a3059eb86080141f83b1856c8e592e3479995c1c2d54c7cf8c015a3e2fb733",
-        "task:31": "3ef541c7b93de081608f6b5c765242c67bd027f7873eef3f0d7c674125e405d4",
-        "task:32": "5e3ce43387fa9752eeb5c72b0a127be508a1f6a16a29d9c956bb75d392e73268"
+        "task:12": "38862be4bb681be76c81dc3a8c4d2938be52889013952825974d9b11d19d9ce3",
+        "task:13": "d36a6977c9759e12fd3df9b21f713c6b4ff4648f8c04843566d07b0ab5d0f7b3",
+        "task:14": "3ea437a178f7dfbbb9bc43e5a970530f7d8bebe854446650a638532d45d96438",
+        "task:15": "cfd3570234dd4644c04c0a3e20c391a9fcd6e8e82769d3b32b988a7d9e620504",
+        "task:16": "cea1afca3bb836b35f68098764b94934d67d0775aaa77d75c4852e2bdf74c786",
+        "task:17": "ba7c693c6feb95e62f9a96ac876177b378fd540b7bd4e64f8cbab38d24d9c6d9",
+        "task:18": "12ec49de764c09a60eb26c583e9f6546b75b87c70c61fbdf18e11c08b9ae80b2",
+        "task:19": "3ffd61e4e7ee972590be29c7d8e7ea55d21cbc27b2088adadc734a3cc0a10118",
+        "task:20": "1fb40b2b680e28a344383934307dc09f35fb19f69e869fbee213b1a090f338b2",
+        "task:21": "c354a28cb02bef5ce77a21d6f34ea2e9867fd60c485f68288dee611fe5ab16c3",
+        "task:22": "7b4a547e27686eb6e9862306668a01e37ff95bdd3ecf37d86b7f3a64d6644599",
+        "task:23": "34f3103bd9b1f0144822a8528a7346229bcaedee8554f844ee11215f2d2e3695",
+        "task:24": "5d00e28c1a97b60d72ea1bca9c3dfaa83caaa783c7f74e5f5ffd11e6a6b3e1f7",
+        "task:25": "492e523e01f92d912fad40d5b564085c816818ff6b41708e9f9c6bc2d325583d",
+        "task:26": "b244cfef5f1df110119a73239d3e31eb99c2ae6863b003686fbb37ca7cc568f3",
+        "task:27": "2440494cd59a4c5b8a7469aa01ac48afe24cef9bc6c832e46dee373c2eddd9e8",
+        "task:28": "33ddbbcfea62682803f62f7baeda2a91f40048b67caf7e4843e39dd4f70ca3b2",
+        "task:29": "42a779456ce4d573e60476abae6cbf51350b90ba18ef17ea7d9cc28ffdb47eb1",
+        "task:30": "f8cd110b7edbfbadefa3297e3d8ed772ae88d52abb8e7967fc8551524991041c",
+        "task:31": "12d2244f21f1eaaf34b4789bf13f9f927b358a150d1153a4e5205809c895331a",
+        "task:32": "b320d8cbd2b09ede50dadd60c79e8ffdeb79f046fecc53943513ea47e5a55a56"
       }
     },
     "os": {
@@ -171,6 +171,60 @@
         "task:11": "9ea9312fb95bbcf84755fbcee99db472bc7504184cfb771e9a0569fdc61e28cc",
         "task:12": "5e0139481d376b233bb0be8c10fa120773ed4e7a4d18d38825996cf5a2d658df"
       }
+    },
+    "system-design": {
+      "version": "0.7.0",
+      "versionDate": "2026-09-28",
+      "hash": "466825b711bfdf0d22f5163afabc3814c0453af75ab2fbd560e7afc19ed3046f",
+      "items": {
+        "chapter:01-foundations": "9d2d5a5df7656fb950ceb5c7c6f4b8a34d011f30da6366dd76aa0506f3d133f2",
+        "chapter:02-http": "e8dc4b1ee439e9a48db59536d0b0116a552a869f70fc01eee0a3786921fe38bf",
+        "chapter:03-data": "a960aeeed9e9f6ec1d210f24f5288e26cd12457d50ea67684f1196fe8a02102c",
+        "chapter:04-capacity": "890d199c6cf038bd97de4068ffa000439bf2ce0071251f9f25995eee8c6b6444",
+        "chapter:05-load": "d47311806f29f3179e33918457078661b0408a025b791c518ce37732eb48ec38",
+        "chapter:06-cache": "68424f0c45e12f0968e9b7f932ca9aea6887b418deb2c12ef631c6fac4b67703",
+        "chapter:07-replication": "565e89b8b63604d1ff659386281727f92a12cbecb985a442d02dd9c2b893ddb4",
+        "chapter:08-partitioning": "63ce967f7646faf3ceb630dbd5430e9dd39a135ffbb1784ae411fd0e1ab7b3b1",
+        "chapter:09-events": "caf3d438d0dc0c25f017f12ff5a84ca39977f13f5e8232e8b480228ceb70e7eb",
+        "chapter:10-realtime": "7dd1c0c43c77a88cc4bffdb4fd7b0098067590ec15fd680b3676934eea233545",
+        "chapter:11-media": "d7a8b5025b77d6fd1421eb95aae6f0213d13bd970a0d6543707962a12d65d3f4",
+        "chapter:12-security": "a1a97cdc2e3b135998d0d08aa905c08ff8a876419bd8238cb69ef0bb1bf8fa9c",
+        "chapter:13-reliability": "2f2363079210002142e8c9521508fa6b09e41b0a520d9a356c75f6cc614f2090",
+        "chapter:14-evolution": "288429eec3ac1f58f5f6741965d96820ab12dcfaba8a1e9ed388ae6e6fa51e96",
+        "chapter:15-design-review": "7a69dd05c268ae68a40d8072298761b8c851c0eda6cbeb5b92203f6b84fcaac0",
+        "chapter:16-interviews": "1e6485bb4f1f189b3c24f828c3fb3fb5af63eba6855d334b0fe6b8cb91924118",
+        "hard-part:consensus": "771a1895602feec1d170e25cfd7b51c8a0f80cba92e0552c0d79e95292932e12",
+        "hard-part:consistency": "f1834538ad613da2062e093c9b817a633818981157018ba9605fca55005017fc",
+        "hard-part:delivery": "ea17048e18b30a36a18d4378cfd4a168cb78d3b123647527dae842eee7a81573",
+        "hard-part:hot-keys": "65aebde50b31f471aaeca4bf171db9575fab8019fa3e324d3c5db03e978c180f",
+        "hard-part:migrations": "98a129e5ff7a6d830e763bb60e0002e4382a7d5a3d77705108e2e5e925fbeed3",
+        "hard-part:multiregion": "cb586389d71eb3655d668d1163f26376e6c75af809abb86cf85c528bd4e73ac5",
+        "hard-part:overload": "d742117e55b0bc255e38962b4f2725de661daf90675a90a326d1ab572e566e41",
+        "hard-part:transactions": "760f447a0f766c358d84e6efbc0a2451ab91f3fabf2cbc7ad2b18b0cd3fd004b",
+        "task:01": "ba977b8e6e1cfa9c1e6877819a2cc5adf62e946f5877956bbe307a56e2ec74e3",
+        "task:02": "1e0c29a9304e2de68fdcd12b79f04503b6b2aed51604202973438813151dd0c0",
+        "task:03": "712f9db70961227051a58f4bdf59bc696f14fc7eb9b000b8b5064bbf7cdf8b36",
+        "task:04": "55c4891b21bf2607cc65e55c0c10965fc9cd1287e853cf8e9bdfa12e7704146e",
+        "task:05": "87387e37d329c611e72f2e3985746810a76bf35f585d505d2de57af23132e4dd",
+        "task:06": "37e22277a20a963b9bf3ea3f81ae165aaeaa1bec92a3e789ed376681038199f4",
+        "task:07": "d740c56ed22745b12ed119efc723683cee350f613769f743bdde4d9167985b4f",
+        "task:08": "95f780021f35ab1b83dd5c4c7dbfdc364d29d114eecafa013ff8dfddf373c8a6"
+      }
+    },
+    "backend-path": {
+      "version": "0.8.0",
+      "versionDate": "2026-09-30",
+      "hash": "38867f88bcf856358330cfbb8b500159808170f6abc69ea7aa6f137026bdc41d",
+      "items": {
+        "chapter:01-start": "e770fa97effa5725ebad75b8436caa85c028aba1b53399e44fcb179958e9fcb2",
+        "chapter:02-http": "ad9fc207344746dedbd2533dea4b9ad3b9b3207832a625543ca1ef9760fff4d5",
+        "chapter:03-workers": "4df77f691a2d00d8a17aa7594d54481bab8737a3c4c7e088d38dcf6afbb4c0c3",
+        "chapter:04-storage": "4a57d77a57777031c021941e1b9b62bd1f398ecf05efe48097af9f18f91a7a48",
+        "chapter:05-retries": "cae067126a473014e0dc1a5713ceaa4e5ab27c7242e73f09d865a5d615eb9655",
+        "chapter:06-observability": "becf5c687e9ee99c6b07b6589bccc3168fbacc1976415ad2d1485ca1e703e335",
+        "chapter:07-load": "24db6637f3bd870c37eb91566eb77a87d31f7dff08ac544f9f7539e83c7b2d25",
+        "chapter:08-defense": "ce4e224451ca256c635e741f345d70702c5c8485c993bb5dbd3276e923789d46"
+      }
     }
   },
   "history": {
@@ -179,6 +233,11 @@
         "version": "0.4.0",
         "versionDate": "2026-09-06",
         "hash": "229170007dff76653d60c37ade72a1a0dc9c1ac36934313cc8ab421ca50b132d"
+      },
+      {
+        "version": "0.7.1",
+        "versionDate": "2026-09-30",
+        "hash": "938533f5eb4a9279fb2fa56ae2833026de3958eecd0634d77eb8d014fd3155ca"
       }
     ],
     "go": [
@@ -186,6 +245,11 @@
         "version": "0.4.0",
         "versionDate": "2026-09-06",
         "hash": "97a14b1ee6b1dbd0619f04e0b64a6bfdd699c65c078e74e57ad69a6c6dfea85d"
+      },
+      {
+        "version": "0.7.1",
+        "versionDate": "2026-09-30",
+        "hash": "ef8f337e37de95e116a6b2e7b94b9f0290b74d08103c565760b706a62ad662e8"
       }
     ],
     "os": [
@@ -193,6 +257,45 @@
         "version": "0.4.0",
         "versionDate": "2026-09-06",
         "hash": "f8d2e64e64202bbc96b0c703ad8d0080d3d094365d45954f8d1649e8b4b4c0f2"
+      }
+    ],
+    "system-design": [
+      {
+        "version": "0.5.0",
+        "versionDate": "2026-09-28",
+        "hash": "20c01f381ba8c060d4189c373f6147102386c8e7c62a376b0d89ad3a7bf24926"
+      },
+      {
+        "version": "0.5.1",
+        "versionDate": "2026-09-28",
+        "hash": "d597bbfc33767c32af86764aeea5278262d9fca7af0598d4cd877ea80a9187fc"
+      },
+      {
+        "version": "0.5.2",
+        "versionDate": "2026-09-28",
+        "hash": "0c78925c4f993c888480771634253e5ef2c20c6a1344c51c91ddde9998f7ae6c"
+      },
+      {
+        "version": "0.5.3",
+        "versionDate": "2026-09-28",
+        "hash": "17d8b9a487481a818a99591080f684d93c9813cc6e4b45e02002c6063f0228d7"
+      },
+      {
+        "version": "0.6.0",
+        "versionDate": "2026-09-28",
+        "hash": "466825b711bfdf0d22f5163afabc3814c0453af75ab2fbd560e7afc19ed3046f"
+      },
+      {
+        "version": "0.7.0",
+        "versionDate": "2026-09-28",
+        "hash": "466825b711bfdf0d22f5163afabc3814c0453af75ab2fbd560e7afc19ed3046f"
+      }
+    ],
+    "backend-path": [
+      {
+        "version": "0.8.0",
+        "versionDate": "2026-09-30",
+        "hash": "38867f88bcf856358330cfbb8b500159808170f6abc69ea7aa6f137026bdc41d"
       }
     ]
   }

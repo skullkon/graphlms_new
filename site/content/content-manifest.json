@@ -173,34 +173,42 @@
       }
     },
     "system-design": {
-      "version": "0.7.0",
-      "versionDate": "2026-09-28",
-      "hash": "466825b711bfdf0d22f5163afabc3814c0453af75ab2fbd560e7afc19ed3046f",
+      "version": "0.9.0",
+      "versionDate": "2026-09-30",
+      "hash": "20d9c56bb870a08d2636d9fb106f68a3872e31be7df3749e69eac188057059d0",
       "items": {
-        "chapter:01-foundations": "9d2d5a5df7656fb950ceb5c7c6f4b8a34d011f30da6366dd76aa0506f3d133f2",
-        "chapter:02-http": "e8dc4b1ee439e9a48db59536d0b0116a552a869f70fc01eee0a3786921fe38bf",
-        "chapter:03-data": "a960aeeed9e9f6ec1d210f24f5288e26cd12457d50ea67684f1196fe8a02102c",
-        "chapter:04-capacity": "890d199c6cf038bd97de4068ffa000439bf2ce0071251f9f25995eee8c6b6444",
-        "chapter:05-load": "d47311806f29f3179e33918457078661b0408a025b791c518ce37732eb48ec38",
-        "chapter:06-cache": "68424f0c45e12f0968e9b7f932ca9aea6887b418deb2c12ef631c6fac4b67703",
-        "chapter:07-replication": "565e89b8b63604d1ff659386281727f92a12cbecb985a442d02dd9c2b893ddb4",
-        "chapter:08-partitioning": "63ce967f7646faf3ceb630dbd5430e9dd39a135ffbb1784ae411fd0e1ab7b3b1",
-        "chapter:09-events": "caf3d438d0dc0c25f017f12ff5a84ca39977f13f5e8232e8b480228ceb70e7eb",
-        "chapter:10-realtime": "7dd1c0c43c77a88cc4bffdb4fd7b0098067590ec15fd680b3676934eea233545",
-        "chapter:11-media": "d7a8b5025b77d6fd1421eb95aae6f0213d13bd970a0d6543707962a12d65d3f4",
-        "chapter:12-security": "a1a97cdc2e3b135998d0d08aa905c08ff8a876419bd8238cb69ef0bb1bf8fa9c",
-        "chapter:13-reliability": "2f2363079210002142e8c9521508fa6b09e41b0a520d9a356c75f6cc614f2090",
-        "chapter:14-evolution": "288429eec3ac1f58f5f6741965d96820ab12dcfaba8a1e9ed388ae6e6fa51e96",
-        "chapter:15-design-review": "7a69dd05c268ae68a40d8072298761b8c851c0eda6cbeb5b92203f6b84fcaac0",
-        "chapter:16-interviews": "1e6485bb4f1f189b3c24f828c3fb3fb5af63eba6855d334b0fe6b8cb91924118",
-        "hard-part:consensus": "771a1895602feec1d170e25cfd7b51c8a0f80cba92e0552c0d79e95292932e12",
-        "hard-part:consistency": "f1834538ad613da2062e093c9b817a633818981157018ba9605fca55005017fc",
-        "hard-part:delivery": "ea17048e18b30a36a18d4378cfd4a168cb78d3b123647527dae842eee7a81573",
-        "hard-part:hot-keys": "65aebde50b31f471aaeca4bf171db9575fab8019fa3e324d3c5db03e978c180f",
-        "hard-part:migrations": "98a129e5ff7a6d830e763bb60e0002e4382a7d5a3d77705108e2e5e925fbeed3",
-        "hard-part:multiregion": "cb586389d71eb3655d668d1163f26376e6c75af809abb86cf85c528bd4e73ac5",
-        "hard-part:overload": "d742117e55b0bc255e38962b4f2725de661daf90675a90a326d1ab572e566e41",
-        "hard-part:transactions": "760f447a0f766c358d84e6efbc0a2451ab91f3fabf2cbc7ad2b18b0cd3fd004b",
+        "chapter:01-foundations": "1f72df62dd8f03121d6efbc4746c621a02afcaabb02afd30736bcdf06d88084d",
+        "chapter:02-http": "a7b1390bfd135eb3cb76de2a170e5e784cbadabc7df3a27f54deb1550e9d70c8",
+        "chapter:03-data": "e496d598986a0440d0374f78f92dfeb3250f9faa3fc30893b27903e930fa76eb",
+        "chapter:04-capacity": "d180c959476fe4e17dc7272dc77ac6c27988ee24fdd3f64d74b3498ddd6c4b75",
+        "chapter:05-load": "434f4a24a98f2d6d2e473cde35bf384fb05231536f2e0cd80be7d635f2873348",
+        "chapter:06-cache": "0e3eab3a922be74a23e82294e2341b999d78459545b16618abe03e183d71bf3a",
+        "chapter:07-replication": "0abbe430df0671658fd2554274f197240cc2e1539e4e0a34d10c71024c6d4174",
+        "chapter:08-partitioning": "d157a2171de33b85d17fd93f842b0ffb39353adf4b8cb388b7bd4c946ed8d048",
+        "chapter:09-events": "9ad8d73881ca12104b24bb58da3faaf1a1bc2f9fedb9a955aa12795f4c91c65b",
+        "chapter:10-realtime": "c8b9da72280f31939efcc0da3a787995af0c0160453f1f22a052208c49996e22",
+        "chapter:11-media": "8c69455f86cb8ff47d29f1b5932c5a063c3e29588dbc06bd79609f4cf597e659",
+        "chapter:12-security": "9d2789494cbbde32921312d55da8bf70308008f9692be1e51efd44aa6e2f5d53",
+        "chapter:13-reliability": "599d7d9a6a8f5cb3a18451dafc954d2f505e6bfe18bdb131091f6ed47aaf8c7b",
+        "chapter:14-evolution": "3a082bbb78d030f9d2cf2ba7ac73e6ecad8a24d59b9c6802a41cb5aeff63485f",
+        "chapter:15-design-review": "3acf323a6ebcc1c47a4c572831192763783f8d1467d424dade5f44973ee9663e",
+        "chapter:16-interviews": "740e6de8aec03569ece26d8f3e5121e85185627c5511ef88a83976fe825e8931",
+        "hard-part:architecture-cases": "cbd903a8cd0fb908bf03b2a38d332753b1f70dcc58c20d58100a79b28ebfa07e",
+        "hard-part:batch-stream": "10b56886a76461243b204759f0ff44ce7cc089fdf9acc5806c78636bce2fc109",
+        "hard-part:consensus": "c3eb140975d39f3a351a0c58e6733aacb62c1a68cc6f322ff38b6480fab14b8d",
+        "hard-part:consistency": "72d3faddbc30401c6c3d862796a8d8f42e8c7fb82f0b61ad60927a863b0db856",
+        "hard-part:delivery": "cb062235e5b384e9f1dcc18dd209a1ddef6b685e18e307b6e3f805082f073426",
+        "hard-part:hot-keys": "1fd86e770ecaa7e0f0fc7f0b620a0bd00d148cb380aab85254f11ce7f6198914",
+        "hard-part:isolation": "e8cd791bccf7481d429400f41fcb91bf85658c52538432a5d5bae33ef3e78f36",
+        "hard-part:ledger": "9c7750ca55aa275a22680e2c77d542695b0e2cd070dc9c52e0f987e152359e77",
+        "hard-part:migrations": "2e5aa806bbd023751fc039ac7b4102349b503e2459e19cbb125f2101725fb643",
+        "hard-part:multiregion": "c519cf742c95989fdf735bd6b34da269cb4789183cd5361cf7c2b181d6c3ae77",
+        "hard-part:network-foundations": "0b4b9af37b9eefea3857975922fef55019471e5bf03176ba3c1cb30649ba7082",
+        "hard-part:overload": "9bfb6e35db92b3d5c881768522cdd1d156b255e7fa488c2aa53619be11195b87",
+        "hard-part:search": "b0de9f83c264b071775b673907951b4e86a8f2a28b90e5b7ee0b991cf86fe26f",
+        "hard-part:storage-engines": "e598f9b17768b928095d26fd87d85b6850b32bb963c9faced37e4f95aafbb937",
+        "hard-part:transactions": "33455c247fe4c2bda6f459f3eb5981d02b1418d43ac9ac5c0f277bc6f7aea467",
+        "hard-part:transport-proxies": "c76ca05573f7b85fa8e2d65b9e98b2655f42c3893aed1bde095763ea015fb5d9",
         "task:01": "ba977b8e6e1cfa9c1e6877819a2cc5adf62e946f5877956bbe307a56e2ec74e3",
         "task:02": "1e0c29a9304e2de68fdcd12b79f04503b6b2aed51604202973438813151dd0c0",
         "task:03": "712f9db70961227051a58f4bdf59bc696f14fc7eb9b000b8b5064bbf7cdf8b36",
@@ -224,6 +232,91 @@
         "chapter:06-observability": "becf5c687e9ee99c6b07b6589bccc3168fbacc1976415ad2d1485ca1e703e335",
         "chapter:07-load": "24db6637f3bd870c37eb91566eb77a87d31f7dff08ac544f9f7539e83c7b2d25",
         "chapter:08-defense": "ce4e224451ca256c635e741f345d70702c5c8485c993bb5dbd3276e923789d46"
+      }
+    },
+    "git": {
+      "version": "0.10.0",
+      "versionDate": "2026-09-30",
+      "hash": "b7c8b5daa14f20447773268a97f0ecc721bd4662b4c65d76fcfa450bb6e1a7ab",
+      "items": {
+        "chapter:01-model": "4cc768d98e5d9e0c2c589e971e7be5b1e59da36a0eabe6578efa48c4fad7b65b",
+        "chapter:02-first-commit": "0da84ffda1f77850ebd94fbd9b18bbe96485fecea7bb28a3f5f2b80c5dcd2b90",
+        "chapter:03-diff-history": "a05fe87b2312ce89af4071da6700185cb69b884a8c2563a272e207e6a018d1e2",
+        "chapter:04-branches": "0adad08dc606afeb09b207ba3d8a8595fe2843cc959a2f56faf3a8ba33c3c91a",
+        "chapter:05-merge-conflicts": "420036adc8c8092ed7abf059429d5257054e2c65c58bf3df3612a8bb19e8c599",
+        "chapter:06-remotes": "c3f08fe87e7260d9b8234f190894f3a45f0610337f4cca351c5e3ec64eca779a",
+        "chapter:07-fetch-pull-push": "414627f7a39d957c7203ad01c41475944a475485dc78ebee7121d80d88ba60d8",
+        "chapter:08-team-review": "356a5ed373512f9d880041febd46f62b3519ce7f77accc089b3a5b02a04d570b",
+        "chapter:09-undo": "bfe1ff0d59a8f5c6ce9750b852f22425a140d30d2d4d79443b510e46de4cfad2",
+        "chapter:10-rebase": "c46b79c3fd646dc1074e192f8a7e67f8fb7469e3e7039f156aad68672f5d92af",
+        "chapter:11-cherry-pick-stash": "7aaf928c2ef50d05ed31344e3ec61f8d8bf98c74aaa4712413cad2f9c2fd4ad1",
+        "chapter:12-bisect": "c6d1485b2cb1a14da319b4cc3e0f5dc8bfc5009cbe2871e395e1768886d93cc4",
+        "chapter:13-ignore-secrets-lfs": "82c27ccbbcaae0324bc0ad0c4ac4ddec8927bc5b6dd8b8b123cddbc0f6d478b8",
+        "chapter:14-final-project": "4ca52371aa15a4aff234d027c5422adc7a10c6ff105cc379a65530ef7f7b169c"
+      }
+    },
+    "linux": {
+      "version": "0.10.0",
+      "versionDate": "2026-09-30",
+      "hash": "f682f56a1a27bd2e4cf2b8c35eeb9e07132afe947a020ff3500b05e82dad6ecc",
+      "items": {
+        "chapter:01-environment": "0e3986a344285bf4efe49ee4e9211e1f1d5f288ac47354843112b42568bf812f",
+        "chapter:02-system": "0ef5bf348bdfc7be023f44c29067846b4a224671f4efc775f5364e7ff5a8fc5f",
+        "chapter:03-shell-paths": "ed6edbb05aa9f8d4a3dd18770959a8fd75824ba4eb9ed1b9e0acbf14a6d6acc5",
+        "chapter:04-files-search": "786c83dd7fab88dd0021e86913ace0562dd61d07178af09afb8812718b693783",
+        "chapter:05-text-pipelines": "3b1780302d43c6575e56f9023c948f71214fe34a66c3228388266b9bb28b8e89",
+        "chapter:06-permissions": "2f00eda260b27a86e8160e550f0d01f89db2988da995f915b0548c3f27432794",
+        "chapter:07-processes": "446907042b15567c50f69eb90628a18a11a767525653774b53053df931f446d8",
+        "chapter:08-packages": "d68e2289ce4dd91148e26130f01d493ce52f910645c8a328ff045313a0ec6cc6",
+        "chapter:09-environment": "c2e3d6328b8132b111fe8e09818df80c64020f3874272fc811fd9b49e6821a04",
+        "chapter:10-scripts": "657c6c1e4b18e4a9dc7886f2d5c6c315ec496c930b26883166c33ea1eb11a74d",
+        "chapter:11-network": "d6fa9323470eb36004e98cd8ec2de41f354e4d5c9149931177c0c24d17761123",
+        "chapter:12-services-logs": "5ec066662b0f3f21549c8f8d0ce28912f791261c8b28fa8ff6f08e5153727408",
+        "chapter:13-storage-backup": "0e42ad46bd04bd1fe1c2ea4b7da1ad65b770de8c6f76d60d8d8cbbef78f47432",
+        "chapter:14-final-project": "1e91e61883d34ccac1d00d786ffd0f92f0a60e82081121f6ce75d3f5a4697fd5"
+      }
+    },
+    "databases": {
+      "version": "0.10.0",
+      "versionDate": "2026-09-30",
+      "hash": "e588898e615483c838f0bfdb59df160095944afed5433b1a88ba6ecb15f7aeef",
+      "items": {
+        "chapter:01-local-postgres": "147387efe3d39afe976dbe869c7f07369dfb8eb613c56ea7e524377403d6a6cf",
+        "chapter:02-tables-constraints": "4cc402a98c39fb5cf3a07ceb270b84e2d936387c1d017ccf5816a61bbd394bd9",
+        "chapter:03-select-null-order": "07935e7a64697fcfc18fcccec66ba61fd3a167d0840cf24a34154d94162aab9b",
+        "chapter:04-joins-cardinality": "3f260ad1d333fbca90c7395aa79524510fa968383a359a63a4539d8190cc3c5a",
+        "chapter:05-aggregates": "00d8ddbbae8aa720443061ff5ecceabc16a924f4b39b454f6619e1cedd99a8f9",
+        "chapter:06-relational-model": "9fc86e871806c5cea8f3e054bf459f39fc233017034afbe2e703d93e63c8ee24",
+        "chapter:07-transactions-isolation": "566870c75bb5277ddfd12e1250b003beb8398206a6530ba18906cf8b2b2f3afd",
+        "chapter:08-indexes-explain": "275409cb6d0f3e6afa8e5e49093f00d3799f6c4045c7b5437f7feba2bfd1c343",
+        "chapter:09-schemas-migrations": "8dc050afba851264ba7daf30af94f750b5cce4533cf77ddaac47c652895ebb57",
+        "chapter:10-go-sql-pools": "015dd6d2509b0a1852e84f0a39db3bb5ab6907c6edbb2a2d45eba0008bb8da43",
+        "chapter:11-durability-backups": "0f4bd4a11b293715ef766bf25dbf479ea573dc8ee8b3e24a330b3e482b4ace1c",
+        "chapter:12-nosql-tradeoffs": "292b314e9c8dd48b4ab271f33b4a0d612976214d51cb36c063d7eb20054218e2",
+        "chapter:13-final-project": "74d62e32a2bd790c577e3d35958f1c7c4fdd38be519972915f538e18a026c509"
+      }
+    },
+    "algorithms": {
+      "version": "0.10.0",
+      "versionDate": "2026-09-30",
+      "hash": "1f1d103a9bb8ea3e6816bf5928a029877587d417303c5167117a8a828d351ec7",
+      "items": {
+        "chapter:01-contracts": "a083ecc920ebc984a67ad4822e78f2abd9088e6eff828b2561c6cfd5480b3c61",
+        "chapter:02-complexity": "40690339f09d4d8417d9581b94872e3041447c610bc0f50417c38d579453eddd",
+        "chapter:03-arrays-search": "adf20035dc8c89c5d052a71f9830e1e465f83062c004959d1f4bbcf0447abbfa",
+        "chapter:04-hash-window": "1777bb59e0808919d44750ea9950d343d531d2ee38a70f1385c7e5d16ab5df0b",
+        "chapter:05-stack-queue": "154aebb4aded9572afe9a3b8056310acdb1201f0618d9a185f377661e193b615",
+        "chapter:06-recursion": "7703606401a5d94f77e15d2c00336498c33bc556459c5dea4b4c668ad7c58ffc",
+        "chapter:07-sorting": "46ec2d41f512eca0ccf284ef7c903a5379595afba537c9c797a5522f4d36c45e",
+        "chapter:08-trees": "3bcf74ba12be4c43f070f5758591b2976ffbc9b65cd7570914b421964f63dbee",
+        "chapter:09-heap": "07f5fecf9962eb2b95e937793232a7dcea9bc2f52fe99147bc7878a7dc7602de",
+        "chapter:10-graphs-bfs": "c67feb1adc7e5eb10a0260dc09dc857d670ac31843a2b3d8bd93cbdd12e6bed9",
+        "chapter:11-dependencies": "cfd7fa0b025f311665482c22651f9744c630bc4f46f0e0ca234d83bfaabcfeb1",
+        "chapter:12-shortest-paths": "5a9c913b1bc81483231c87bc038a2206d10dccaa591ca1bf05fb0bba3ee01d78",
+        "chapter:13-dynamic-programming": "35a2f82e26b7011990aecd37393810d0f1a4b8ed4aa8c063a45ecd73227bcb5b",
+        "chapter:14-greedy": "049ebe9fd74c9848fe046ea1b24727e78fb632bebe181f1eb2dbabd60ae1c4e2",
+        "chapter:15-union-find": "ecebeab9ba9a632ce8ed79763301cb638331e50dfc03a20eeed3447699703ed6",
+        "chapter:16-final-project": "ccb274a593fe1a59e569a8c05c138160f9d7dc9a18a2086fbc6b0b68dddaa403"
       }
     }
   },
@@ -289,6 +382,11 @@
         "version": "0.7.0",
         "versionDate": "2026-09-28",
         "hash": "466825b711bfdf0d22f5163afabc3814c0453af75ab2fbd560e7afc19ed3046f"
+      },
+      {
+        "version": "0.9.0",
+        "versionDate": "2026-09-30",
+        "hash": "20d9c56bb870a08d2636d9fb106f68a3872e31be7df3749e69eac188057059d0"
       }
     ],
     "backend-path": [
@@ -296,6 +394,34 @@
         "version": "0.8.0",
         "versionDate": "2026-09-30",
         "hash": "38867f88bcf856358330cfbb8b500159808170f6abc69ea7aa6f137026bdc41d"
+      }
+    ],
+    "linux": [
+      {
+        "version": "0.10.0",
+        "versionDate": "2026-09-30",
+        "hash": "f682f56a1a27bd2e4cf2b8c35eeb9e07132afe947a020ff3500b05e82dad6ecc"
+      }
+    ],
+    "algorithms": [
+      {
+        "version": "0.10.0",
+        "versionDate": "2026-09-30",
+        "hash": "1f1d103a9bb8ea3e6816bf5928a029877587d417303c5167117a8a828d351ec7"
+      }
+    ],
+    "git": [
+      {
+        "version": "0.10.0",
+        "versionDate": "2026-09-30",
+        "hash": "b7c8b5daa14f20447773268a97f0ecc721bd4662b4c65d76fcfa450bb6e1a7ab"
+      }
+    ],
+    "databases": [
+      {
+        "version": "0.10.0",
+        "versionDate": "2026-09-30",
+        "hash": "e588898e615483c838f0bfdb59df160095944afed5433b1a88ba6ecb15f7aeef"
       }
     ]
   }

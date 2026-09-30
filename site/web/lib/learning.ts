@@ -51,7 +51,7 @@ export function getLearningItems(courseId: string): LearningItem[] {
       title: chapter.title,
       href: `/${course.slug}/book/${chapter.slug}`,
       prerequisites: index > 0 ? [`${course.id}:chapter:${chapters[index - 1].slug}`] : [],
-      relatedSkills: [course.id === "os" ? "operating-systems" : course.id === "system-design" ? "system-design" : "go"],
+      relatedSkills: [course.id === "os" ? "operating-systems" : course.id === "system-design" ? "system-design" : ["git", "linux", "databases", "algorithms"].includes(course.id) ? course.id : "go"],
       previousId: index > 0 ? `${course.id}:chapter:${chapters[index - 1].slug}` : undefined,
       nextId: index < chapters.length - 1 ? `${course.id}:chapter:${chapters[index + 1].slug}` : undefined,
       relatedLabIds: labs
@@ -67,7 +67,7 @@ export function getLearningItems(courseId: string): LearningItem[] {
       courseId: course.id,
       title: part.title,
       href: `/system-design/hard-parts/${part.slug}`,
-      prerequisites: part.prerequisites.map(slug => `${course.id}:chapter:${slug}`),
+      prerequisites: part.prerequisites.map(slug => `${course.id}:chapter:${chapters.some(chapter => chapter.slug === slug) ? slug : `hard-part-${slug}`}`),
       relatedSkills: ["system-design", part.slug],
     });
   }

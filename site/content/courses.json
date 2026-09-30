@@ -43,13 +43,13 @@
     "slug": "system-design",
     "title": "Проектирование систем",
     "short": "System Design",
-    "description": "Как устроить сервис, рассчитать нагрузку и подготовиться к сбоям. От первого запроса до защиты архитектуры на собеседовании.",
+    "description": "Бесплатный путь от сетей и хранения данных до highload-архитектуры: 16 основных глав, 16 инженерных блоков, локальные лаборатории и защита решений.",
     "accent": "#276ef1",
     "contentDir": "system-design",
     "order": 3,
     "kind": "course",
-    "version": "0.7.0",
-    "versionDate": "2026-09-28"
+    "version": "0.9.0",
+    "versionDate": "2026-09-30"
   },
   {
     "id": "backend-path",
@@ -62,6 +62,58 @@
     "order": 4,
     "kind": "course",
     "version": "0.8.0",
+    "versionDate": "2026-09-30"
+  },
+  {
+    "id": "git",
+    "slug": "git",
+    "title": "Git: история изменений и работа в команде",
+    "short": "Git",
+    "description": "От первого коммита до веток, конфликтов, восстановления и совместной работы. Все обязательные упражнения выполняются в локальных репозиториях.",
+    "accent": "#e8793c",
+    "contentDir": "git",
+    "order": 5,
+    "kind": "course",
+    "version": "0.10.0",
+    "versionDate": "2026-09-30"
+  },
+  {
+    "id": "linux",
+    "slug": "linux",
+    "title": "Linux: практический курс для разработчика",
+    "short": "Linux",
+    "description": "Файлы, оболочка, права, процессы, сети, службы и резервные копии. Учимся объяснять действия команд и самостоятельно разбирать ошибки.",
+    "accent": "#dba92d",
+    "contentDir": "linux",
+    "order": 6,
+    "kind": "course",
+    "version": "0.10.0",
+    "versionDate": "2026-09-30"
+  },
+  {
+    "id": "databases",
+    "slug": "databases",
+    "title": "Базы данных: SQL и PostgreSQL на практике",
+    "short": "Базы данных",
+    "description": "От таблиц и SQL до конкурентных транзакций, индексов, миграций и восстановления. Один учебный проект и локальные лаборатории.",
+    "accent": "#46a5b9",
+    "contentDir": "databases",
+    "order": 7,
+    "kind": "course",
+    "version": "0.10.0",
+    "versionDate": "2026-09-30"
+  },
+  {
+    "id": "algorithms",
+    "slug": "algorithms",
+    "title": "Алгоритмы и структуры данных на Go",
+    "short": "Алгоритмы",
+    "description": "Сложность, поиск, сортировки, деревья, графы и динамическое программирование. Реализации, контрпримеры и проверяемые задачи на Go.",
+    "accent": "#8b5cf6",
+    "contentDir": "algorithms",
+    "order": 8,
+    "kind": "course",
+    "version": "0.10.0",
     "versionDate": "2026-09-30"
   }
 ]

@@ -1,0 +1,58 @@
+-- Use two psql sessions connected to the fresh teaching DB after setup.sql.
+-- These scenarios are comments: copy commands into the labelled session.
+-- Explicit barriers matter; executing this file does not run the scenarios.
+\set ON_ERROR_STOP on
+-- SCENARIO 1: both A and B:
+-- BEGIN ISOLATION LEVEL READ COMMITTED;
+-- SELECT value FROM club.lab_counters WHERE id=1;
+-- BARRIER: both saw 0 before any UPDATE.
+-- A: UPDATE club.lab_counters SET value=1 WHERE id=1;
+-- A: COMMIT;
+-- B after A COMMIT: UPDATE club.lab_counters SET value=1 WHERE id=1;
+-- B: COMMIT;
+-- Observer: SELECT value FROM club.lab_counters WHERE id=1; -- expected 1
+-- Atomic increment repair: UPDATE ... SET value=value+1 WHERE id=1;
+-- Reset only after both transactions ended:
+-- UPDATE club.lab_counters SET value=0 WHERE id=1;
+
+-- SCENARIO 2: both A and B:
+-- BEGIN ISOLATION LEVEL REPEATABLE READ;
+-- SELECT count(*) FROM club.lab_duty WHERE active;
+-- BARRIER: both saw 3 before any UPDATE.
+-- A: UPDATE club.lab_duty SET active=false WHERE name='anna';
+-- A: COMMIT;
+-- B: UPDATE club.lab_duty SET active=false WHERE name='boris';
+-- B: COMMIT;
+-- Observer: SELECT count(*) FROM club.lab_duty WHERE active; -- expected 1
+-- Reset only after both transactions ended:
+-- UPDATE club.lab_duty SET active=true;
+
+-- SCENARIO 3: A:
+-- BEGIN ISOLATION LEVEL READ COMMITTED;
+-- SELECT id FROM club.lab_guard WHERE id=1 FOR UPDATE;
+-- SELECT count(*) FROM club.lab_duty WHERE active; -- expected 3
+-- B while A still holds guard:
+-- BEGIN ISOLATION LEVEL READ COMMITTED;
+-- SELECT id FROM club.lab_guard WHERE id=1 FOR UPDATE; -- waits
+-- A: UPDATE club.lab_duty SET active=false WHERE name='anna';
+-- A: COMMIT;
+-- B after its SELECT returns:
+-- SELECT count(*) FROM club.lab_duty WHERE active; -- expected 2
+-- B must NOT switch off its row; business rule forbids that.
+-- B: COMMIT;
+
+-- SCENARIO 4: reset after both transactions ended, then repeat scenario 2
+-- using SERIALIZABLE in BOTH sessions. Observe SQLSTATE 40001 (enable
+-- \set VERBOSITY verbose). Failure may arise at a statement or COMMIT.
+-- ROLLBACK the failed transaction. Retry the WHOLE transaction, including
+-- count; a new count=2 forbids departure. Do not retry just the UPDATE.
+
+-- SCENARIO 5: active loan for copy 103, initially free.
+-- A: BEGIN;
+-- A: INSERT INTO club.loans VALUES(3000,1,103,'2026-09-18','2026-10-01',NULL);
+-- B: BEGIN;
+-- B: INSERT INTO club.loans VALUES(3001,2,103,'2026-09-18','2026-10-01',NULL);
+-- B waits for A; return to A.
+-- A: ROLLBACK; -- B can then succeed; use ROLLBACK in B to preserve seed.
+-- Alternatively COMMIT A: B must get unique violation, not a second success.
+-- If testing COMMIT, use another fresh database for subsequent golden tests.

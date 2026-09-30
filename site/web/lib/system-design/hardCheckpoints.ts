@@ -1,6 +1,8 @@
+import engineeringCheckpoints from "./engineeringCheckpoints.json";
 import type { Checkpoint } from "./checkpoints";
 
 export const hardCheckpoints: Record<string, Checkpoint> = {
+  ...engineeringCheckpoints,
   consistency: {
     question: "Отдельные чтения и записи строк линеаризуемы. Два дежурных прочитали общий список и одновременно сняли себя со смены, изменив разные строки. Защищено ли правило «хотя бы один остаётся»?",
     options: ["Нет: последовательность нескольких действий требует общей защиты инварианта", "Да: линеаризуемость отдельных операций автоматически делает всю транзакцию сериализуемой", "Да: разные строки не могут влиять на одно бизнес-правило"], answer: 0,

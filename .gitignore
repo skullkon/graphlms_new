@@ -36,6 +36,8 @@ bin/
 
 # Logs
 *.log
+# Authored Linux exercise inputs, not runtime logs
+!tools/linux-labs/fixtures/*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -50,3 +52,6 @@ Thumbs.db
 
 # Local project-lab tokens and private test reports
 .local/
+
+# Local output of the system-design teaching models
+tools/system-design-labs/__pycache__/

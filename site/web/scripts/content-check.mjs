@@ -10,7 +10,7 @@ errors.push(...await checkManifest());
 const exists = async (file) => access(file).then(() => true).catch(() => false);
 const semver = /^\d+\.\d+\.\d+$/;
 let changelogEntries = [];
-const routes = new Set(["/learn", "/learn/backend", "/projects/tracks", "/downloads/backend-path-starter.zip", "/downloads/backend-path-reference.zip", "/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
+const routes = new Set(["/downloads/git-labs.zip", "/downloads/linux-labs.zip", "/downloads/database-labs.zip", "/downloads/algorithm-labs.zip", "/downloads/system-design-labs.zip", "/learn", "/learn/backend", "/projects/tracks", "/downloads/backend-path-starter.zip", "/downloads/backend-path-reference.zip", "/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
 for (const route of ["project", "review", "interview", "labs", "pilot"]) {
   if (await exists(resolve(process.cwd(), "app", "system-design", route, "page.tsx"))) routes.add(`/system-design/${route}`);
 }
@@ -109,15 +109,21 @@ for (const course of courses) {
   if (await exists(hardParts)) {
     routes.add(`/${course.slug}/hard-parts`);
     const orders = new Set();
-    for (const file of (await readdir(hardParts)).filter(name => name.endsWith(".mdx"))) {
+    const parts = await Promise.all((await readdir(hardParts)).filter(name => name.endsWith(".mdx")).map(async file => {
       const raw = await readFile(join(hardParts, file), "utf8");
-      const { data } = matter(raw);
+      return { file, raw, data: matter(raw).data };
+    }));
+    const partOrders = new Map(parts.map(part => [part.file.slice(0, -4), part.data.order]));
+    for (const { file, raw, data } of parts) {
       const label = `${course.id}/hard-parts/${file}`;
       routes.add(`/${course.slug}/hard-parts/${file.slice(0, -4)}`);
       if (!data.title || !data.summary || !Number.isInteger(data.order) || data.order < 1 || orders.has(data.order)) errors.push(`${label}: invalid metadata or duplicate order`);
       orders.add(data.order);
       if (!Array.isArray(data.prerequisites) || !data.prerequisites.length) errors.push(`${label}: missing prerequisites`);
-      else for (const slug of data.prerequisites) if (!chapterSlugs.has(slug)) errors.push(`${label}: unknown prerequisite ${slug}`);
+      else for (const slug of data.prerequisites) {
+        if (!chapterSlugs.has(slug) && !partOrders.has(slug)) errors.push(`${label}: unknown prerequisite ${slug}`);
+        else if (partOrders.has(slug) && partOrders.get(slug) >= data.order) errors.push(`${label}: prerequisite ${slug} must precede this block`);
+      }
       collectLinks(raw, label);
     }
   }

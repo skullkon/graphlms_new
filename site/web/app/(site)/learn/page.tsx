@@ -6,7 +6,7 @@ import LandingView from "@/components/landing/LandingView";
 export const metadata: Metadata = {
   title: "Библиотека знаний",
   description:
-    "Go, операционные системы и System Design: учебники, практические задачи и интерактивные лаборатории.",
+    "Go, Git, Linux, базы данных, алгоритмы и System Design: бесплатные учебники и практические лаборатории.",
   keywords: [
     "курсы по Go",
     "курсы по Golang",

@@ -1,0 +1,24 @@
+[Unit]
+Description=GraphLMS isolated Go container executor
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/opt/graphlms/current/site/deploy/vps
+EnvironmentFile=/etc/graphlms/executor.env
+ExecStart=/usr/bin/python3 container_executor.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/tmp
+IPAddressDeny=any
+IPAddressAllow=localhost
+MemoryMax=192M
+UMask=0077
+# PrivateTmp must stay disabled: Docker resolves the bind path in the host namespace.
+ExecStopPost=/bin/sh -c '/usr/bin/docker ps -aq --filter=label=graphlms.executor=1 | /usr/bin/xargs -r /usr/bin/docker rm --force'
+
+[Install]
+WantedBy=multi-user.target

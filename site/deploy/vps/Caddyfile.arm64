@@ -1,0 +1,18 @@
+graphlms.ru {
+    encode zstd gzip
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+    }
+    handle_path /backend/* {
+        reverse_proxy 127.0.0.1:4100
+    }
+    handle {
+        reverse_proxy 127.0.0.1:3100
+    }
+}
+
+www.graphlms.ru, learn.178-72-162-192.sslip.io {
+    redir https://graphlms.ru{uri} permanent
+}

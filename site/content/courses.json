@@ -115,5 +115,18 @@
     "kind": "course",
     "version": "0.10.0",
     "versionDate": "2026-09-30"
+  },
+  {
+    "id": "vibecoding",
+    "slug": "vibecoding",
+    "title": "Вайбкодинг: от первого запроса до своего харнесса",
+    "short": "Вайбкодинг",
+    "description": "Курс для начинающих: Claude Code или Codex, постановка задач, скиллы, MCP, проверка кода и настройка харнесса. Сквозной локальный проект с минимумом кода, заданиями и открытым эталоном.",
+    "accent": "#147d92",
+    "contentDir": "vibecoding",
+    "order": 9,
+    "kind": "course",
+    "version": "0.11.0",
+    "versionDate": "2026-10-07"
   }
 ]

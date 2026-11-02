@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build deterministic source archives for the four practical courses."""
+"""Build deterministic source archives for the practical courses."""
 from pathlib import Path
 import hashlib
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-LABS = ("git-labs", "linux-labs", "database-labs", "algorithm-labs")
+LABS = ("git-labs", "linux-labs", "database-labs", "algorithm-labs", "vibecoding-labs")
 IGNORED = {"__pycache__", ".git", ".DS_Store"}
 
 def package(name):

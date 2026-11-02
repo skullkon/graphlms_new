@@ -51,7 +51,7 @@ export function getLearningItems(courseId: string): LearningItem[] {
       title: chapter.title,
       href: `/${course.slug}/book/${chapter.slug}`,
       prerequisites: index > 0 ? [`${course.id}:chapter:${chapters[index - 1].slug}`] : [],
-      relatedSkills: [course.id === "os" ? "operating-systems" : course.id === "system-design" ? "system-design" : ["git", "linux", "databases", "algorithms"].includes(course.id) ? course.id : "go"],
+      relatedSkills: [course.id === "os" ? "operating-systems" : course.id === "system-design" ? "system-design" : ["git", "linux", "databases", "algorithms", "vibecoding"].includes(course.id) ? course.id : "go"],
       previousId: index > 0 ? `${course.id}:chapter:${chapters[index - 1].slug}` : undefined,
       nextId: index < chapters.length - 1 ? `${course.id}:chapter:${chapters[index + 1].slug}` : undefined,
       relatedLabIds: labs

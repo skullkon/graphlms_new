@@ -5,7 +5,7 @@ import { getLearningItems } from "./learning";
 import { renderMarkdown } from "./markdown";
 import sitemap from "@/app/sitemap";
 
-describe("four practical courses", () => {
+describe("practical courses", () => {
   it("only serves the registered practical course IDs", () => {
     for (const id of PRACTICAL_COURSES) {
       expect(getPracticalCourse(id)?.labsHref).toMatch(/^\/downloads\/.*-labs\.zip$/);
@@ -14,7 +14,7 @@ describe("four practical courses", () => {
   });
 
   it("connects ordered lessons to catalogue, learning graph and sitemap", () => {
-    const expected = { git: 14, linux: 14, databases: 13, algorithms: 16 };
+    const expected = { git: 14, linux: 14, databases: 13, algorithms: 16, vibecoding: 14 };
     const urls = new Set(sitemap().map(entry => new URL(entry.url).pathname));
     for (const id of PRACTICAL_COURSES) {
       const chapters = getBookChapters(id);

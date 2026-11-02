@@ -318,6 +318,27 @@
         "chapter:15-union-find": "ecebeab9ba9a632ce8ed79763301cb638331e50dfc03a20eeed3447699703ed6",
         "chapter:16-final-project": "ccb274a593fe1a59e569a8c05c138160f9d7dc9a18a2086fbc6b0b68dddaa403"
       }
+    },
+    "vibecoding": {
+      "version": "0.11.0",
+      "versionDate": "2026-10-07",
+      "hash": "c8e93bc195ca944974ba46f9e04cb3ad30a77b43b71b4b2aa11dbea315f9a436",
+      "items": {
+        "chapter:01-vibecoding": "0ce217503674e5dc8b56651bb5ba0722f74ecb2dab6406a5bf654a8f52c4ff14",
+        "chapter:02-foundations": "b62eb26fb0c02714f7925f53b9e69cfb443ebebc8de8850962fea6cf1bfc84ca",
+        "chapter:03-tools": "628c2101f11fb93830f5be583d4300ce8ea052a87f276ee61b99c70c7159a3df",
+        "chapter:04-task-contract": "20209cff905e3a45667158cae2de8c5ba99716377fc700b20253cf1ee32bd0d4",
+        "chapter:05-development-loop": "fc7fb34f416efa2ce6425fde3d090f22bdb6440d68eecd342fd633789bfb5410",
+        "chapter:06-context": "e48f50ec67f4da4d67c327f08aa852cc83b8d8e707fe3fb8f9445e299fc03051",
+        "chapter:07-skills": "196ec9bab55ef2750dee0d72e35704eabad79db17c78c3cfa7240b7aef9eebc6",
+        "chapter:08-mcp": "58a339dbe94714450d4020e8b181833db764187571644712ce110a9b2ef6ae20",
+        "chapter:09-verification": "965d81d601053085e86754f3d1c3b538e1660a5c8bfbc770b368d116e174484a",
+        "chapter:10-harness": "d4e83c639b560acecdd35cf0189fd449a9128e89d24240ac5b89f2c492f61705",
+        "chapter:11-build-harness": "a0721451918b5bcba4926f50ffef67957773817df36117455aae325a87434e91",
+        "chapter:12-cost-and-agents": "6c4071f108730ad48b358e6274b0ce4141a5344bf4de6f9071450582c102a3c9",
+        "chapter:13-delivery": "85dde6c802b9d9dd47e05a13de267a448aab28bd323323c3c4f5ebdfeb1f28c3",
+        "chapter:14-final-project": "4553547036b65afd7138dfdbe7a62e6f8bc4c60c7a3397ca22f47195c4227953"
+      }
     }
   },
   "history": {
@@ -422,6 +443,13 @@
         "version": "0.10.0",
         "versionDate": "2026-09-30",
         "hash": "e588898e615483c838f0bfdb59df160095944afed5433b1a88ba6ecb15f7aeef"
+      }
+    ],
+    "vibecoding": [
+      {
+        "version": "0.11.0",
+        "versionDate": "2026-10-07",
+        "hash": "c8e93bc195ca944974ba46f9e04cb3ad30a77b43b71b4b2aa11dbea315f9a436"
       }
     ]
   }

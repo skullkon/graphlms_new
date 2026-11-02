@@ -10,7 +10,7 @@ errors.push(...await checkManifest());
 const exists = async (file) => access(file).then(() => true).catch(() => false);
 const semver = /^\d+\.\d+\.\d+$/;
 let changelogEntries = [];
-const routes = new Set(["/downloads/git-labs.zip", "/downloads/linux-labs.zip", "/downloads/database-labs.zip", "/downloads/algorithm-labs.zip", "/downloads/system-design-labs.zip", "/learn", "/learn/backend", "/projects/tracks", "/downloads/backend-path-starter.zip", "/downloads/backend-path-reference.zip", "/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
+const routes = new Set(["/downloads/vibecoding-labs.zip", "/downloads/git-labs.zip", "/downloads/linux-labs.zip", "/downloads/database-labs.zip", "/downloads/algorithm-labs.zip", "/downloads/system-design-labs.zip", "/learn", "/learn/backend", "/projects/tracks", "/downloads/backend-path-starter.zip", "/downloads/backend-path-reference.zip", "/", "/account", "/account/report", "/auth", "/projects", "/teams", "/changelog", "/go", "/go/book", "/go/practice", "/go/skills", "/go/interview", "/go/topics", "/os", "/os/book", "/os/labs", "/os/sim/scheduler", "/problems/race-conditions", "/problems/deadlocks", "/problems/goroutine-leaks", "/problems/graceful-shutdown"]);
 for (const route of ["project", "review", "interview", "labs", "pilot"]) {
   if (await exists(resolve(process.cwd(), "app", "system-design", route, "page.tsx"))) routes.add(`/system-design/${route}`);
 }

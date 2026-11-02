@@ -5,10 +5,10 @@ describe("changelog", () => {
   it("loads valid entries in reverse chronological order", () => {
     const entries = getChangelog();
     expect(entries.length).toBeGreaterThan(0);
-    expect(entries[0].version).toBe("0.10.0");
+    expect(entries[0].version).toBe("0.11.0");
     expect(entries[0].date >= entries[entries.length - 1].date).toBe(true);
     expect(entries.every((entry) => entry.links.every((link) => link.href.startsWith("/")))).toBe(true);
     expect(entries.every((entry) => entry.courses.length > 0)).toBe(true);
-    expect(entries[0].courses).toEqual(["git", "linux", "databases", "algorithms"]);
+    expect(entries[0].courses).toEqual(["vibecoding"]);
   });
 });
